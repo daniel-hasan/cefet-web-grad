@@ -1,7 +1,7 @@
 <!-- {"layout": "title"} -->
 # **Programação** Web
 
-## Plano de Ensino<br>por **Flávio Coutinho**
+## Plano de Ensino<br>por **Flávio Coutinho** e **Daniel Hasan**
 
 
 ---
@@ -47,29 +47,11 @@
 - [HTML 5](classes/html5/) - Formulários e Monstros (Prática)
 - [Javascript 5](classes/js5/) - APIs do HTML5
 - [Javascript 4](classes/js4/) - JSON e AJAX (Prática)
-- [Node.js 1](classes/ssn1/) - Servidores Web
-- [Node.js 2](classes/ssn2/) - NPM, arquivos e _learnyounode_ (Prática)
-- [Node.js 3](classes/ssn3/) - Express.js
-- [Node.js 4](classes/ssn4/) - HTML Dinâmico e o Geiser (Prática)
-
----
-
-# Aulas (página 3)
-
-- [Node.js 5](classes/ssn5/) - Sessão e Biscoitos :cookie:
-- [Node.js 6](classes/ssn6/) - Bancos de Dados e Zumbis (Prática)
-- [Mongo DB](https://fegemo.github.io/cefet-nosql/classes/mongodb-nodejs/)
-- [CSS 5](classes/css5/) - Animações e _Edukids Animals_ (Prática)
-- [CSS 6](classes/css6/) - _Responsive Design_
 - [Javascript 3](classes/js3/) - Padrões de Projeto
 - [Javascript 7](classes/js7/) - EcmaScript 2015/2016
 
 
-<!--
 
-- [Node.js 7 - REST APIs](classes/ssn7/)
-- [Server-side Node.js - Parte 8 (Prática WebSockets)](classes/ssn8/)
--->
 
 ---
 <!--
@@ -83,7 +65,7 @@
 ## Objetivos
 
 1. Criar páginas **HTML com uso de CSS e Javascript**
-1. Desenvolver **sistemas web dinâmicos** com banco de dados e Node.js
+1. Desenvolver **sistemas web dinâmicos** com banco de dados e Framework Django (Python)
 1. Fazer trabalhos práticos legais
 1. Tornar-se um **ninja** Javascript
 
@@ -133,16 +115,18 @@ Veja a bibliografia básica e a complementar.
 
 **Editora**
    ~ O'Reilly Media, 2012
-
 ---
-## **Livro texto** da parte 2
+## **Livro texto** sobre JavaScript
+
+<!-- { "styles": ["styles/classes/books.min.css"] } -->
+## **Livro texto** da parte 1
 
 ::: figure .book
-- ![](images/book-nodejs-in-action.jpg) <!-- {.full-width.full-height} -->
+- ![](images/book-head-first-javascript.jpg) <!-- {.full-width.full-height} -->
 - .
 <!-- {ul:.hardcover_front} -->
 - .
-- [Sobre](https://www.manning.com/books/node-js-in-action) <!-- {a:.book-btn target="_blank"} -->
+- [Sobre](http://www.altabooks.com.br/use-a-cabeca-programacao-javascript.html) <!-- {a:.book-btn target="_blank"} -->
 - .
 - .
 - .
@@ -155,16 +139,50 @@ Veja a bibliografia básica e a complementar.
 <!-- {ul:.book_spine} -->
 :::
 
-**Título**
-  ~ Node.js in Action, First Edition
 
-**Autores**
-  ~ Mike Cantelon, Marc Harter, T.J. Holowaychuk, Nathan Rajlich
+   **Título**
+     ~ Use a Cabeça: Programação JavaScript, 1ª edição
 
-**Editora**
-  ~ Manning
+   **Autor**
+     ~ Eric Freeman
+
+   **Editora**
+     ~ O'Reilly Media, 2016 (tradução)
 
 ---
+## **Livro texto** sobre Python
+## **Livro texto** da parte 2
+
+<!-- { "styles": ["styles/classes/books.min.css"] } -->
+::: figure .book
+- ![](images/book-python-fluente.jpg) <!-- {.full-width.full-height} -->
+- .
+<!-- {ul:.hardcover_front} -->
+- .
+- [Sobre](https://novatec.com.br/livros/pythonfluente/) <!-- {a:.book-btn target="_blank"} -->
+- .
+- .
+- .
+<!-- {ul:.page} -->
+- .
+- .
+<!-- {ul:.hardcover_back} -->
+- .
+- .
+<!-- {ul:.book_spine} -->
+:::
+
+
+**Título**
+  ~ Python Fluente
+
+**Autor**
+  ~ Luciano Ramalho
+
+**Editora**
+  ~ Novatec
+---
+
 # Bibliografia Complementar
 
 ---
@@ -212,17 +230,16 @@ Veja a bibliografia básica e a complementar.
 
 ## Distribuição de pontos
 
-- ~10 Práticas: **32** pontos
-- 1 Seminário: **20** pontos
+- ~8 Atividades (parte 1): **20** pontos
+- ~5 Atividades (parte 2): **22** pontos
+- 1 Seminário: **15** pontos
 - Trabalhos Práticos:
-  1. TP0: **3** pontos
-  1. Projeto:
-     - Entrega 1: **20** pontos
-     - Entrega 2: **25** pontos
+  - TP 1: **18** pontos
+  - TP 2: **25** pontos
 
 <!-- {ul^1:.content} -->
 
----
+<!---
 # Trabalhos (60 pontos)
 
 - [TP0: Git][tp0] (3 pontos)
@@ -238,3 +255,4 @@ Veja a bibliografia básica e a complementar.
 [tp0]: assignments/tp0
 [project]: https://github.com/fegemo/cefet-web/tree/master/assignments/project-craftfoliogotchi/README.md
 [seminar]: https://github.com/fegemo/cefet-web/tree/master/assignments/seminar-html5/README.md
+-->
