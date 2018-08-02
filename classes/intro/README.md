@@ -1,5 +1,5 @@
-<!-- {"layout": "title"} -->
 # **Introdução** à Programação Web
+<!-- {"layout": "title"} -->
 ## História e conceitos básicos
 
 ---
@@ -11,7 +11,7 @@
 1. Minha primeira página web
 
 ---
-<!-- {"layout": "section-header"} -->
+<!-- {"layout": "section-header", "slideHash": "web-igual-internet"} -->
 # Web == Internet?
 ## A Web é a mesma coisa que a Internet?
 
@@ -44,112 +44,11 @@ Dúvidas:
   ~ (b) Como surgiu a Internet?
 
 ---
-# Alguns personagens
-
-- ::: figure .portrait text-align: center;
-  ![](../../images/larry-roberts.jpg)
-  **Larry Roberts**, "pai" da ARPANET
-  :::
-- ::: figure .portrait
-  ![](../../images/vint-cerf.jpg)
-  **Vint Cerf**, "pai" dos protocolos TCP/IP
-  :::
-- ::: figure .portrait
-  ![](../../images/bob-kahn.jpg)
-  **Bob Khan**, "pai" dos protocolos TCP/IP
-  :::
-- ::: figure .portrait
-  ![](../../images/tim-berners-lee.jpg)
-  **Tim Berners-Lee**, "pai" da Web
-  :::
-
-<!-- {ul:.multi-column-list-4 style="list-style-type: none;"} -->
-
----
-<!-- {"layout": "regular"} -->
-## Linha do Tempo
-
-1969
-  ~ Larry Roberts estabelece 1º link da **ARPANET**
-
----
-<!-- {"layout": "regular"} -->
-## ARPANET
-
-Havia **pouquíssimos computadores** com capacidade de pesquisa nos EUA e muitos
-pesquisadores que deveriam ter acesso a eles estavam **geograficamente
-separados**.
-_(Charles Herzfeld, diretor da ARPA)_
-
-- _Advanced Research Projects Agency Network_ (ARPANET)
-- Uma das primeiras redes baseadas em trocas de pacotes
-- A primeira rede a utilizar a família de protocolos TCP/IP
-
----
-<!-- {
-"styles": ["../../styles/classes/bubble-chat.min.css"]
-} -->
-
-22:30 de 29 de outubro de 1969
-
-
-<div class="bubble-chat">
-  <div class="narration">We set up a telephone connection between us and the
-    guys at <abbr title="Stanford Research Institute">SRI</abbr>... We
-    typed the L and we asked on the phone:</div>
-  <img class="bubble-portrait push-left" src="../../images/leonard-kleinrock.jpg">
-  <div class="bubble bubble-left">    
-    <div class="bubble-author bubble-author-0">Leonard Kleinrock</div>
-    <div>"Do you see the L?"</div>
-  </div>
-  <img class="bubble-portrait push-right" src="../../images/stanford-research-institute.jpg">
-  <div class="bubble bubble-right">
-    <div class="bubble-author bubble-author-1">Guys at SRI</div>
-    <div>"Yes, we see the L," came the response.</div>
-  </div>
-  <div class="narration">We typed the O, and we asked,</div>
-  <img class="bubble-portrait push-left" src="../../images/leonard-kleinrock.jpg">
-  <div class="bubble bubble-left">
-    <div class="bubble-author bubble-author-0">Leonard Kleinrock</div>
-    <div>"Do you see the O."</div>
-  </div>
-  <img class="bubble-portrait push-right" src="../../images/stanford-research-institute.jpg">
-  <div class="bubble bubble-right">
-    <div class="bubble-author bubble-author-1">Guys at SRI</div>
-    <div>"Yes, we see the O."</div>
-  </div>
-  <div class="narration">Then we typed the G, and the system crashed...
-    Yet a revolution had begun...
-</div>
-</div>
-
-
-_Fonte: [Estradas e Encruzilhadas da História da Internet (em inglês)][roads-crossroads]_
-
-[roads-crossroads]: http://netvalley.com/intval1.html
-
-*[SRI]: Stanford Reasearch Institute*
-
----
-Em **1969**, a ARPANET era uma conexão **entre 4 universidades apenas**.
-
-![A configuração da ARPANET em 1969 era de apenas 4 universidades](../../images/arpanet-1969.jpg)
-![](../../images/arpanet-1969-geo.jpg)
-
-A partir de 1969 e durante a década de 1970, a ARPANET cresceu e se
-conectou com várias outras grandes redes.
-
----
-Contudo, **a falta de padrão de protocolos** de rede impedia o avanço.
-Além disso, **os protocolos em vigência deixavam a REDE como responsável pela
-confiabilidade**.
-
----
 <!-- {"layout": "regular"} -->
 ## Linha do Tempo (1/2)
 
-1969 <!-- {.bullet-old} -->
-  ~ Larry Roberts estabelece 1º link da **ARPANET** <!-- {dd:.bullet-old} -->
+1969
+  ~ Larry Roberts estabelece 1º link da **ARPANET**
 
 1974
   ~ Bob Kahn e Vint Cerf **especificam os protocolos TCP/IP**
@@ -162,9 +61,12 @@ confiabilidade**.
   ~ Outras **grandes redes se conectaram a ARPANET**
     (CSNET, NIPRNET, SPAN, NSN, ESNet, NSFNET, MILNET, SATNET, WIDEBRAND)
 
+*[CSNET]: Computer Science Network*
+*[MILNET]: Military Network*
+*[NSFNET]: National Science Foundation Network*
+
 ---
 <!-- {"layout": "centered"} -->
-
 
 ::: figure .embedded-caption
 <figcaption class="caption-bottom centered">A Internet em 1986</figcaption>
@@ -946,6 +848,112 @@ Content-Length: 131
     ~ fim!
 
 
+---
+# Atividade Prática (1/4)
+
+    **Enunciado**
+      ~ Você vai recriar a página das raças raras de ovelhas.
+      ~ Para isso, você deve baixar [este arquivo compactado][codigo-seminal-ovelhas]
+        que contém as imagens, um arquivo CSS e dois arquivos JavaScript.
+      ~ Leia os 4 slides da atividade <u>antes de começar</u>!
+
+    **Pré-Atividade**
+      ~ 1. **Baixe** e **descompacte** os arquivos em uma pasta (e.g.,
+           "Documentos/Ovelhas")
+        1. Abra o bloco de notas e, com ele vazio,
+           salve um novo arquivo, nessa pasta, com o nome `racas-raras.html`
+
+    [codigo-seminal-ovelhas]: https://github.com/fegemo/cefet-web-ovelhas/archive/exercicio.zip
+
+---
+<!-- {"preventSelection": "pre > code", "elementStyles": {"pre": "height: 170px"} } -->
+# Atividade Prática (2/4)
+
+    - **Atividade 1**
+      - Digite o conteúdo do arquivo `racas-raras.html` no editor de texto:
+        ```html
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width">
+            <title>Raças Raras de Ovelhas</title>
+            <link rel="stylesheet" href="estilos.css">
+            <link rel="icon" href="imagens/ovelhinha.png" type="image/png">
+          </head>
+          <body>
+            <h1>Raças <strong>Raras</strong> de Ovelhas</h1>
+            <p>O interessante animal da espécie <em>Ovis aries</em>
+              (vulga ovelha) é tipicamente produzido (pela natureza)
+              em raças distintas. Em cada uma delas, os indivíduos
+              ovelhísticos possuem características fisiológicas e
+              comportamentais diferentes.</p>
+            <p>A seguir, veja alguns exemplos dessas raças.</p>
+            <h2>Algod-ovelha</h2>
+            <img src="imagens/algod-ovelha.jpg" class="circular foto-ovelha">
+            <p>Em vez de lã, esta ovelha é uma exímia produtora de
+              algodão e muito apreciada pela indústria têxtil
+              chinesa.</p>
+            <p>Pessoas pagam milhões para poder criar destas em
+              suas casas.</p>
+            <h2>Pirá-tovelha</h2>
+            <img src="imagens/pira-tovelha.jpg" class="circular foto-ovelha">
+            <p>Ovelha marinha-saqueadora frequentemente vista nas
+              ilhas caribenhas (seu habitat) navegando embarcações
+              de madeira.</p>
+            <p>Ao avistar uma destas, gire o leme completamente a
+              estibordo, ice as velas e fuja para terra firme.</p>
+            <h2>Ovelhopixel</h2>
+            <img src="imagens/ovelhopixel.png" class="circular foto-ovelha">
+            <p>Uma ovelha digital formada por um conjunto
+               de quadradinhos coloridos.</p>
+            <p>Ela precisa se recarregar de tempos em tempos.</p>
+            <h2>Outras</h2>
+            <ul>
+              <li>Robôvelha</li>
+              <li>Ninjo-velha</li>
+              <li>Legovelha</li>
+            </ul>
+            <script src="shake.js"></script>
+            <script src="ovelhita.js"></script>
+          </body>
+        </html>
+        ```
+        - Repare que não é possível copiar/colar
+    - **Testando**
+      - De tempos em tempos, **<u>abra o arquivo</u> no navegador** (_e.g._,
+        dando dois cliques) no arquivo para ver como está ficando
+      - Para saber se está certo, compare a sua página com a do professor: http://fegemo.github.io/cefet-web-ovelhas/racas-raras.html <!-- {target="_blank"}-->
+
+---
+# Atividade Prática (3/4)
+
+    **Atividade 2**
+      ~ Depois de copiado o código, você deve testar algumas _tags_, como:
+        - `O <del>interessante</del> surpreendente animal`
+      ~ Altere o conteúdo dentro do `<body>` usando as seguintes _tags_: `del`,
+        `em`, `ins` e `mark`. Veja o que ocorre e entenda o funcionamento de
+        cada uma _tag_ usada
+
+
+
+---
+# Atividade Prática (4/4)
+
+    **Pesquisando**
+      ~ Pesquise na Web (_e.g._, [Google][google], [Bing][bing]) sobre essas _tags_,
+        tipo assim: "html tag del" (sem as áspas)
+        - ![](../../images/documentation-alternatives.png) <!-- {.push-right style="height: 125px"} -->
+          Prefira sempre a página MDN (informação confiável, completa e sem propagandas)
+
+    **Entrega**
+      ~ Você deve **mostrar ao professor** o seu exercício para ganhar o visto.
+      ~ Além disso, você deve compactar a pasta com todos os seus arquivos em
+        um arquivo `.zip` e então **enviar esse arquivo via [Moodle][moodle]**
+
+    *[MDN]: Mozilla Developer Network*
+    [google]: http://google.com
+    [bing]: http://bing.com
 ---
 # Referências
 
