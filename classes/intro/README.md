@@ -950,7 +950,7 @@ pre{
   ~ Faça a descrição sobre mais uma raça ovelha (pode ser, por exemplo, a Ninjo-velha). Use sua criatividade. O Layout deve ser o mesmo das demais ovelhas. Procure uma imagem na Internet para retratá-la.
 
 **Envio**
-  - Para enviar, crie uma página no github pages. Nele, você criará a pasta "ovelhas" com esta tarefa ([clique aqui e veja][paso-a-passo]).
+  ~ Para enviar, crie uma página no github pages. Nele, você criará a pasta "ovelhas" com esta tarefa<!-- ([clique aqui e veja][paso-a-passo])-->.
   Haverá um diretório por prática.
 
   [paso-a-passo]: http://www.zdnet.com/blog/networking/before-the-web-the-internet-in-1991/834
