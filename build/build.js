@@ -1,4 +1,4 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function() {
   return function(deck) {
     var backdrops;
@@ -19344,113 +19344,36 @@ module.exports = isEmpty;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 },{}],199:[function(require,module,exports){
-(function (global){
 /**
- * Lodash (Custom Build) <https://lodash.com/>
+ * lodash 3.0.8 (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
- * Copyright JS Foundation and other contributors <https://js.foundation/>
- * Released under MIT license <https://lodash.com/license>
+ * Copyright 2012-2016 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Copyright 2009-2016 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ * Available under MIT license <https://lodash.com/license>
  */
 
 /** `Object#toString` result references. */
-var asyncTag = '[object AsyncFunction]',
-    funcTag = '[object Function]',
-    genTag = '[object GeneratorFunction]',
-    nullTag = '[object Null]',
-    proxyTag = '[object Proxy]',
-    undefinedTag = '[object Undefined]';
-
-/** Detect free variable `global` from Node.js. */
-var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-/** Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-/** Used as a reference to the global object. */
-var root = freeGlobal || freeSelf || Function('return this')();
+var funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]';
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
 /**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * Used to resolve the [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
  * of values.
  */
-var nativeObjectToString = objectProto.toString;
-
-/** Built-in value references. */
-var Symbol = root.Symbol,
-    symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-/**
- * The base implementation of `getTag` without fallbacks for buggy environments.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the `toStringTag`.
- */
-function baseGetTag(value) {
-  if (value == null) {
-    return value === undefined ? undefinedTag : nullTag;
-  }
-  return (symToStringTag && symToStringTag in Object(value))
-    ? getRawTag(value)
-    : objectToString(value);
-}
-
-/**
- * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the raw `toStringTag`.
- */
-function getRawTag(value) {
-  var isOwn = hasOwnProperty.call(value, symToStringTag),
-      tag = value[symToStringTag];
-
-  try {
-    value[symToStringTag] = undefined;
-    var unmasked = true;
-  } catch (e) {}
-
-  var result = nativeObjectToString.call(value);
-  if (unmasked) {
-    if (isOwn) {
-      value[symToStringTag] = tag;
-    } else {
-      delete value[symToStringTag];
-    }
-  }
-  return result;
-}
-
-/**
- * Converts `value` to a string using `Object.prototype.toString`.
- *
- * @private
- * @param {*} value The value to convert.
- * @returns {string} Returns the converted string.
- */
-function objectToString(value) {
-  return nativeObjectToString.call(value);
-}
+var objectToString = objectProto.toString;
 
 /**
  * Checks if `value` is classified as a `Function` object.
  *
  * @static
  * @memberOf _
- * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+ * @returns {boolean} Returns `true` if `value` is correctly classified, else `false`.
  * @example
  *
  * _.isFunction(_);
@@ -19460,23 +19383,19 @@ function objectToString(value) {
  * // => false
  */
 function isFunction(value) {
-  if (!isObject(value)) {
-    return false;
-  }
   // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in Safari 9 which returns 'object' for typed arrays and other constructors.
-  var tag = baseGetTag(value);
-  return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+  // in Safari 8 which returns 'object' for typed array constructors, and
+  // PhantomJS 1.9 which returns 'function' for `NodeList` instances.
+  var tag = isObject(value) ? objectToString.call(value) : '';
+  return tag == funcTag || tag == genTag;
 }
 
 /**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
+ * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
  *
  * @static
  * @memberOf _
- * @since 0.1.0
  * @category Lang
  * @param {*} value The value to check.
  * @returns {boolean} Returns `true` if `value` is an object, else `false`.
@@ -19496,12 +19415,10 @@ function isFunction(value) {
  */
 function isObject(value) {
   var type = typeof value;
-  return value != null && (type == 'object' || type == 'function');
+  return !!value && (type == 'object' || type == 'function');
 }
 
 module.exports = isFunction;
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
 },{}],200:[function(require,module,exports){
 // Enclose abbreviations in <abbr> tags
@@ -20213,11 +20130,8 @@ module.exports = function deflist_plugin(md) {
     }
 
     nextLine = startLine + 1;
-    if (nextLine >= endLine) { return false; }
-
     if (state.isEmpty(nextLine)) {
-      nextLine++;
-      if (nextLine >= endLine) { return false; }
+      if (++nextLine > endLine) { return false; }
     }
 
     if (state.sCount[nextLine] < state.blkIndent) { return false; }
@@ -20398,41 +20312,48 @@ module.exports={
   "100": "💯",
   "1234": "🔢",
   "grinning": "😀",
+  "grimacing": "😬",
+  "grin": "😁",
+  "joy": "😂",
   "smiley": "😃",
   "smile": "😄",
-  "grin": "😁",
+  "sweat_smile": "😅",
   "laughing": "😆",
   "satisfied": "😆",
-  "sweat_smile": "😅",
-  "joy": "😂",
-  "rofl": "🤣",
-  "relaxed": "☺️",
-  "blush": "😊",
   "innocent": "😇",
+  "wink": "😉",
+  "blush": "😊",
   "slightly_smiling_face": "🙂",
   "upside_down_face": "🙃",
-  "wink": "😉",
+  "relaxed": "☺️",
+  "yum": "😋",
   "relieved": "😌",
   "heart_eyes": "😍",
   "kissing_heart": "😘",
   "kissing": "😗",
   "kissing_smiling_eyes": "😙",
   "kissing_closed_eyes": "😚",
-  "yum": "😋",
   "stuck_out_tongue_winking_eye": "😜",
   "stuck_out_tongue_closed_eyes": "😝",
   "stuck_out_tongue": "😛",
   "money_mouth_face": "🤑",
-  "hugs": "🤗",
   "nerd_face": "🤓",
   "sunglasses": "😎",
-  "clown_face": "🤡",
-  "cowboy_hat_face": "🤠",
+  "hugs": "🤗",
   "smirk": "😏",
+  "no_mouth": "😶",
+  "neutral_face": "😐",
+  "expressionless": "😑",
   "unamused": "😒",
+  "roll_eyes": "🙄",
+  "thinking": "🤔",
+  "flushed": "😳",
   "disappointed": "😞",
-  "pensive": "😔",
   "worried": "😟",
+  "angry": "😠",
+  "rage": "😡",
+  "pout": "😡",
+  "pensive": "😔",
   "confused": "😕",
   "slightly_frowning_face": "🙁",
   "frowning_face": "☹️",
@@ -20441,53 +20362,39 @@ module.exports={
   "tired_face": "😫",
   "weary": "😩",
   "triumph": "😤",
-  "angry": "😠",
-  "rage": "😡",
-  "pout": "😡",
-  "no_mouth": "😶",
-  "neutral_face": "😐",
-  "expressionless": "😑",
-  "hushed": "😯",
-  "frowning": "😦",
-  "anguished": "😧",
   "open_mouth": "😮",
-  "astonished": "😲",
-  "dizzy_face": "😵",
-  "flushed": "😳",
   "scream": "😱",
   "fearful": "😨",
   "cold_sweat": "😰",
+  "hushed": "😯",
+  "frowning": "😦",
+  "anguished": "😧",
   "cry": "😢",
   "disappointed_relieved": "😥",
-  "drooling_face": "🤤",
-  "sob": "😭",
-  "sweat": "😓",
   "sleepy": "😪",
-  "sleeping": "😴",
-  "roll_eyes": "🙄",
-  "thinking": "🤔",
-  "lying_face": "🤥",
-  "grimacing": "😬",
+  "sweat": "😓",
+  "sob": "😭",
+  "dizzy_face": "😵",
+  "astonished": "😲",
   "zipper_mouth_face": "🤐",
-  "nauseated_face": "🤢",
-  "sneezing_face": "🤧",
   "mask": "😷",
   "face_with_thermometer": "🤒",
   "face_with_head_bandage": "🤕",
+  "sleeping": "😴",
+  "zzz": "💤",
+  "hankey": "💩",
+  "poop": "💩",
+  "shit": "💩",
   "smiling_imp": "😈",
   "imp": "👿",
   "japanese_ogre": "👹",
   "japanese_goblin": "👺",
-  "hankey": "💩",
-  "poop": "💩",
-  "shit": "💩",
   "ghost": "👻",
   "skull": "💀",
   "skull_and_crossbones": "☠️",
   "alien": "👽",
   "space_invader": "👾",
   "robot": "🤖",
-  "jack_o_lantern": "🎃",
   "smiley_cat": "😺",
   "smile_cat": "😸",
   "joy_cat": "😹",
@@ -20497,52 +20404,39 @@ module.exports={
   "scream_cat": "🙀",
   "crying_cat_face": "😿",
   "pouting_cat": "😾",
-  "open_hands": "👐",
   "raised_hands": "🙌",
   "clap": "👏",
-  "pray": "🙏",
-  "handshake": "🤝",
   "+1": "👍",
   "thumbsup": "👍",
   "-1": "👎",
   "thumbsdown": "👎",
-  "fist_oncoming": "👊",
   "facepunch": "👊",
   "punch": "👊",
-  "fist_raised": "✊",
   "fist": "✊",
-  "fist_left": "🤛",
-  "fist_right": "🤜",
-  "crossed_fingers": "🤞",
-  "v": "✌️",
-  "metal": "🤘",
-  "ok_hand": "👌",
+  "wave": "👋",
   "point_left": "👈",
   "point_right": "👉",
   "point_up_2": "👆",
   "point_down": "👇",
+  "ok_hand": "👌",
   "point_up": "☝️",
+  "v": "✌️",
   "hand": "✋",
   "raised_hand": "✋",
-  "raised_back_of_hand": "🤚",
   "raised_hand_with_fingers_splayed": "🖐",
-  "vulcan_salute": "🖖",
-  "wave": "👋",
-  "call_me_hand": "🤙",
+  "open_hands": "👐",
   "muscle": "💪",
+  "pray": "🙏",
+  "vulcan_salute": "🖖",
+  "metal": "🤘",
   "middle_finger": "🖕",
   "fu": "🖕",
   "writing_hand": "✍️",
-  "selfie": "🤳",
   "nail_care": "💅",
-  "ring": "💍",
-  "lipstick": "💄",
-  "kiss": "💋",
   "lips": "👄",
   "tongue": "👅",
   "ear": "👂",
   "nose": "👃",
-  "footprints": "👣",
   "eye": "👁",
   "eyes": "👀",
   "speaking_head": "🗣",
@@ -20553,109 +20447,65 @@ module.exports={
   "girl": "👧",
   "man": "👨",
   "woman": "👩",
-  "blonde_woman": "👱‍♀",
+  "blonde_woman": "👱‍♀️",
   "blonde_man": "👱",
   "person_with_blond_hair": "👱",
   "older_man": "👴",
   "older_woman": "👵",
   "man_with_gua_pi_mao": "👲",
-  "woman_with_turban": "👳‍♀",
+  "woman_with_turban": "👳‍♀️",
   "man_with_turban": "👳",
-  "policewoman": "👮‍♀",
+  "policewoman": "👮‍♀️",
   "policeman": "👮",
   "cop": "👮",
-  "construction_worker_woman": "👷‍♀",
+  "construction_worker_woman": "👷‍♀️",
   "construction_worker_man": "👷",
   "construction_worker": "👷",
-  "guardswoman": "💂‍♀",
+  "guardswoman": "💂‍♀️",
   "guardsman": "💂",
   "female_detective": "🕵️‍♀️",
-  "male_detective": "🕵",
-  "detective": "🕵",
-  "woman_health_worker": "👩‍⚕",
-  "man_health_worker": "👨‍⚕",
-  "woman_farmer": "👩‍🌾",
-  "man_farmer": "👨‍🌾",
-  "woman_cook": "👩‍🍳",
-  "man_cook": "👨‍🍳",
-  "woman_student": "👩‍🎓",
-  "man_student": "👨‍🎓",
-  "woman_singer": "👩‍🎤",
-  "man_singer": "👨‍🎤",
-  "woman_teacher": "👩‍🏫",
-  "man_teacher": "👨‍🏫",
-  "woman_factory_worker": "👩‍🏭",
-  "man_factory_worker": "👨‍🏭",
-  "woman_technologist": "👩‍💻",
-  "man_technologist": "👨‍💻",
-  "woman_office_worker": "👩‍💼",
-  "man_office_worker": "👨‍💼",
-  "woman_mechanic": "👩‍🔧",
-  "man_mechanic": "👨‍🔧",
-  "woman_scientist": "👩‍🔬",
-  "man_scientist": "👨‍🔬",
-  "woman_artist": "👩‍🎨",
-  "man_artist": "👨‍🎨",
-  "woman_firefighter": "👩‍🚒",
-  "man_firefighter": "👨‍🚒",
-  "woman_pilot": "👩‍✈",
-  "man_pilot": "👨‍✈",
-  "woman_astronaut": "👩‍🚀",
-  "man_astronaut": "👨‍🚀",
-  "woman_judge": "👩‍⚖",
-  "man_judge": "👨‍⚖",
-  "mrs_claus": "🤶",
+  "male_detective": "🕵️",
+  "detective": "🕵️",
   "santa": "🎅",
   "princess": "👸",
-  "prince": "🤴",
   "bride_with_veil": "👰",
-  "man_in_tuxedo": "🤵",
   "angel": "👼",
-  "pregnant_woman": "🤰",
-  "bowing_woman": "🙇‍♀",
+  "bowing_woman": "🙇‍♀️",
   "bowing_man": "🙇",
   "bow": "🙇",
   "tipping_hand_woman": "💁",
   "information_desk_person": "💁",
-  "sassy_woman": "💁",
-  "tipping_hand_man": "💁‍♂",
-  "sassy_man": "💁‍♂",
+  "tipping_hand_man": "💁‍♂️",
   "no_good_woman": "🙅",
   "no_good": "🙅",
   "ng_woman": "🙅",
-  "no_good_man": "🙅‍♂",
-  "ng_man": "🙅‍♂",
+  "no_good_man": "🙅‍♂️",
+  "ng_man": "🙅‍♂️",
   "ok_woman": "🙆",
-  "ok_man": "🙆‍♂",
+  "ok_man": "🙆‍♂️",
   "raising_hand_woman": "🙋",
   "raising_hand": "🙋",
-  "raising_hand_man": "🙋‍♂",
-  "woman_facepalming": "🤦‍♀",
-  "man_facepalming": "🤦‍♂",
-  "woman_shrugging": "🤷‍♀",
-  "man_shrugging": "🤷‍♂",
+  "raising_hand_man": "🙋‍♂️",
   "pouting_woman": "🙎",
   "person_with_pouting_face": "🙎",
-  "pouting_man": "🙎‍♂",
+  "pouting_man": "🙎‍♂️",
   "frowning_woman": "🙍",
   "person_frowning": "🙍",
-  "frowning_man": "🙍‍♂",
+  "frowning_man": "🙍‍♂️",
   "haircut_woman": "💇",
   "haircut": "💇",
-  "haircut_man": "💇‍♂",
+  "haircut_man": "💇‍♂️",
   "massage_woman": "💆",
   "massage": "💆",
-  "massage_man": "💆‍♂",
-  "business_suit_levitating": "🕴",
+  "massage_man": "💆‍♂️",
   "dancer": "💃",
-  "man_dancing": "🕺",
   "dancing_women": "👯",
   "dancers": "👯",
-  "dancing_men": "👯‍♂",
-  "walking_woman": "🚶‍♀",
+  "dancing_men": "👯‍♂️",
+  "walking_woman": "🚶‍♀️",
   "walking_man": "🚶",
   "walking": "🚶",
-  "running_woman": "🏃‍♀",
+  "running_woman": "🏃‍♀️",
   "running_man": "🏃",
   "runner": "🏃",
   "running": "🏃",
@@ -20703,6 +20553,9 @@ module.exports={
   "dress": "👗",
   "bikini": "👙",
   "kimono": "👘",
+  "lipstick": "💄",
+  "kiss": "💋",
+  "footprints": "👣",
   "high_heel": "👠",
   "sandal": "👡",
   "boot": "👢",
@@ -20721,14 +20574,13 @@ module.exports={
   "briefcase": "💼",
   "eyeglasses": "👓",
   "dark_sunglasses": "🕶",
+  "ring": "💍",
   "closed_umbrella": "🌂",
-  "open_umbrella": "☂️",
   "dog": "🐶",
   "cat": "🐱",
   "mouse": "🐭",
   "hamster": "🐹",
   "rabbit": "🐰",
-  "fox_face": "🦊",
   "bear": "🐻",
   "panda_face": "🐼",
   "koala": "🐨",
@@ -20738,6 +20590,7 @@ module.exports={
   "pig": "🐷",
   "pig_nose": "🐽",
   "frog": "🐸",
+  "octopus": "🐙",
   "monkey_face": "🐵",
   "see_no_evil": "🙈",
   "hear_no_evil": "🙉",
@@ -20749,10 +20602,6 @@ module.exports={
   "baby_chick": "🐤",
   "hatching_chick": "🐣",
   "hatched_chick": "🐥",
-  "duck": "🦆",
-  "eagle": "🦅",
-  "owl": "🦉",
-  "bat": "🦇",
   "wolf": "🐺",
   "boar": "🐗",
   "horse": "🐴",
@@ -20760,27 +20609,19 @@ module.exports={
   "bee": "🐝",
   "honeybee": "🐝",
   "bug": "🐛",
-  "butterfly": "🦋",
   "snail": "🐌",
-  "shell": "🐚",
   "beetle": "🐞",
   "ant": "🐜",
   "spider": "🕷",
-  "spider_web": "🕸",
-  "turtle": "🐢",
-  "snake": "🐍",
-  "lizard": "🦎",
   "scorpion": "🦂",
   "crab": "🦀",
-  "squid": "🦑",
-  "octopus": "🐙",
-  "shrimp": "🦐",
+  "snake": "🐍",
+  "turtle": "🐢",
   "tropical_fish": "🐠",
   "fish": "🐟",
   "blowfish": "🐡",
   "dolphin": "🐬",
   "flipper": "🐬",
-  "shark": "🦈",
   "whale": "🐳",
   "whale2": "🐋",
   "crocodile": "🐊",
@@ -20789,26 +20630,23 @@ module.exports={
   "water_buffalo": "🐃",
   "ox": "🐂",
   "cow2": "🐄",
-  "deer": "🦌",
   "dromedary_camel": "🐪",
   "camel": "🐫",
   "elephant": "🐘",
-  "rhinoceros": "🦏",
-  "gorilla": "🦍",
-  "racehorse": "🐎",
-  "pig2": "🐖",
   "goat": "🐐",
   "ram": "🐏",
   "sheep": "🐑",
-  "dog2": "🐕",
-  "poodle": "🐩",
-  "cat2": "🐈",
+  "racehorse": "🐎",
+  "pig2": "🐖",
+  "rat": "🐀",
+  "mouse2": "🐁",
   "rooster": "🐓",
   "turkey": "🦃",
   "dove": "🕊",
+  "dog2": "🐕",
+  "poodle": "🐩",
+  "cat2": "🐈",
   "rabbit2": "🐇",
-  "mouse2": "🐁",
-  "rat": "🐀",
   "chipmunk": "🐿",
   "feet": "🐾",
   "paw_prints": "🐾",
@@ -20821,23 +20659,26 @@ module.exports={
   "palm_tree": "🌴",
   "seedling": "🌱",
   "herb": "🌿",
-  "shamrock": "☘️",
+  "shamrock": "☘",
   "four_leaf_clover": "🍀",
   "bamboo": "🎍",
   "tanabata_tree": "🎋",
   "leaves": "🍃",
   "fallen_leaf": "🍂",
   "maple_leaf": "🍁",
-  "mushroom": "🍄",
   "ear_of_rice": "🌾",
-  "bouquet": "💐",
-  "tulip": "🌷",
-  "rose": "🌹",
-  "wilted_flower": "🥀",
+  "hibiscus": "🌺",
   "sunflower": "🌻",
+  "rose": "🌹",
+  "tulip": "🌷",
   "blossom": "🌼",
   "cherry_blossom": "🌸",
-  "hibiscus": "🌺",
+  "bouquet": "💐",
+  "mushroom": "🍄",
+  "chestnut": "🌰",
+  "jack_o_lantern": "🎃",
+  "shell": "🐚",
+  "spider_web": "🕸",
   "earth_americas": "🌎",
   "earth_africa": "🌍",
   "earth_asia": "🌏",
@@ -20852,41 +20693,41 @@ module.exports={
   "waxing_gibbous_moon": "🌔",
   "new_moon_with_face": "🌚",
   "full_moon_with_face": "🌝",
-  "sun_with_face": "🌞",
   "first_quarter_moon_with_face": "🌛",
   "last_quarter_moon_with_face": "🌜",
+  "sun_with_face": "🌞",
   "crescent_moon": "🌙",
-  "dizzy": "💫",
   "star": "⭐️",
   "star2": "🌟",
+  "dizzy": "💫",
   "sparkles": "✨",
-  "zap": "⚡️",
-  "fire": "🔥",
-  "boom": "💥",
-  "collision": "💥",
-  "comet": "☄",
+  "comet": "☄️",
   "sunny": "☀️",
   "sun_behind_small_cloud": "🌤",
   "partly_sunny": "⛅️",
   "sun_behind_large_cloud": "🌥",
   "sun_behind_rain_cloud": "🌦",
-  "rainbow": "🌈",
   "cloud": "☁️",
   "cloud_with_rain": "🌧",
   "cloud_with_lightning_and_rain": "⛈",
   "cloud_with_lightning": "🌩",
+  "zap": "⚡️",
+  "fire": "🔥",
+  "boom": "💥",
+  "collision": "💥",
+  "snowflake": "❄️",
   "cloud_with_snow": "🌨",
   "snowman_with_snow": "☃️",
   "snowman": "⛄️",
-  "snowflake": "❄️",
   "wind_face": "🌬",
   "dash": "💨",
   "tornado": "🌪",
   "fog": "🌫",
-  "ocean": "🌊",
+  "open_umbrella": "☂️",
+  "umbrella": "☔️",
   "droplet": "💧",
   "sweat_drops": "💦",
-  "umbrella": "☔️",
+  "ocean": "🌊",
   "green_apple": "🍏",
   "apple": "🍎",
   "pear": "🍐",
@@ -20902,48 +20743,33 @@ module.exports={
   "cherries": "🍒",
   "peach": "🍑",
   "pineapple": "🍍",
-  "kiwi_fruit": "🥝",
-  "avocado": "🥑",
   "tomato": "🍅",
   "eggplant": "🍆",
-  "cucumber": "🥒",
-  "carrot": "🥕",
-  "corn": "🌽",
   "hot_pepper": "🌶",
-  "potato": "🥔",
+  "corn": "🌽",
   "sweet_potato": "🍠",
-  "chestnut": "🌰",
-  "peanuts": "🥜",
   "honey_pot": "🍯",
-  "croissant": "🥐",
   "bread": "🍞",
-  "baguette_bread": "🥖",
   "cheese": "🧀",
-  "egg": "🥚",
-  "fried_egg": "🍳",
-  "bacon": "🥓",
-  "pancakes": "🥞",
-  "fried_shrimp": "🍤",
   "poultry_leg": "🍗",
   "meat_on_bone": "🍖",
-  "pizza": "🍕",
-  "hotdog": "🌭",
+  "fried_shrimp": "🍤",
+  "egg": "🍳",
   "hamburger": "🍔",
   "fries": "🍟",
-  "stuffed_flatbread": "🥙",
+  "hotdog": "🌭",
+  "pizza": "🍕",
+  "spaghetti": "🍝",
   "taco": "🌮",
   "burrito": "🌯",
-  "green_salad": "🥗",
-  "shallow_pan_of_food": "🥘",
-  "spaghetti": "🍝",
   "ramen": "🍜",
   "stew": "🍲",
   "fish_cake": "🍥",
   "sushi": "🍣",
   "bento": "🍱",
   "curry": "🍛",
-  "rice": "🍚",
   "rice_ball": "🍙",
+  "rice": "🍚",
   "rice_cracker": "🍘",
   "oden": "🍢",
   "dango": "🍡",
@@ -20953,26 +20779,22 @@ module.exports={
   "cake": "🍰",
   "birthday": "🎂",
   "custard": "🍮",
-  "lollipop": "🍭",
   "candy": "🍬",
+  "lollipop": "🍭",
   "chocolate_bar": "🍫",
   "popcorn": "🍿",
   "doughnut": "🍩",
   "cookie": "🍪",
-  "milk_glass": "🥛",
-  "baby_bottle": "🍼",
-  "coffee": "☕️",
-  "tea": "🍵",
-  "sake": "🍶",
   "beer": "🍺",
   "beers": "🍻",
-  "clinking_glasses": "🥂",
   "wine_glass": "🍷",
-  "tumbler_glass": "🥃",
   "cocktail": "🍸",
   "tropical_drink": "🍹",
   "champagne": "🍾",
-  "spoon": "🥄",
+  "sake": "🍶",
+  "tea": "🍵",
+  "coffee": "☕️",
+  "baby_bottle": "🍼",
   "fork_and_knife": "🍴",
   "plate_with_cutlery": "🍽",
   "soccer": "⚽️",
@@ -20985,81 +20807,65 @@ module.exports={
   "8ball": "🎱",
   "ping_pong": "🏓",
   "badminton": "🏸",
-  "goal_net": "🥅",
   "ice_hockey": "🏒",
   "field_hockey": "🏑",
   "cricket": "🏏",
-  "golf": "⛳️",
   "bow_and_arrow": "🏹",
+  "golf": "⛳️",
   "fishing_pole_and_fish": "🎣",
-  "boxing_glove": "🥊",
-  "martial_arts_uniform": "🥋",
   "ice_skate": "⛸",
   "ski": "🎿",
   "skier": "⛷",
   "snowboarder": "🏂",
   "weight_lifting_woman": "🏋️‍♀️",
-  "weight_lifting_man": "🏋",
-  "person_fencing": "🤺",
-  "women_wrestling": "🤼‍♀",
-  "men_wrestling": "🤼‍♂",
-  "woman_cartwheeling": "🤸‍♀",
-  "man_cartwheeling": "🤸‍♂",
+  "weight_lifting_man": "🏋️",
   "basketball_woman": "⛹️‍♀️",
-  "basketball_man": "⛹",
-  "woman_playing_handball": "🤾‍♀",
-  "man_playing_handball": "🤾‍♂",
+  "basketball_man": "⛹️",
   "golfing_woman": "🏌️‍♀️",
-  "golfing_man": "🏌",
-  "surfing_woman": "🏄‍♀",
+  "golfing_man": "🏌️",
+  "surfing_woman": "🏄‍♀️",
   "surfing_man": "🏄",
   "surfer": "🏄",
-  "swimming_woman": "🏊‍♀",
+  "swimming_woman": "🏊‍♀️",
   "swimming_man": "🏊",
   "swimmer": "🏊",
-  "woman_playing_water_polo": "🤽‍♀",
-  "man_playing_water_polo": "🤽‍♂",
-  "rowing_woman": "🚣‍♀",
+  "rowing_woman": "🚣‍♀️",
   "rowing_man": "🚣",
   "rowboat": "🚣",
   "horse_racing": "🏇",
-  "biking_woman": "🚴‍♀",
+  "biking_woman": "🚴‍♀️",
   "biking_man": "🚴",
   "bicyclist": "🚴",
-  "mountain_biking_woman": "🚵‍♀",
+  "mountain_biking_woman": "🚵‍♀️",
   "mountain_biking_man": "🚵",
   "mountain_bicyclist": "🚵",
+  "bath": "🛀",
+  "business_suit_levitating": "🕴",
+  "reminder_ribbon": "🎗",
   "running_shirt_with_sash": "🎽",
   "medal_sports": "🏅",
   "medal_military": "🎖",
-  "1st_place_medal": "🥇",
-  "2nd_place_medal": "🥈",
-  "3rd_place_medal": "🥉",
   "trophy": "🏆",
   "rosette": "🏵",
-  "reminder_ribbon": "🎗",
+  "dart": "🎯",
   "ticket": "🎫",
   "tickets": "🎟",
-  "circus_tent": "🎪",
-  "woman_juggling": "🤹‍♀",
-  "man_juggling": "🤹‍♂",
   "performing_arts": "🎭",
   "art": "🎨",
+  "circus_tent": "🎪",
   "clapper": "🎬",
   "microphone": "🎤",
   "headphones": "🎧",
   "musical_score": "🎼",
   "musical_keyboard": "🎹",
-  "drum": "🥁",
   "saxophone": "🎷",
   "trumpet": "🎺",
   "guitar": "🎸",
   "violin": "🎻",
-  "game_die": "🎲",
-  "dart": "🎯",
-  "bowling": "🎳",
   "video_game": "🎮",
   "slot_machine": "🎰",
+  "game_die": "🎲",
+  "bowling": "🎳",
   "car": "🚗",
   "red_car": "🚗",
   "taxi": "🚕",
@@ -21074,10 +20880,8 @@ module.exports={
   "truck": "🚚",
   "articulated_lorry": "🚛",
   "tractor": "🚜",
-  "kick_scooter": "🛴",
-  "bike": "🚲",
-  "motor_scooter": "🛵",
   "motorcycle": "🏍",
+  "bike": "🚲",
   "rotating_light": "🚨",
   "oncoming_police_car": "🚔",
   "oncoming_bus": "🚍",
@@ -21088,11 +20892,11 @@ module.exports={
   "suspension_railway": "🚟",
   "railway_car": "🚃",
   "train": "🚋",
-  "mountain_railway": "🚞",
   "monorail": "🚝",
   "bullettrain_side": "🚄",
   "bullettrain_front": "🚅",
   "light_rail": "🚈",
+  "mountain_railway": "🚞",
   "steam_locomotive": "🚂",
   "train2": "🚆",
   "metro": "🚇",
@@ -21103,17 +20907,15 @@ module.exports={
   "airplane": "✈️",
   "flight_departure": "🛫",
   "flight_arrival": "🛬",
-  "rocket": "🚀",
-  "artificial_satellite": "🛰",
-  "seat": "💺",
-  "canoe": "🛶",
   "boat": "⛵️",
   "sailboat": "⛵️",
   "motor_boat": "🛥",
   "speedboat": "🚤",
-  "passenger_ship": "🛳",
   "ferry": "⛴",
-  "ship": "🚢",
+  "passenger_ship": "🛳",
+  "rocket": "🚀",
+  "artificial_satellite": "🛰",
+  "seat": "💺",
   "anchor": "⚓️",
   "construction": "🚧",
   "fuelpump": "⛽️",
@@ -21121,33 +20923,48 @@ module.exports={
   "vertical_traffic_light": "🚦",
   "traffic_light": "🚥",
   "world_map": "🗺",
-  "moyai": "🗿",
-  "statue_of_liberty": "🗽",
-  "fountain": "⛲️",
-  "tokyo_tower": "🗼",
-  "european_castle": "🏰",
-  "japanese_castle": "🏯",
-  "stadium": "🏟",
+  "ship": "🚢",
   "ferris_wheel": "🎡",
   "roller_coaster": "🎢",
   "carousel_horse": "🎠",
-  "parasol_on_ground": "⛱",
-  "beach_umbrella": "🏖",
-  "desert_island": "🏝",
+  "building_construction": "🏗",
+  "foggy": "🌁",
+  "tokyo_tower": "🗼",
+  "factory": "🏭",
+  "fountain": "⛲️",
+  "rice_scene": "🎑",
   "mountain": "⛰",
   "mountain_snow": "🏔",
   "mount_fuji": "🗻",
   "volcano": "🌋",
-  "desert": "🏜",
+  "japan": "🗾",
   "camping": "🏕",
   "tent": "⛺️",
-  "railway_track": "🛤",
+  "national_park": "🏞",
   "motorway": "🛣",
-  "building_construction": "🏗",
-  "factory": "🏭",
+  "railway_track": "🛤",
+  "sunrise": "🌅",
+  "sunrise_over_mountains": "🌄",
+  "desert": "🏜",
+  "beach_umbrella": "🏖",
+  "desert_island": "🏝",
+  "city_sunrise": "🌇",
+  "city_sunset": "🌆",
+  "cityscape": "🏙",
+  "night_with_stars": "🌃",
+  "bridge_at_night": "🌉",
+  "milky_way": "🌌",
+  "stars": "🌠",
+  "sparkler": "🎇",
+  "fireworks": "🎆",
+  "rainbow": "🌈",
+  "houses": "🏘",
+  "european_castle": "🏰",
+  "japanese_castle": "🏯",
+  "stadium": "🏟",
+  "statue_of_liberty": "🗽",
   "house": "🏠",
   "house_with_garden": "🏡",
-  "houses": "🏘",
   "derelict_house": "🏚",
   "office": "🏢",
   "department_store": "🏬",
@@ -21166,21 +20983,6 @@ module.exports={
   "synagogue": "🕍",
   "kaaba": "🕋",
   "shinto_shrine": "⛩",
-  "japan": "🗾",
-  "rice_scene": "🎑",
-  "national_park": "🏞",
-  "sunrise": "🌅",
-  "sunrise_over_mountains": "🌄",
-  "stars": "🌠",
-  "sparkler": "🎇",
-  "fireworks": "🎆",
-  "city_sunrise": "🌇",
-  "city_sunset": "🌆",
-  "cityscape": "🏙",
-  "night_with_stars": "🌃",
-  "milky_way": "🌌",
-  "bridge_at_night": "🌉",
-  "foggy": "🌁",
   "watch": "⌚️",
   "iphone": "📱",
   "calling": "📲",
@@ -21217,8 +21019,8 @@ module.exports={
   "timer_clock": "⏲",
   "alarm_clock": "⏰",
   "mantelpiece_clock": "🕰",
-  "hourglass": "⌛️",
   "hourglass_flowing_sand": "⏳",
+  "hourglass": "⌛️",
   "satellite": "📡",
   "battery": "🔋",
   "electric_plug": "🔌",
@@ -21235,30 +21037,30 @@ module.exports={
   "moneybag": "💰",
   "credit_card": "💳",
   "gem": "💎",
-  "balance_scale": "⚖️",
+  "balance_scale": "⚖",
   "wrench": "🔧",
   "hammer": "🔨",
   "hammer_and_pick": "⚒",
   "hammer_and_wrench": "🛠",
   "pick": "⛏",
   "nut_and_bolt": "🔩",
-  "gear": "⚙️",
+  "gear": "⚙",
   "chains": "⛓",
   "gun": "🔫",
   "bomb": "💣",
   "hocho": "🔪",
   "knife": "🔪",
   "dagger": "🗡",
-  "crossed_swords": "⚔️",
+  "crossed_swords": "⚔",
   "shield": "🛡",
   "smoking": "🚬",
-  "coffin": "⚰️",
-  "funeral_urn": "⚱️",
+  "coffin": "⚰",
+  "funeral_urn": "⚱",
   "amphora": "🏺",
   "crystal_ball": "🔮",
   "prayer_beads": "📿",
   "barber": "💈",
-  "alembic": "⚗️",
+  "alembic": "⚗",
   "telescope": "🔭",
   "microscope": "🔬",
   "hole": "🕳",
@@ -21266,30 +21068,29 @@ module.exports={
   "syringe": "💉",
   "thermometer": "🌡",
   "toilet": "🚽",
-  "potable_water": "🚰",
   "shower": "🚿",
   "bathtub": "🛁",
-  "bath": "🛀",
   "bellhop_bell": "🛎",
   "key": "🔑",
   "old_key": "🗝",
   "door": "🚪",
   "couch_and_lamp": "🛋",
-  "bed": "🛏",
   "sleeping_bed": "🛌",
+  "bed": "🛏",
   "framed_picture": "🖼",
+  "parasol_on_ground": "⛱",
+  "moyai": "🗿",
   "shopping": "🛍",
-  "shopping_cart": "🛒",
   "gift": "🎁",
   "balloon": "🎈",
   "flags": "🎏",
   "ribbon": "🎀",
   "confetti_ball": "🎊",
   "tada": "🎉",
-  "dolls": "🎎",
+  "wind_chime": "🎐",
   "izakaya_lantern": "🏮",
   "lantern": "🏮",
-  "wind_chime": "🎐",
+  "dolls": "🎎",
   "email": "✉️",
   "envelope": "✉️",
   "envelope_with_arrow": "📩",
@@ -21300,6 +21101,7 @@ module.exports={
   "outbox_tray": "📤",
   "package": "📦",
   "label": "🏷",
+  "bookmark": "🔖",
   "mailbox_closed": "📪",
   "mailbox": "📫",
   "mailbox_with_mail": "📬",
@@ -21337,35 +21139,39 @@ module.exports={
   "books": "📚",
   "book": "📖",
   "open_book": "📖",
-  "bookmark": "🔖",
   "link": "🔗",
   "paperclip": "📎",
   "paperclips": "🖇",
   "triangular_ruler": "📐",
   "straight_ruler": "📏",
+  "scissors": "✂️",
   "pushpin": "📌",
   "round_pushpin": "📍",
-  "scissors": "✂️",
+  "triangular_flag_on_post": "🚩",
+  "crossed_flags": "🎌",
+  "white_flag": "🏳️",
+  "black_flag": "🏴",
+  "checkered_flag": "🏁",
+  "rainbow_flag": "🏳️‍🌈",
+  "paintbrush": "🖌",
+  "crayon": "🖍",
   "pen": "🖊",
   "fountain_pen": "🖋",
   "black_nib": "✒️",
-  "paintbrush": "🖌",
-  "crayon": "🖍",
   "memo": "📝",
   "pencil": "📝",
   "pencil2": "✏️",
-  "mag": "🔍",
-  "mag_right": "🔎",
   "lock_with_ink_pen": "🔏",
   "closed_lock_with_key": "🔐",
   "lock": "🔒",
   "unlock": "🔓",
+  "mag": "🔍",
+  "mag_right": "🔎",
   "heart": "❤️",
   "yellow_heart": "💛",
   "green_heart": "💚",
   "blue_heart": "💙",
   "purple_heart": "💜",
-  "black_heart": "🖤",
   "broken_heart": "💔",
   "heavy_heart_exclamation": "❣️",
   "two_hearts": "💕",
@@ -21401,14 +21207,14 @@ module.exports={
   "aquarius": "♒️",
   "pisces": "♓️",
   "id": "🆔",
-  "atom_symbol": "⚛️",
-  "accept": "🉑",
+  "atom_symbol": "⚛",
   "radioactive": "☢️",
   "biohazard": "☣️",
   "mobile_phone_off": "📴",
   "vibration_mode": "📳",
   "eight_pointed_black_star": "✴️",
   "vs": "🆚",
+  "accept": "🉑",
   "white_flower": "💮",
   "ideograph_advantage": "🉐",
   "secret": "㊙️",
@@ -21420,12 +21226,11 @@ module.exports={
   "cl": "🆑",
   "o2": "🅾️",
   "sos": "🆘",
-  "x": "❌",
-  "o": "⭕️",
-  "stop_sign": "🛑",
   "no_entry": "⛔️",
   "name_badge": "📛",
   "no_entry_sign": "🚫",
+  "x": "❌",
+  "o": "⭕️",
   "anger": "💢",
   "hotsprings": "♨️",
   "no_pedestrians": "🚷",
@@ -21434,7 +21239,6 @@ module.exports={
   "non-potable_water": "🚱",
   "underage": "🔞",
   "no_mobile_phones": "📵",
-  "no_smoking": "🚭",
   "exclamation": "❗️",
   "heavy_exclamation_mark": "❗️",
   "grey_exclamation": "❕",
@@ -21444,32 +21248,34 @@ module.exports={
   "interrobang": "⁉️",
   "low_brightness": "🔅",
   "high_brightness": "🔆",
+  "trident": "🔱",
+  "fleur_de_lis": "⚜",
   "part_alternation_mark": "〽️",
   "warning": "⚠️",
   "children_crossing": "🚸",
-  "trident": "🔱",
-  "fleur_de_lis": "⚜️",
   "beginner": "🔰",
   "recycle": "♻️",
-  "white_check_mark": "✅",
   "chart": "💹",
   "sparkle": "❇️",
   "eight_spoked_asterisk": "✳️",
   "negative_squared_cross_mark": "❎",
+  "white_check_mark": "✅",
   "globe_with_meridians": "🌐",
-  "diamond_shape_with_a_dot_inside": "💠",
   "m": "Ⓜ️",
+  "diamond_shape_with_a_dot_inside": "💠",
   "cyclone": "🌀",
-  "zzz": "💤",
+  "loop": "➿",
   "atm": "🏧",
-  "wc": "🚾",
-  "wheelchair": "♿️",
-  "parking": "🅿️",
   "sa": "🈂️",
   "passport_control": "🛂",
   "customs": "🛃",
   "baggage_claim": "🛄",
   "left_luggage": "🛅",
+  "wheelchair": "♿️",
+  "no_smoking": "🚭",
+  "wc": "🚾",
+  "parking": "🅿️",
+  "potable_water": "🚰",
   "mens": "🚹",
   "womens": "🚺",
   "baby_symbol": "🚼",
@@ -21478,11 +21284,11 @@ module.exports={
   "cinema": "🎦",
   "signal_strength": "📶",
   "koko": "🈁",
-  "symbols": "🔣",
-  "information_source": "ℹ️",
   "abc": "🔤",
   "abcd": "🔡",
   "capital_abcd": "🔠",
+  "symbols": "🔣",
+  "information_source": "ℹ️",
   "ng": "🆖",
   "ok": "🆗",
   "up": "🆙",
@@ -21537,6 +21343,9 @@ module.exports={
   "arrows_clockwise": "🔃",
   "musical_note": "🎵",
   "notes": "🎶",
+  "wavy_dash": "〰️",
+  "curly_loop": "➰",
+  "heavy_check_mark": "✔️",
   "heavy_plus_sign": "➕",
   "heavy_minus_sign": "➖",
   "heavy_division_sign": "➗",
@@ -21546,15 +21355,11 @@ module.exports={
   "tm": "™️",
   "copyright": "©️",
   "registered": "®️",
-  "wavy_dash": "〰️",
-  "curly_loop": "➰",
-  "loop": "➿",
   "end": "🔚",
   "back": "🔙",
   "on": "🔛",
   "top": "🔝",
   "soon": "🔜",
-  "heavy_check_mark": "✔️",
   "ballot_box_with_check": "☑️",
   "radio_button": "🔘",
   "white_circle": "⚪️",
@@ -21577,25 +21382,25 @@ module.exports={
   "white_medium_square": "◻️",
   "black_large_square": "⬛️",
   "white_large_square": "⬜️",
-  "speaker": "🔈",
   "mute": "🔇",
+  "speaker": "🔈",
   "sound": "🔉",
   "loud_sound": "🔊",
-  "bell": "🔔",
   "no_bell": "🔕",
+  "bell": "🔔",
   "mega": "📣",
   "loudspeaker": "📢",
   "eye_speech_bubble": "👁‍🗨",
   "speech_balloon": "💬",
   "thought_balloon": "💭",
   "right_anger_bubble": "🗯",
+  "black_joker": "🃏",
+  "mahjong": "🀄️",
+  "flower_playing_cards": "🎴",
   "spades": "♠️",
   "clubs": "♣️",
   "hearts": "♥️",
   "diamonds": "♦️",
-  "black_joker": "🃏",
-  "flower_playing_cards": "🎴",
-  "mahjong": "🀄️",
   "clock1": "🕐",
   "clock2": "🕑",
   "clock3": "🕒",
@@ -21620,11 +21425,6 @@ module.exports={
   "clock1030": "🕥",
   "clock1130": "🕦",
   "clock1230": "🕧",
-  "white_flag": "🏳️",
-  "black_flag": "🏴",
-  "checkered_flag": "🏁",
-  "triangular_flag_on_post": "🚩",
-  "rainbow_flag": "🏳️‍🌈",
   "afghanistan": "🇦🇫",
   "aland_islands": "🇦🇽",
   "albania": "🇦🇱",
@@ -21680,7 +21480,6 @@ module.exports={
   "congo_kinshasa": "🇨🇩",
   "cook_islands": "🇨🇰",
   "costa_rica": "🇨🇷",
-  "cote_divoire": "🇨🇮",
   "croatia": "🇭🇷",
   "cuba": "🇨🇺",
   "curacao": "🇨🇼",
@@ -21736,9 +21535,9 @@ module.exports={
   "isle_of_man": "🇮🇲",
   "israel": "🇮🇱",
   "it": "🇮🇹",
+  "cote_divoire": "🇨🇮",
   "jamaica": "🇯🇲",
   "jp": "🇯🇵",
-  "crossed_flags": "🎌",
   "jersey": "🇯🇪",
   "jordan": "🇯🇴",
   "kazakhstan": "🇰🇿",
@@ -22067,7 +21866,7 @@ module.exports = function create_rule(md, emojies, shortcuts, scanRE, replaceRE)
           if (token.info === 'auto') { autolinkLevel -= token.nesting; }
         }
 
-        if (token.type === 'text' && autolinkLevel === 0 && scanRE.test(token.content)) {
+        if (token.type === 'text' && scanRE.test(token.content) && autolinkLevel === 0) {
           // replace current node
           blockTokens[j].children = tokens = arrayReplaceAt(
             tokens, i, splitTextToken(token.content, token.level, state.Token)
@@ -22150,8 +21949,10 @@ module.exports = [
   'option',
   'p',
   'param',
+  'pre',
   'section',
   'source',
+  'title',
   'summary',
   'table',
   'tbody',
@@ -22543,18 +22344,18 @@ module.exports = function parseLinkDestination(str, pos, max) {
 
     if (code === 0x28 /* ( */) {
       level++;
+      if (level > 1) { break; }
     }
 
     if (code === 0x29 /* ) */) {
-      if (level === 0) { break; }
       level--;
+      if (level < 0) { break; }
     }
 
     pos++;
   }
 
   if (start === pos) { return result; }
-  if (level !== 0) { return result; }
 
   result.str = unescapeAll(str.slice(start, pos));
   result.lines = lines;
@@ -23269,7 +23070,7 @@ var _rules = [
   [ 'table',      require('./rules_block/table'),      [ 'paragraph', 'reference' ] ],
   [ 'code',       require('./rules_block/code') ],
   [ 'fence',      require('./rules_block/fence'),      [ 'paragraph', 'reference', 'blockquote', 'list' ] ],
-  [ 'blockquote', require('./rules_block/blockquote'), [ 'paragraph', 'reference', 'blockquote', 'list' ] ],
+  [ 'blockquote', require('./rules_block/blockquote'), [ 'paragraph', 'reference', 'list' ] ],
   [ 'hr',         require('./rules_block/hr'),         [ 'paragraph', 'reference', 'blockquote', 'list' ] ],
   [ 'list',       require('./rules_block/list'),       [ 'paragraph', 'reference', 'blockquote' ] ],
   [ 'reference',  require('./rules_block/reference') ],
@@ -23334,7 +23135,7 @@ ParserBlock.prototype.tokenize = function (state, startLine, endLine) {
       if (ok) { break; }
     }
 
-    // set state.tight if we had an empty line before current tag
+    // set state.tight iff we had an empty line before current tag
     // i.e. latest empty line should not count
     state.tight = !hasEmptyLines;
 
@@ -23862,7 +23663,7 @@ default_rules.fence = function (tokens, idx, options, env, slf) {
     return highlighted + '\n';
   }
 
-  // If language exists, inject class gently, without modifying original token.
+  // If language exists, inject class gently, without mudofying original token.
   // May be, one day we will add .clone() for token and simplify this part, but
   // now we prefer to keep things local.
   if (info) {
@@ -23951,7 +23752,7 @@ function Renderer() {
    * var result = md.renderInline(...);
    * ```
    *
-   * Each rule is called as independent static function with fixed signature:
+   * Each rule is called as independed static function with fixed signature:
    *
    * ```javascript
    * function my_token_render(tokens, idx, options, env, renderer) {
@@ -24247,7 +24048,7 @@ Ruler.prototype.__compile__ = function () {
  *
  * ##### Example
  *
- * Replace existing typographer replacement rule with new one:
+ * Replace existing typorgapher replacement rule with new one:
  *
  * ```javascript
  * var md = require('markdown-it')();
@@ -24507,6 +24308,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
       ch,
       i,
       initial,
+      isOutdented,
       l,
       lastLineEmpty,
       lines,
@@ -24522,7 +24324,6 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
       terminate,
       terminatorRules,
       token,
-      wasOutdented,
       oldLineMax = state.lineMax,
       pos = state.bMarks[startLine] + state.tShift[startLine],
       max = state.eMarks[startLine];
@@ -24603,7 +24404,6 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
 
   oldParentType = state.parentType;
   state.parentType = 'blockquote';
-  wasOutdented = false;
 
   // Search the end of the block
   //
@@ -24632,7 +24432,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
     //    > current blockquote
     // 2. checking this line
     // ```
-    if (state.sCount[nextLine] < state.blkIndent) wasOutdented = true;
+    isOutdented = state.sCount[nextLine] < state.blkIndent;
 
     pos = state.bMarks[nextLine] + state.tShift[nextLine];
     max = state.eMarks[nextLine];
@@ -24642,7 +24442,7 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
       break;
     }
 
-    if (state.src.charCodeAt(pos++) === 0x3E/* > */ && !wasOutdented) {
+    if (state.src.charCodeAt(pos++) === 0x3E/* > */ && !isOutdented) {
       // This line is inside the blockquote.
 
       // skip spaces after ">" and re-calculate offset
@@ -24741,6 +24541,8 @@ module.exports = function blockquote(state, startLine, endLine, silent) {
 
       break;
     }
+
+    if (isOutdented) break;
 
     oldBMarks.push(state.bMarks[nextLine]);
     oldBSCount.push(state.bsCount[nextLine]);
@@ -25186,7 +24988,7 @@ module.exports = function lheading(state, startLine, endLine/*, silent*/) {
 var isSpace = require('../common/utils').isSpace;
 
 
-// Search `[-+*][\n ]`, returns next pos after marker on success
+// Search `[-+*][\n ]`, returns next pos arter marker on success
 // or -1 on fail.
 function skipBulletListMarker(state, startLine) {
   var marker, pos, max, ch;
@@ -25214,7 +25016,7 @@ function skipBulletListMarker(state, startLine) {
   return pos;
 }
 
-// Search `\d+[.)][\n ]`, returns next pos after marker on success
+// Search `\d+[.)][\n ]`, returns next pos arter marker on success
 // or -1 on fail.
 function skipOrderedListMarker(state, startLine) {
   var ch,
@@ -25391,10 +25193,12 @@ module.exports = function list(state, startLine, endLine, silent) {
     while (pos < max) {
       ch = state.src.charCodeAt(pos);
 
-      if (ch === 0x09) {
-        offset += 4 - (offset + state.bsCount[nextLine]) % 4;
-      } else if (ch === 0x20) {
-        offset++;
+      if (isSpace(ch)) {
+        if (ch === 0x09) {
+          offset += 4 - (offset + state.bsCount[nextLine]) % 4;
+        } else {
+          offset++;
+        }
       } else {
         break;
       }
@@ -25495,7 +25299,7 @@ module.exports = function list(state, startLine, endLine, silent) {
     if (markerCharCode !== state.src.charCodeAt(posAfterMarker - 1)) { break; }
   }
 
-  // Finalize list
+  // Finilize list
   if (isOrdered) {
     token = state.push('ordered_list_close', 'ol', -1);
   } else {
@@ -26561,8 +26365,7 @@ function process_inlines(tokens, state) {
         lastChar = text.charCodeAt(t.index - 1);
       } else {
         for (j = i - 1; j >= 0; j--) {
-          if (tokens[j].type === 'softbreak' || tokens[j].type === 'hardbreak') break; // lastChar defaults to 0x20
-          if (tokens[j].type !== 'text') continue;
+          if (tokens[j].type !== 'text') { continue; }
 
           lastChar = tokens[j].content.charCodeAt(tokens[j].content.length - 1);
           break;
@@ -26578,8 +26381,7 @@ function process_inlines(tokens, state) {
         nextChar = text.charCodeAt(pos);
       } else {
         for (j = i + 1; j < tokens.length; j++) {
-          if (tokens[j].type === 'softbreak' || tokens[j].type === 'hardbreak') break; // nextChar defaults to 0x20
-          if (tokens[j].type !== 'text') continue;
+          if (tokens[j].type !== 'text') { continue; }
 
           nextChar = tokens[j].content.charCodeAt(0);
           break;
@@ -26963,7 +26765,7 @@ module.exports.postProcess = function emphasis(state) {
       delimiters = state.delimiters,
       max = state.delimiters.length;
 
-  for (i = max - 1; i >= 0; i--) {
+  for (i = 0; i < max; i++) {
     startDelim = delimiters[i];
 
     if (startDelim.marker !== 0x5F/* _ */ && startDelim.marker !== 0x2A/* * */) {
@@ -26977,16 +26779,16 @@ module.exports.postProcess = function emphasis(state) {
 
     endDelim = delimiters[startDelim.end];
 
-    // If the previous delimiter has the same marker and is adjacent to this one,
+    // If the next delimiter has the same marker and is adjacent to this one,
     // merge those into one strong delimiter.
     //
     // `<em><em>whatever</em></em>` -> `<strong>whatever</strong>`
     //
-    isStrong = i > 0 &&
-               delimiters[i - 1].end === startDelim.end + 1 &&
-               delimiters[i - 1].token === startDelim.token - 1 &&
-               delimiters[startDelim.end + 1].token === endDelim.token + 1 &&
-               delimiters[i - 1].marker === startDelim.marker;
+    isStrong = i + 1 < max &&
+               delimiters[i + 1].end === startDelim.end - 1 &&
+               delimiters[i + 1].token === startDelim.token + 1 &&
+               delimiters[startDelim.end - 1].token === endDelim.token - 1 &&
+               delimiters[i + 1].marker === startDelim.marker;
 
     ch = String.fromCharCode(startDelim.marker);
 
@@ -27005,9 +26807,9 @@ module.exports.postProcess = function emphasis(state) {
     token.content = '';
 
     if (isStrong) {
-      state.tokens[delimiters[i - 1].token].content = '';
-      state.tokens[delimiters[startDelim.end + 1].token].content = '';
-      i--;
+      state.tokens[delimiters[i + 1].token].content = '';
+      state.tokens[delimiters[startDelim.end - 1].token].content = '';
+      i++;
     }
   }
 };
@@ -27063,7 +26865,7 @@ module.exports = function entity(state, silent) {
 };
 
 },{"../common/entities":212,"../common/utils":215}],253:[function(require,module,exports){
-// Process escaped chars and hardbreaks
+// Proceess escaped chars and hardbreaks
 
 'use strict';
 
@@ -30394,7 +30196,7 @@ module.exports=/[\0-\x1F\x7F-\x9F]/
 },{}],274:[function(require,module,exports){
 module.exports=/[\xAD\u0600-\u0605\u061C\u06DD\u070F\u08E2\u180E\u200B-\u200F\u202A-\u202E\u2060-\u2064\u2066-\u206F\uFEFF\uFFF9-\uFFFB]|\uD804\uDCBD|\uD82F[\uDCA0-\uDCA3]|\uD834[\uDD73-\uDD7A]|\uDB40[\uDC01\uDC20-\uDC7F]/
 },{}],275:[function(require,module,exports){
-module.exports=/[!-#%-\*,-/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u09FD\u0AF0\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E49\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC9\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDF3C-\uDF3E]|\uD806[\uDE3F-\uDE46\uDE9A-\uDE9C\uDE9E-\uDEA2]|\uD807[\uDC41-\uDC45\uDC70\uDC71]|\uD809[\uDC70-\uDC74]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]/
+module.exports=/[!-#%-\*,-/:;\?@\[-\]_\{\}\xA1\xA7\xAB\xB6\xB7\xBB\xBF\u037E\u0387\u055A-\u055F\u0589\u058A\u05BE\u05C0\u05C3\u05C6\u05F3\u05F4\u0609\u060A\u060C\u060D\u061B\u061E\u061F\u066A-\u066D\u06D4\u0700-\u070D\u07F7-\u07F9\u0830-\u083E\u085E\u0964\u0965\u0970\u0AF0\u0DF4\u0E4F\u0E5A\u0E5B\u0F04-\u0F12\u0F14\u0F3A-\u0F3D\u0F85\u0FD0-\u0FD4\u0FD9\u0FDA\u104A-\u104F\u10FB\u1360-\u1368\u1400\u166D\u166E\u169B\u169C\u16EB-\u16ED\u1735\u1736\u17D4-\u17D6\u17D8-\u17DA\u1800-\u180A\u1944\u1945\u1A1E\u1A1F\u1AA0-\u1AA6\u1AA8-\u1AAD\u1B5A-\u1B60\u1BFC-\u1BFF\u1C3B-\u1C3F\u1C7E\u1C7F\u1CC0-\u1CC7\u1CD3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205E\u207D\u207E\u208D\u208E\u2308-\u230B\u2329\u232A\u2768-\u2775\u27C5\u27C6\u27E6-\u27EF\u2983-\u2998\u29D8-\u29DB\u29FC\u29FD\u2CF9-\u2CFC\u2CFE\u2CFF\u2D70\u2E00-\u2E2E\u2E30-\u2E44\u3001-\u3003\u3008-\u3011\u3014-\u301F\u3030\u303D\u30A0\u30FB\uA4FE\uA4FF\uA60D-\uA60F\uA673\uA67E\uA6F2-\uA6F7\uA874-\uA877\uA8CE\uA8CF\uA8F8-\uA8FA\uA8FC\uA92E\uA92F\uA95F\uA9C1-\uA9CD\uA9DE\uA9DF\uAA5C-\uAA5F\uAADE\uAADF\uAAF0\uAAF1\uABEB\uFD3E\uFD3F\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE61\uFE63\uFE68\uFE6A\uFE6B\uFF01-\uFF03\uFF05-\uFF0A\uFF0C-\uFF0F\uFF1A\uFF1B\uFF1F\uFF20\uFF3B-\uFF3D\uFF3F\uFF5B\uFF5D\uFF5F-\uFF65]|\uD800[\uDD00-\uDD02\uDF9F\uDFD0]|\uD801\uDD6F|\uD802[\uDC57\uDD1F\uDD3F\uDE50-\uDE58\uDE7F\uDEF0-\uDEF6\uDF39-\uDF3F\uDF99-\uDF9C]|\uD804[\uDC47-\uDC4D\uDCBB\uDCBC\uDCBE-\uDCC1\uDD40-\uDD43\uDD74\uDD75\uDDC5-\uDDC9\uDDCD\uDDDB\uDDDD-\uDDDF\uDE38-\uDE3D\uDEA9]|\uD805[\uDC4B-\uDC4F\uDC5B\uDC5D\uDCC6\uDDC1-\uDDD7\uDE41-\uDE43\uDE60-\uDE6C\uDF3C-\uDF3E]|\uD807[\uDC41-\uDC45\uDC70\uDC71]|\uD809[\uDC70-\uDC74]|\uD81A[\uDE6E\uDE6F\uDEF5\uDF37-\uDF3B\uDF44]|\uD82F\uDC9F|\uD836[\uDE87-\uDE8B]|\uD83A[\uDD5E\uDD5F]/
 },{}],276:[function(require,module,exports){
 module.exports=/[ \xA0\u1680\u2000-\u200A\u202F\u205F\u3000]/
 },{}],277:[function(require,module,exports){
