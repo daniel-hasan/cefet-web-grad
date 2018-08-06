@@ -1,4 +1,4 @@
-- Crie um repositório com o nome `nome-do-usuario.github.io`:
+- Crie um repositório com o nome `nome-do-usuario.github.io`.
 
 - No terminal, baixe o repositório em sua máquina (i.e. clone):
 

@@ -869,7 +869,7 @@ Content-Length: 131
     1. Abra o bloco de notas e, com ele vazio,
            salve um novo arquivo, nessa pasta, com o nome `index.html`
 
-    [instrucoes-gitpages]: https://github.com/daniel-hasan/cefet-web-grad/assignments/github-pages
+    [instrucoes-gitpages]: https://github.com/daniel-hasan/cefet-web-grad/tree/master/assignments/github-pages
 ---
 <!-- {"preventSelection": "pre > code", "elementStyles": {"pre": "height: 170px"} } -->
 # Atividade Prática (3/4)
