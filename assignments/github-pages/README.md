@@ -20,6 +20,7 @@ git add --all
 git commit -m "Initial commit"
 git push -u origin master
 ```
+
 - Você pode também enviar arquivos na interface web do GitHub.
 
 - Caso tenha alterado em outro computador (ou na interface web do git) e queira obter as modificações em seu computador, execute:
