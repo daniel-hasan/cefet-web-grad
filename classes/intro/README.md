@@ -884,7 +884,7 @@ pre{
 }
 </style>
 - **Atividade 1**
-  - Digite o conteúdo do novo arquivo criado `ovelhas/index.html` no editor de texto:
+  - Digite o conteúdo do novo arquivo criado `index.html` no editor de texto:
     ```html
     <!DOCTYPE html>
     <html>
