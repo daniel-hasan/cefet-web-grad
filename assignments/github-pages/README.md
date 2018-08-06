@@ -6,7 +6,7 @@
 git clone https://github.com/nome-do-usuario/nome-do-usuario.github.io
 ```
 
-- Acesse o projeto. Nele você poderá criar arquivos que estarão disponíveis em `nome-do-usuario.github.io`:
+- Acesse o projeto. Nele você poderá criar arquivos que estarão disponíveis em `https://nome-do-usuario.github.io`:
 
 ```
 cd nome-do-usuario.github.io
