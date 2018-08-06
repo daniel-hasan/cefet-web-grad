@@ -853,8 +853,7 @@ Content-Length: 131
 
 **Enunciado**
   ~ Você vai recriar a página das raças raras de ovelhas.
-  ~ Para isso, você deve baixar [este arquivo compactado][codigo-seminal-ovelhas]
-        que contém os arquivos iniciais da prática: imagens, um arquivo CSS e dois arquivos JavaScript.
+  ~ Para isso, faça um _fork_ no repositório: https://github.com/daniel-hasan/cefet-web-ovelhas que contém os arquivos iniciais da prática: imagens, um arquivo CSS e dois arquivos JavaScript.
   ~ Leia os 5 slides da atividade <u>antes de começar</u>!
 
 
@@ -864,10 +863,9 @@ Content-Length: 131
 # Atividade Prática (2/5)
 
 **Pré-Atividade**
-  ~ 1. Faça um "Hello World" usando o GitHub pages. [Veja instruções aqui][instrucoes-gitpages]
-    1. Dentro do repositório criado em sua máquina, crie uma pasta "ovelhas" para a prática de hoje. Haverá um diretório por prática feita neste semestre. **Baixe** e **descompacte** os arquivos iniciais da prática nesta pasta.
+  ~ 1. Baixe o repositório que foi feito o _fork_. [Veja instruções aqui][instrucoes-gitpages]
     1. Abra o bloco de notas e, com ele vazio,
-           salve um novo arquivo, nessa pasta, com o nome `index.html`
+           salve um novo arquivo, na pasta raiz do repositório criado, com o nome `index.html`
 
     [instrucoes-gitpages]: https://github.com/daniel-hasan/cefet-web-grad/tree/master/assignments/github-pages
 ---
@@ -957,9 +955,8 @@ pre{
   ~ Faça a descrição sobre mais uma raça ovelha (pode ser, por exemplo, a Ninjo-velha). Use sua criatividade. O Layout deve ser o mesmo das demais ovelhas. Procure uma imagem na Internet para retratá-la.
 
 **Envio**
-  ~ Envie, por meio do SIGA o link do github pages **desta prática** exemplo: http://daniel-hasan.github.io/ovelhas <!-- ([clique aqui e veja][paso-a-passo])-->.
+  ~ Envie, por meio do SIGA, o link do GitHub pages **desta prática** exemplo: http://daniel-hasan.github.io/cefet-web-ovelhas <!-- ([clique aqui e veja][paso-a-passo])-->.
 
-  [paso-a-passo]: http://www.zdnet.com/blog/networking/before-the-web-the-internet-in-1991/834
 ---
 # Referências
 
