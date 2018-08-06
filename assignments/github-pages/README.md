@@ -22,7 +22,7 @@ git push -u origin master
 ```
 
 - Você pode também enviar arquivos na interface web do GitHub.
-
+- Após enviado os arquivos, você poderá acessar a página por meio do link: http://nome-do-usuario.github.io
 - Caso tenha alterado em outro computador (ou na interface web do git) e queira obter as modificações em seu computador, execute:
 
 ```

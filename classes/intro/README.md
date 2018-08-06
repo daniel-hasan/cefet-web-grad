@@ -849,26 +849,30 @@ Content-Length: 131
 
 
 ---
-# Atividade Prática (1/3)
+# Atividade Prática (1/4)
 
 **Enunciado**
   ~ Você vai recriar a página das raças raras de ovelhas.
   ~ Para isso, você deve baixar [este arquivo compactado][codigo-seminal-ovelhas]
-        que contém as imagens, um arquivo CSS e dois arquivos JavaScript.
-  ~ Leia os 3 slides da atividade <u>antes de começar</u>!
+        que contém os arquivos iniciais da prática: imagens, um arquivo CSS e dois arquivos JavaScript.
+  ~ Leia os 4 slides da atividade <u>antes de começar</u>!
+
+
+    [codigo-seminal-ovelhas]: https://github.com/fegemo/cefet-web-ovelhas/archive/exercicio.zip
+
+---
+# Atividade Prática (2/4)
 
 **Pré-Atividade**
   ~ 1. Faça um "Hello World" usando o GitHub pages. [Veja instruções aqui][instrucoes-gitpages]
-    1. Dentro do repositório criado em sua máquina, crie uma pasta "ovelhas" para a prática de hoje.
-    **Baixe** e **descompacte** os arquivos nesta pasta.
+    1. Dentro do repositório criado em sua máquina, crie uma pasta "ovelhas" para a prática de hoje. Haverá um diretório por prática feita neste semestre. **Baixe** e **descompacte** os arquivos iniciais da prática nesta pasta.
     1. Abra o bloco de notas e, com ele vazio,
            salve um novo arquivo, nessa pasta, com o nome `index.html`
 
-    [codigo-seminal-ovelhas]: https://github.com/fegemo/cefet-web-ovelhas/archive/exercicio.zip
     [instrucoes-gitpages]: https://github.com/daniel-hasan/cefet-web-grad/assignments/github-pages
 ---
 <!-- {"preventSelection": "pre > code", "elementStyles": {"pre": "height: 170px"} } -->
-# Atividade Prática (2/3)
+# Atividade Prática (3/4)
 <style>
 pre > code{
 -webkit-user-select: none;  
@@ -882,7 +886,7 @@ pre{
 }
 </style>
 - **Atividade 1**
-  - Digite o conteúdo do arquivo `racas-raras.html` no editor de texto:
+  - Digite o conteúdo do novo arquivo criado `ovelhas/index.html` no editor de texto:
     ```html
     <!DOCTYPE html>
     <html>
@@ -936,8 +940,9 @@ pre{
   - De tempos em tempos, **<u>abra o arquivo</u> no navegador** para ver como está ficando
   - Para saber se está certo, compare a sua página com a do professor: http://fegemo.github.io/cefet-web-ovelhas/racas-raras.html <!-- {target="_blank"}-->
   -
+  -
 ---
-# Atividade Prática (3/3)
+# Atividade Prática (4/4)
 
 **Atividade 2**
   ~ Depois de copiado o código, você deve testar algumas _tags_, como:
@@ -951,8 +956,7 @@ pre{
   ~ Faça a descrição sobre mais uma raça ovelha (pode ser, por exemplo, a Ninjo-velha). Use sua criatividade. O Layout deve ser o mesmo das demais ovelhas. Procure uma imagem na Internet para retratá-la.
 
 **Envio**
-  ~ Para enviar, crie uma página no github pages. Nele, você criará a pasta "ovelhas" com esta tarefa<!-- ([clique aqui e veja][paso-a-passo])-->.
-  Haverá um diretório por prática.
+  ~ Envie, por meio do SIGA o link do github pages **desta prática** exemplo: http://daniel-hasan.github.io/ovelhas <!-- ([clique aqui e veja][paso-a-passo])-->.
 
   [paso-a-passo]: http://www.zdnet.com/blog/networking/before-the-web-the-internet-in-1991/834
 ---
