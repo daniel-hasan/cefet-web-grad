@@ -849,19 +849,19 @@ Content-Length: 131
 
 
 ---
-# Atividade Prática (1/4)
+# Atividade Prática (1/5)
 
 **Enunciado**
   ~ Você vai recriar a página das raças raras de ovelhas.
   ~ Para isso, você deve baixar [este arquivo compactado][codigo-seminal-ovelhas]
         que contém os arquivos iniciais da prática: imagens, um arquivo CSS e dois arquivos JavaScript.
-  ~ Leia os 4 slides da atividade <u>antes de começar</u>!
+  ~ Leia os 5 slides da atividade <u>antes de começar</u>!
 
 
     [codigo-seminal-ovelhas]: https://github.com/fegemo/cefet-web-ovelhas/archive/exercicio.zip
 
 ---
-# Atividade Prática (2/4)
+# Atividade Prática (2/5)
 
 **Pré-Atividade**
   ~ 1. Faça um "Hello World" usando o GitHub pages. [Veja instruções aqui][instrucoes-gitpages]
@@ -872,7 +872,7 @@ Content-Length: 131
     [instrucoes-gitpages]: https://github.com/daniel-hasan/cefet-web-grad/tree/master/assignments/github-pages
 ---
 <!-- {"preventSelection": "pre > code", "elementStyles": {"pre": "height: 170px"} } -->
-# Atividade Prática (3/4)
+# Atividade Prática (3/5)
 <style>
 pre > code{
 -webkit-user-select: none;  
@@ -942,7 +942,7 @@ pre{
   -
   -
 ---
-# Atividade Prática (4/4)
+# Atividade Prática (4/5)
 
 **Atividade 2**
   ~ Depois de copiado o código, você deve testar algumas _tags_, como:
@@ -951,7 +951,8 @@ pre{
         `em`, `ins` e `mark`. Veja o que ocorre e entenda o funcionamento de
         cada uma _tag_ usada
   ~ Ao pesquisar no Google, prefira sempre a página MDN (informação confiável, completa e sem propagandas)
-
+---
+# Atividade Prática (5/5)
 **Atividade 3**
   ~ Faça a descrição sobre mais uma raça ovelha (pode ser, por exemplo, a Ninjo-velha). Use sua criatividade. O Layout deve ser o mesmo das demais ovelhas. Procure uma imagem na Internet para retratá-la.
 
