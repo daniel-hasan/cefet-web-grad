@@ -858,16 +858,17 @@ Content-Length: 131
   ~ Leia os 3 slides da atividade <u>antes de começar</u>!
 
 **Pré-Atividade**
-  ~ 1. **Baixe** e **descompacte** os arquivos em uma pasta (e.g.,
-           "Documentos/Ovelhas")
+  ~ 1. Faça um "Hello World" usando o GitHub pages. [Veja instruções aqui][instrucoes-gitpages]
+    1. Dentro do repositório criado em sua máquina, crie uma pasta "ovelhas" para a prática de hoje.
+    **Baixe** e **descompacte** os arquivos nesta pasta.
     1. Abra o bloco de notas e, com ele vazio,
-           salve um novo arquivo, nessa pasta, com o nome `racas-raras.html`
+           salve um novo arquivo, nessa pasta, com o nome `index.html`
 
     [codigo-seminal-ovelhas]: https://github.com/fegemo/cefet-web-ovelhas/archive/exercicio.zip
-
+    [instrucoes-gitpages]: https://github.com/daniel-hasan/cefet-web-grad/assignments/github-pages
 ---
 <!-- {"preventSelection": "pre > code", "elementStyles": {"pre": "height: 170px"} } -->
-# Atividade Prática (2/4)
+# Atividade Prática (2/3)
 <style>
 pre > code{
 -webkit-user-select: none;  
