@@ -226,23 +226,97 @@ página web.
 ---
 ## Exemplo: **legenda, cabeçalho e rodapé** (3/3)
 
-```html
-<table>
-  <caption>Alunos de Web</caption>
-  <thead>
-    <tr>
-      <th colspan="2">Pessoas</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2005046102</td><td>Epaminondas</td>
-    </tr>
-  </tbody>
-</table>
-```
-- Exemplo: http://jsfiddle.net/fegemo/wL3zg2y1/7/
+<iframe width="65%" height="375px" src="https://jsfiddle.net/danielhasan/nmrbhqkb/10/embedded/result,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
+---
+<!-- {"layout": "section-header", "slideHash": "elementos-inline-vs-block"} -->
+# Elementos _inline_ _vs._ _block_
+## Quebrar ou não quebrar linha? :thought_balloon:
+
+
+![](../../images/philosoraptor.jpg) <!-- {.portrait.centered} -->
+
+Pergunta
+~  Por que um **parágrafo** está sempre **abaixo do outro**, mas
+  um elemento **`<strong>`** pode ficar **ao lado** de outro texto?
+
+<!-- {dl:.content} -->
+
+---
+## Fazendo um *teste*
+
+1. Colocando dois `<p>` seguidos
+   - ```html
+     <p>Primeiro</p> <p>Segundo</p>
+     ```
+     <!-- {li:style="flex-grow: 1;"} -->
+   - ::: result
+     <p>Primeiro</p> <p>Segundo</p>
+     :::
+     <!-- {ul:.layout-split-2.no-list-icon.no-padding} -->
+     <!-- {li:style="flex-grow: 1;"} -->
+     <!-- {ol:style="width: 100%;"} -->
+1. Colocando dois `<strong>` seguidos
+   - ```html
+     <strong>Primeiro</strong> <strong>Segundo</strong>
+     ```
+     <!-- {li:style="flex-grow: 1;"} -->
+   - ::: result
+     <strong style="color: inherit;">Primeiro</strong> <strong style="color: inherit;">Segundo</strong>
+     :::
+     <!-- {ul:.layout-split-2.no-list-icon.no-padding} -->
+     <!-- {li:style="flex-grow: 1;"} -->
+     <!-- {ol:style="width: 100%;"} -->
+
+Por quê isso acontece?
+
+---
+## Elementos _block_ e elementos _inline_
+
+- Ao desenhar uma página, o navegador precisa decidir **como <u>dispor</u>
+  os elementos**
+- Alguns elementos são do tipo `block`, outros são `inline`:
+
+  Elementos `block`
+    ~ são dispotos um <u>abaixo do outro</u>
+
+  Elementos `inline`
+    ~ são dispostos um <u>à direita do outro</u>
+
+---
+## Elementos **`block`**
+
+![](../../images/flow1.png)
+
+---
+## Elementos **`inline`**
+
+![](../../images/flow2.png)
+
+---
+## `block` e `inline`, juntos
+
+![](../../images/flow3.png)
+
+---
+<!-- {"layout": "2-column-content"} -->
+## De volta ao **`<p>` _vs._ `<strong>`**...
+
+- São elementos `block`:
+  - **`<p>`**
+  - `<h1>...<h6>`
+  - `<ul>`, `<ol>`, `<li>`
+  - e outros...
+
+1. São elementos `inline`:
+   - **`<strong>`**
+   - `<em>`
+   - `<del>`, `<ins>`
+   - `<mark>`
+   - `<em>`
+   - `<a>`
+   - `<img>`
+   - e outros...
 ---
 ## Agora, algumas **propriedades <u>CSS</u>** (1/3)
 
@@ -298,7 +372,13 @@ td, th {
   border: 1px solid silver;
 }
 ```
+---
+<!-- {"layout": "regular-block"} -->
+## Estilizando a tabela do nosso exemplo
 
+<iframe width="48%" height="400" src="https://jsfiddle.net/fegemo/yezb7ebo/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0" style="float: left;"></iframe>
+
+<iframe width="48%" height="400" src="https://jsfiddle.net/fegemo/yezb7ebo/embedded/css,html/" allowfullscreen="allowfullscreen" frameborder="0" style="float: right;"></iframe>
 ---
 # Referências
 
