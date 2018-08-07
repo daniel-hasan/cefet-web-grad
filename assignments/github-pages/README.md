@@ -30,10 +30,10 @@ git push -u origin gh-pages
 ```
 
 - Você pode também enviar arquivos na interface web do GitHub.
-- `gh-pages` é o branch que o GitHub usa para que você possa acessar esses arquivos por meio do GitHub pages. Ou seja, caso tenha um `index.html`, você poderá acessar a página web desenvolvida por meio da URL: https://nome-do-usuario.github.io/nome-do-respositorio 
+- `gh-pages` é um branch especial do GitHub para que você possa acessar esses arquivos por meio do GitHub pages. Ou seja, caso tenha um `index.html`, você poderá acessar a página web desenvolvida por meio da URL: https://nome-do-usuario.github.io/nome-do-respositorio 
 
 
-- Caso tenha alterado em outro computador (ou na interface web do git) e queira obter as modificações em seu computador, execute:
+- Caso tenha o repositório em mais de uma máquina, para obter as modificações atualizadas em um computador, execute:
 
 ```
 git pull origin gh-pages
