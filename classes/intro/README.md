@@ -945,7 +945,7 @@ pre{
 **Atividade 2**
   ~ Depois de copiado o código, você deve testar algumas _tags_, como:
     - `O <del>interessante</del> surpreendente animal`
-  ~ Altere o conteúdo dentro do `<body>` usando as seguintes _tags_: `del`,
+  ~ Altere o conteúdo dentro do `<body>` usando as seguintes _tags_: `del`, `strong`,
         `em`, `ins` e `mark`. Veja o que ocorre e entenda o funcionamento de
         cada uma _tag_ usada
   ~ Ao pesquisar no Google, prefira sempre a página MDN (informação confiável, completa e sem propagandas)
