@@ -24,11 +24,11 @@ página web.
 ## Passos para o exercício
 
 1. Instalar o git na máquina, caso ele não esteja instalado
-1. **Criar um _fork_** do repositório do professor em [`https://github.com/fegemo/cefet-web-piranha-plant`](https://github.com/fegemo/cefet-web-piranha-plant)
+1. **Criar um _fork_** do repositório do professor em [`https://github.com/daniel-hasan/cefet-web-piranha-plant`](https://github.com/daniel-hasan/cefet-web-piranha-plant)
   e **cloná-lo para sua área de trabalho**
 1. Fazer o exercício e fazer _commits_ e _push_ no seu repositório
    - O arquivo `README.md` do repositório contém as instruções do exercício
-1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
+1. Enviar, via **SIGA**, o link do seu repositório até o final da aula
 
 ---
 ## _Tags_ que indicam **Importância**

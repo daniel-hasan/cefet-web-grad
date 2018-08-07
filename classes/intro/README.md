@@ -863,9 +863,9 @@ Content-Length: 131
 # Atividade Prática (2/5)
 
 **Pré-Atividade**
-  ~ 1. Baixe o repositório que foi feito o _fork_. [Veja instruções aqui][instrucoes-gitpages]
+  ~ 1. Faça o _clone_ do repositório que foi feito o _fork_. [Veja instruções aqui][instrucoes-gitpages]
     1. Abra o bloco de notas e, com ele vazio,
-           salve um novo arquivo, na pasta raiz do repositório criado, com o nome `index.html`
+           salve um novo arquivo, na pasta raiz do repositório, com o nome `index.html`
 
     [instrucoes-gitpages]: https://github.com/daniel-hasan/cefet-web-grad/tree/master/assignments/github-pages
 ---
