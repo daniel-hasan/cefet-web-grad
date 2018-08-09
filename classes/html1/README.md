@@ -125,7 +125,6 @@ navegadores**
 - Indentação e espaçamento são livres e não afetam o resultado
 - Um arquivo html é _plain-text_, ou puramente textual
   - em contraposição a um arquivo binário, por exemplo
-- Questionário Maroto: [Elementos HTML básicos](https://moodle.cefetmg.br/mod/quiz/view.php?id=17713)
 
 ---
 ## Estrutura (cont.)
@@ -195,8 +194,8 @@ navegadores**
 ---
 ## A _tag_ &lt;html&gt;
 
-- Envolve todas* as outras _tags_
-  - *Exceto a _tag_ especial `<!DOCTYPE html>`
+- Envolve *todas* as outras _tags_
+  - *Exceto* a _tag_ especial `<!DOCTYPE html>`
 - Dentro dela, **devem existir todas e apenas**, nesta ordem:
   - `<head>...</head>`
   - `<body>...</body>`
