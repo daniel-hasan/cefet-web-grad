@@ -30211,6 +30211,140 @@ exports.Z   = require('./categories/Z/regex');
 },{"./categories/Cc/regex":273,"./categories/Cf/regex":274,"./categories/P/regex":275,"./categories/Z/regex":276,"./properties/Any/regex":278}],278:[function(require,module,exports){
 module.exports=/[\0-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/
 },{}],279:[function(require,module,exports){
+module.exports = function() {
+  function getChildNumber(node) {
+    return Array.prototype.indexOf.call(node.parentElement.children, node);
+  }
+
+  function resolveOperand(operand) {
+    let elements = [],
+      result = operand;
+    switch (typeof operand) {
+      case 'string':
+        try {
+          elements = document.querySelectorAll(operand);
+        } catch (error) {
+          // ignores the error: the operand was not a selector
+        }
+        if (elements && elements.length == 1) {
+          if (typeof elements[0].value !== 'undefined') {
+            result = elements[0].value;
+          } else {
+            result = elements[0].innerHTML;
+          }
+        } else {
+          result = operand;
+        }
+        break;
+      case 'bool':
+      case 'number':
+        result = operand;
+        break;
+      default:
+        result = null;
+    }
+    return result;
+  }
+
+  let operators = {
+    'equal': function(condition) {
+      // all operands must be equal... the current must equal the previous
+      return condition.operands.reduce((prev, current) => {
+        let resolvedOperand = resolveOperand(current);
+        return prev == resolveOperand(current) ? resolvedOperand : false;
+      }, resolveOperand(condition.operands[0]));
+    },
+
+    'contains': function(condition, ignoreCase) {
+      let [firstOperand, ...remainingOperands] = condition.operands;
+      firstOperand = resolveOperand(firstOperand)
+      if (ignoreCase) {
+        firstOperand = firstOperand.toLocaleLowerCase();
+      }
+
+      // the first operand must contain all the others
+      return remainingOperands.every(operand => {
+        let resolvedOperand = resolveOperand(operand);
+        if (ignoreCase) {
+          resolvedOperand = resolvedOperand.toLocaleLowerCase();
+        }
+        return firstOperand.indexOf(resolvedOperand) !== -1;
+      });
+
+    }
+  }
+
+  function checkCondition(configEl) {
+    let config = JSON.parse(configEl.value);
+    let satisfies = false;
+
+    satisfies = config.every(function(current, index) {
+      let result;
+      switch (current.operation) {
+        case 'equal':
+          result = operators.equal(current);
+          break;
+        case 'contains':
+          result = operators.contains(current, false);
+          break;
+        case 'containsIgnoreCase':
+          result = operators.contains(current, true);
+          break;
+        case 'leq':
+        case 'geq':
+        case 'lt':
+        case 'gt':
+        case 'nequal':
+          throw new Error(`bespoke-proceed: operation ${current.operation}
+            not yet implemented`);
+          break;
+      }
+      return result;
+    });
+
+    return satisfies;
+  }
+
+  return function(deck) {
+
+    // gets all conditions
+    let conditions = Array.from(document.querySelectorAll('.bespoke-proceed-condition'));
+
+    if (conditions) {
+      // turns conditions array into object like:
+      // {
+      //   25: {
+      //     configEl: htmlEl(.bespoke-proceed-condition),
+      //     satisfied: false
+      //   }
+      // }
+      conditions = conditions.reduce(function(prev, current) {
+        let slideEl = current.closest('.bespoke-slide'),
+          slideIndex = getChildNumber(slideEl);
+
+        prev[slideIndex] = {
+          configEl: current,
+          satisfied: false
+        };
+
+        return prev;
+      }, {});
+
+      // on deck.next event, check if we are in a slide with a condition,
+      // check the condition and conditionally prevent proceeding
+      deck.on('next', function(e) {
+        let conditionForCurrentSlide = conditions[e.index];
+        if (conditionForCurrentSlide && !conditionForCurrentSlide.satisfied) {
+          conditionForCurrentSlide.satisfied = checkCondition(conditionForCurrentSlide.configEl);
+
+          return conditionForCurrentSlide.satisfied;
+        }
+      });
+    }
+  }
+}
+
+},{}],280:[function(require,module,exports){
 var cheet = require('cheet.js');
 
 module.exports = function() {
@@ -30224,28 +30358,29 @@ module.exports = function() {
   cheet('i d d q d', toggleResolution);
 };
 
-},{"cheet.js":15}],280:[function(require,module,exports){
-var bespoke = require('bespoke'),
-    beachday = require('bespoke-theme-beachday'),
-    keys = require('bespoke-keys'),
-    touch = require('bespoke-touch'),
-    bullets = require('bespoke-bullets'),
-    scale = require('bespoke-scale'),
-    hash = require('bespoke-hash'),
-    overview = require('bespoke-simple-overview'),
-    progress = require('bespoke-progress'),
-    state = require('bespoke-state'),
-    markdown = require('bespoke-markdownit'),
-    markdownItAnchor = require('markdown-it-anchor'),
-    markdownItDefList = require('markdown-it-deflist'),
-    markdownItAbbr = require('markdown-it-abbr'),
-    markdownItContainer = require('markdown-it-container'),
-    markdownItDecorate = require('markdown-it-decorate'),
-    markdownItEmoji = require('markdown-it-emoji'),
-    forms = require('bespoke-forms'),
-    backdrop = require('bespoke-backdrop'),
-    easter = require('./easter'),
-    tutorial = require('./tutorial');
+},{"cheet.js":15}],281:[function(require,module,exports){
+let bespoke = require('bespoke'),
+  beachday = require('bespoke-theme-beachday'),
+  keys = require('bespoke-keys'),
+  touch = require('bespoke-touch'),
+  bullets = require('bespoke-bullets'),
+  scale = require('bespoke-scale'),
+  hash = require('bespoke-hash'),
+  overview = require('bespoke-simple-overview'),
+  progress = require('bespoke-progress'),
+  state = require('bespoke-state'),
+  markdown = require('bespoke-markdownit'),
+  markdownItAnchor = require('markdown-it-anchor'),
+  markdownItDefList = require('markdown-it-deflist'),
+  markdownItAbbr = require('markdown-it-abbr'),
+  markdownItContainer = require('markdown-it-container'),
+  markdownItDecorate = require('markdown-it-decorate'),
+  markdownItEmoji = require('markdown-it-emoji'),
+  forms = require('bespoke-forms'),
+  backdrop = require('bespoke-backdrop'),
+  proceed = require('./bespoke-proceed'),
+  easter = require('./easter'),
+  tutorial = require('./tutorial');
 
 // Bespoke.js
 bespoke.from('article', [
@@ -30289,6 +30424,14 @@ bespoke.from('article', [
       s.innerHTML = styleString;
       document.head.appendChild(s);
     },
+    elementStyles: function(slideEl, elementsAndTheirStyles) {
+      Object.keys(elementsAndTheirStyles).forEach(function(selector) {
+        Array.from(slideEl.querySelectorAll(selector))
+          .forEach(function(el) {
+            return el.setAttribute('style', elementsAndTheirStyles[selector]);
+          });
+      });
+    },
     slideHash: function(slide, value) {
       slide.setAttribute('data-bespoke-hash', value);
     },
@@ -30297,6 +30440,64 @@ bespoke.from('article', [
     },
     state: function(slide, value) {
       slide.setAttribute('data-bespoke-state', value);
+    },
+    preventSelection: function(slide, unselectableElementsSelector) {
+      var els = slide.querySelectorAll(unselectableElementsSelector);
+      els.forEach(function(el) {
+        el.onselectstart = function() { return false };
+        el.onmousedown = function() { return false };
+        el.setAttribute('unselectable', 'on');
+        el.style.userSelect = 'none';
+      });
+    },
+    fullScreenElement: function(slide, elementSelector) {
+      let el = slide.querySelector(elementSelector);
+      let requestFullScreenName = document.documentElement.requestFullScreen ?
+        'requestFullScreen' : `${['webkit', 'moz'].find(p => document.documentElement[`${p}RequestFullScreen`])}RequestFullScreen`;
+      let exitFullScreenName = document.exitFullScreen ?
+        'exitFullScreen' : `${['webkitExit', 'webkitCancel', 'mozExit', 'mozCancel']
+          .find(p => document[`${p}FullScreen`])}FullScreen`;
+
+      if (requestFullScreenName && exitFullScreenName) {
+        this.on('activate', function(e) {
+          if (e.slide === slide) {
+            el[requestFullScreenName]();
+          }
+        });
+        this.on('deactivate', function(e) {
+          if (e.slide === slide) {
+            document[exitFullScreenName]();
+          }
+        });
+      }
+    },
+    fullPageElement: function(slide, elementSelector) {
+      let el = slide.querySelector(elementSelector);
+      el.style.width = window.getComputedStyle(slide).width;
+      el.style.height = window.getComputedStyle(slide).height;
+      el.style.position = 'absolute';
+      el.style.left = el.style.top = '0';
+      // fix for chrome hiding the video controls behind (or under) the video
+      // from: https://stackoverflow.com/questions/22217084/video-tag-at-chrome-overlays-on-top
+      el.style.backfaceVisibility = 'hidden';
+      el.style.transform = 'translateZ(0)';
+    },
+    playMediaOnActivation: function(slide, { selector, delay = '1500'}) {
+      let els = slide.querySelectorAll(selector);
+      this.on('activate', function(e) {
+        if (e.slide === slide) {
+          setTimeout(() => {
+            Array.from(els).forEach(e => e.play ? e.play() : null);
+          }, delay);
+        }
+      });
+      this.on('deactivate', function(e) {
+        if (e.slide === slide) {
+          setTimeout(() => {
+            Array.from(els).forEach(e => e.pause ? e.pause() : null);
+          }, delay);
+        }
+      });
     }
   }, [
     [
@@ -30334,6 +30535,110 @@ bespoke.from('article', [
         }
       }
     ],
+    [
+      markdownItContainer,
+      'result',
+      {
+        validate: function(params) {
+          return params.trim().match(/^result.*$/);
+        },
+        render: function(tokens, idx, options, env, self) {
+          // formato:
+          // ::: result .primeira-classe.segunda.terceira background-color: white; color: black;
+          // ...conteúdo markdown...
+          // :::
+          // as classes devem estar "coladas" uma na outra e são opcionais
+          // após as classes, é possível definir uma string de estilos, que
+          // também é opcional. Se a string de estilos for definida, é
+          // necessário definir pelo menos 1 classe (ou então colocar apenas um
+          // ponto final sem nome de classe)
+          var m = tokens[idx].info.trim().match(/^result\s+([^\s]*)\s*(.*)?$/),
+            className = '',
+            styleString = '';
+
+          if (tokens[idx].nesting === 1) {
+            // opening tag
+            if (!!m && Array.isArray(m)) {
+              className = (m[1] || '').trim().replace(/\./g, ' ');
+              styleString = (m[2] || '').trim();
+            }
+            return '<div class="result ' + className + '" style="' + styleString + '" data-before="Resultado">\n';
+          } else {
+            // closing tag
+            return '</div>\n';
+          }
+        }
+      }
+    ],
+    [
+      markdownItContainer,
+      'did-you-know',
+      {
+        validate: function(params) {
+          return params.trim().match(/^did\-you\-know.*$/);
+        },
+        render: function(tokens, idx, options, env, self) {
+          // formato:
+          // ::: did-you-know .primeira-classe.segunda.terceira background-color: white; color: black;
+          // ...conteúdo markdown...
+          // :::
+          // as classes devem estar "coladas" uma na outra e são opcionais
+          // após as classes, é possível definir uma string de estilos, que
+          // também é opcional. Se a string de estilos for definida, é
+          // necessário definir pelo menos 1 classe (ou então colocar apenas um
+          // ponto final sem nome de classe)
+          var m = tokens[idx].info.trim().match(/^did\-you\-know\s+([^\s]*)\s*(.*)?$/),
+            className = '',
+            styleString = '';
+
+          if (tokens[idx].nesting === 1) {
+            // opening tag
+            if (!!m && Array.isArray(m)) {
+              className = (m[1] || '').trim().replace(/\./g, ' ');
+              styleString = (m[2] || '').trim();
+            }
+            return '<div class="did-you-know ' + className + '" style="' + styleString + '" data-before="Você Sabia??">\n';
+          } else {
+            // closing tag
+            return '</div>\n';
+          }
+        }
+      }
+    ],
+    [
+      markdownItContainer,
+      'gallery',
+      {
+        validate: (params) => params.trim().match(/^gallery.*$/),
+        render: (tokens, idx, options, env, self) => {
+          // formato:
+          // ::: gallery .primeira-classe.segunda.terceira background-color: white; color: black;
+          // - [![Descricao](imagem)](link)
+          // - [![Descricao](imagem)](link)
+          // :::
+          // as classes devem estar "coladas" uma na outra e são opcionais
+          // após as classes, é possível definir uma string de estilos, que
+          // também é opcional. Se a string de estilos for definida, é
+          // necessário definir pelo menos 1 classe (ou então colocar apenas um
+          // ponto final sem nome de classe)
+          const m = tokens[idx].info.trim().match(/^gallery\s+([^\s]*)\s*(.*)?$/);
+          let  className = '',
+            styleString = '';
+
+          if (tokens[idx].nesting === 1) {
+            // opening tag
+            if (!!m && Array.isArray(m)) {
+              className = (m[1] || '').trim().replace(/\./g, ' ');
+              styleString = (m[2] || '').trim();
+            }
+            return `<div class="gallery ${className}" style="${styleString}">\n`;
+          } else {
+            // closing tag
+            return '</div>\n';
+          }
+        }
+      }
+    ],
     markdownItAnchor,
     markdownItDefList,
     markdownItAbbr,
@@ -30344,7 +30649,9 @@ bespoke.from('article', [
   keys(),
   touch(),
   overview({ insertStyles: false }),
-  bullets('.bullet, .bulleted li, .bulleted dd'),
+  bullets('.bullet, .bulleted li, .bulleted dd, .bulleted-dt dt, .bulleted-dt dd'),
+  // still need to improve bespokeProceed: give feedback to user, switch to JSON comments etc.
+  proceed(),
   scale('transform'),
   progress(), // progress must be after scale
   hash(),
@@ -30359,7 +30666,7 @@ easter();
 // Used to load gmaps api async (it requires a callback to be passed)
 window.noop = function() {};
 
-},{"./easter":279,"./tutorial":281,"bespoke":14,"bespoke-backdrop":1,"bespoke-bullets":2,"bespoke-forms":4,"bespoke-hash":5,"bespoke-keys":6,"bespoke-markdownit":7,"bespoke-progress":8,"bespoke-scale":9,"bespoke-simple-overview":10,"bespoke-state":11,"bespoke-theme-beachday":12,"bespoke-touch":13,"markdown-it-abbr":200,"markdown-it-anchor":201,"markdown-it-container":202,"markdown-it-decorate":203,"markdown-it-deflist":204,"markdown-it-emoji":205}],281:[function(require,module,exports){
+},{"./bespoke-proceed":279,"./easter":280,"./tutorial":282,"bespoke":14,"bespoke-backdrop":1,"bespoke-bullets":2,"bespoke-forms":4,"bespoke-hash":5,"bespoke-keys":6,"bespoke-markdownit":7,"bespoke-progress":8,"bespoke-scale":9,"bespoke-simple-overview":10,"bespoke-state":11,"bespoke-theme-beachday":12,"bespoke-touch":13,"markdown-it-abbr":200,"markdown-it-anchor":201,"markdown-it-container":202,"markdown-it-decorate":203,"markdown-it-deflist":204,"markdown-it-emoji":205}],282:[function(require,module,exports){
 var tutorial = {
     turnedOn: true,
 
@@ -30403,6 +30710,6 @@ module.exports = function(tutorialEl) {
   };
 };
 
-},{}]},{},[280])
+},{}]},{},[281])
 
 //# sourceMappingURL=build.js.map
