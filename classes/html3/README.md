@@ -149,6 +149,24 @@
     1. clicar com **botão direito** do Mouse **na página**
     1. selecionar **"Inspecionar elemento"**
   - [Curso sobre as ferramentas do desenvolvedor](http://discover-devtools.codeschool.com/?locale=pt) do Google Chrome
+---
+## Exemplo: Alterando/testando propriedades
+
+  <video src="../../videos/desenv-chrome.mp4" height="400" controls style="margin: 0 auto;"></video>
+---
+### Investigando - _"Criei **uma regra** e ela **não funcionou**"_
+
+  <video src="../../videos/tools-investigate-wrong-selector.webm" height="500" controls style="margin: 0 auto;"></video>
+
+---
+### Investigando - _"Nova **propriedade não funcionou**"_
+
+<video src="../../videos/tools-investigate-wrong-property.webm" height="500" controls style="margin: 0 auto;"></video>
+
+---
+### Investigando - _"**Arquivo não apareceu**"_
+
+<video src="../../videos/tools-investigate-wrong-path.webm" height="500" controls style="margin: 0 auto;"></video>
 
 ---
 # Exercícios
@@ -415,10 +433,9 @@ http://www.pudim.com.br <!-- {a:style="background: white"} -->
 ---
 ## Suporte dos navegadores por formato
 
-- Na data de hoje (07/Abr/15), as versões mais recentes dos principais navegadores
-  suportam em conjunto apenas o formato **H.264, ou MPEG-4 _part_ 10**
-- Porém, versões um pouco menos recentes não suportam **um mesmo formato de vídeo** em conjunto
+- Nem todos navegadores suportam **os mesmos formatos de vídeo**
 - Assim, usamos uma outra forma do elemento `<video>`:
+
   ```html
   <video width="320" height="240" controls>
     <source src="f.mp4"  type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
