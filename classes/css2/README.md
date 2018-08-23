@@ -12,7 +12,6 @@
 1. Família de propriedades: **text-***
 1. Família de propriedades: **font-***
 1. Fontes personalizadas
-1. Projeto: Entrega 1
 
 ---
 <!-- {"layout": "section-header"} -->
@@ -122,7 +121,8 @@ p strong em { }           /* 003 */
       </strong>
   </p>
   ```
-  - [Questionário Maroto](https://moodle.cefetmg.br/mod/quiz/view.php?id=17987) e [Resposta](https://jsfiddle.net/fegemo/bw1xt1az/) no JSFiddle
+  - [Resposta](https://jsfiddle.net/fegemo/bw1xt1az/) no JSFiddle
+  
 
 ---
 <!--
@@ -496,49 +496,84 @@ p strong em { }           /* 003 */
 - `font-variant` -->
 
 ---
-<!-- {"layout": "section-header"} -->
-# Web Fonts
-## Usando fontes que não estão instaladas
+<!-- {"layout": "section-header", "slideHash": "web-fonts"} -->
+# _Web Fonts_
+## Usando fontes não-instaladas
 
-- Formatos de fonte
-- Hospedando a fonte localmente
-- Usando fontes na Web (e.g., Google Fonts)
+- Formatos de fontes
+- A regra `@font-face`
+- Google Fonts
 
 <!-- {ul:.content} -->
 
 ---
-## Web Fonts
+# Web Fonts
 
-- Motivação
-  - Utilizar fontes que não estão instaladas no computador dos clientes
-- Passos
+- Motivação:
+  - Utilizar **fontes que não estão instaladas** no computador
+- Passos:
   1. Escolher a fonte
-  1. Gerar todos os formatos para que funcione em todos os principais
+  1. Gerar **todos os formatos** para que funcione em todos os principais
      navegadores
      - `.ttf`
      - `.otf`
      - `.eot`
      - `.woff`
+     - `.woff2` <!-- {ul:.multi-column-list-5} -->
   1. Publicar a fonte na Internet (ou no seu próprio site)
 
 ---
 ## Web Fonts (cont.)
 
-  1. Descrever a fonte no seu arquivo `CSS`:
-     ```css
-     @font-face {
-       font-family: "Emblema One";
-       src: url("fonts/EmblemaOne-Regular.woff"),
-           url("fonts/EmblemaOne-Regular.ttf");
-     }
-     ```
-  1. Usar a fonte:
-     ```css
-     h1 {
-       font-family: "Emblema One", sans-serif;
-     }
-     ```
+1. Descrever a fonte no arquivo CSS usando `@font-face {...}`:
+   ```css
+   @font-face {
+     font-family: "Emblema One";    /* dando um nome à fonte */
+     src: url("fonts/EmblemaOne-Regular.woff2") format('woff2'), /* 1º formato */
+          url("fonts/EmblemaOne-Regular.woff")  format('woff'),  /* 2º formato */
+          url("fonts/EmblemaOne-Regular.ttf")   format('ttf');   /* 3º formato */
+   }
+   ```
+2. Usar a fonte:
+   ```css
+   h1 {
+     font-family: "Emblema One", sans-serif;
+   }
+   ```
+   - Sempre coloque uma segunda opção (_e.g._, `sans-serif`)
 
+
+---
+<!-- {"scripts": ["../../scripts/classes/caniuse.min.js"]} -->
+## **Formatos de fonte** e os navegadores
+
+<span class="caniuse" data-feature="woff2" style="width: 45%"></span>
+<span class="caniuse" data-feature="woff" style="width: 45%"></span>
+
+- **WOFF2** é até 50% menor que **WOFF**
+- **TTF** é suportado em todos navegadores
+
+---
+## Usando fontes "mais facinho"
+
+- ![](../../images/google-fonts.png) <!-- {.push-right.small-width} -->
+  Gerar os formatos de fonte necessários pode dar trabalho
+- Outra alternativa é usar **sites que provêem diversas fontes** para
+  serem usadas
+  - Exemplos:
+    1. [**Google Fonts**][google-fonts] <!-- {strong:.alternate-color} -->
+    1. [Dafont][dafont]
+    1. [FontSpace][font-space]
+  - Além de ter vários formatos das fontes, eles fornecem o código CSS
+
+[google-fonts]: https://fonts.google.com/
+[dafont]: http://www.dafont.com/pt/
+[font-space]: http://www.fontspace.com/
+
+---
+## Utilização do Google Fonts
+
+<video src="../../videos/web-fonts-google.mp4" width="802" height="456" controls style="margin: 0 auto;"></video>
 ---
 # Referências
 
