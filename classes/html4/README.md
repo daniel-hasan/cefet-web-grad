@@ -398,7 +398,7 @@ espaço dentro da caixa.
 
 - É possível que um elemento **interrompa uma flutuação**
   - Para isso, usamos **a propriedade `clear`** no
-    **elemento _interruptor_ <!-- {.underline.upon-activation.delay-2000} -->**
+    **elemento  _interruptor_ <!-- {.underline.upon-activation.delay-2000} -->**
 
 ---
 <!-- {"layout": "2-column-content"} -->
