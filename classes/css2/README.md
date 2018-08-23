@@ -12,7 +12,6 @@
 1. Família de propriedades: **text-***
 1. Família de propriedades: **font-***
 1. Fontes personalizadas
-1. Projeto: Entrega 1
 
 ---
 <!-- {"layout": "section-header"} -->
@@ -122,7 +121,8 @@ p strong em { }           /* 003 */
       </strong>
   </p>
   ```
-  - [Questionário Maroto](https://moodle.cefetmg.br/mod/quiz/view.php?id=17987) e [Resposta](https://jsfiddle.net/fegemo/bw1xt1az/) no JSFiddle
+  - [Resposta](https://jsfiddle.net/fegemo/bw1xt1az/) no JSFiddle
+  
 
 ---
 <!--

@@ -38,7 +38,7 @@
 ## Passos para o exercício
 
 1. Instalar o git na máquina (sugestão: https://windows.github.com/)
-1. Criar um _fork_ do repositório do professor em `https://github.com/fegemo/cefet-web-unicorns`
+1. Criar um _fork_ do repositório do professor em `https://github.com/daniel-hasan/cefet-web-unicorns`
 1. Fazer o exercício e fazer _commits_ e _push_ no seu repositório
 1. Enviar, via **Moodle**, o link do seu repositório até o final da aula
 
