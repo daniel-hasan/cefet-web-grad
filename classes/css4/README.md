@@ -430,37 +430,139 @@
     adipiscing elit. Curabitur mauris eros, fermentum eget dolor sit amet.</p>
 
 ---
+<!-- {"layout": "section-header", "slideHash": "centralizando-as-coisas"} -->
 # Centralizando as coisas
+## Centralizando elementos em diferentes cenários
+
+- Centralizando horizontalmente
+- Centralizando verticalmente
+
+<!-- {ul:.content} -->
 
 ---
-## Centralizando horizontalmente
+<!-- {"layout": "regular", "slideHash": "centralizacao-horizontal"} -->
+# Centralizando **horizontalmente** <!-- {.underline.upon-activation} -->
 
-- Existem várias formas para centralizar elementos que se aplicam a situações
-  diferentes
-- Centralizando conteúdo `inline`:
-  ```css
-  .centraliza { text-align: center; }
-  ```
-- Centralizando um elemento com largura definida
-  ```css
-  .centraliza-definida { margin: 0 auto; }
-  ```
+- Existem várias formas para centralizar elementos que se aplicam a **situações
+  diferentes**:
+  1. Centralizar o conteúdo _inline_ de um elemento
+  1. Centralizar um elemento `block` ou `inline-block` com largura definida
+  1. Centralizar um elemento com `position: absolute` ou `fixed`...
+     1. ...quando ele tem largura fixa
+     1. ...quando ele é fluido
+  1. E outras formas...
 
 ---
-## Centralizando horizontalmente (cont.)
+<!-- {"layout": "regular"} -->
+## (1) Centralizando conteúdo _inline_
 
-- Centralizando um elemento com `position` `absolute` ou `fixed`
+- Para **centralizar os filhos `inline`** de um elemento:
   ```css
-  .centraliza-position { left: (LARGURA_P - LARGURA_E)/2; }
+  .centraliza-os-filhos {
+    text-align: center;   /* usar a propriedade text-align: center */
+  }
   ```
+  - Exemplos:
+    - centralizar texto (que é _inline_) dentro de um título h1
+    - centralizar uma imagem (_inline_) dentro de um parágrafo
+    - centralizar `<span>` (_inline_ ou `inline-block`) dentro de uma `<div>`:
+      <iframe width="100%" height="100" src="//jsfiddle.net/fegemo/hko474g8/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+---
+<!-- {"layout": "regular"} -->
+## (2) Centralizando um elemento _block_
+
+- Para **centralizar um elemento `block`**:
+  ```css
+  .centraliza-block {
+    margin: 0 auto; /* margin-left: auto, margin-right: auto, top/bottom: 0 */
+  }
+  ```
+  - Exemplos:
+    - centralizar uma imagem com `display: block`
+    - centralizar uma `<div>` dentro de outra
+    - centralizar uma `<table>` dentro de seu container:
+      <iframe width="100%" height="130" src="//jsfiddle.net/fegemo/3a21w96j/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+---
+<!-- {"layout": "regular"} -->
+## (3.1) Centralizando um elemento `absolute`
+
+- Centralizando um elemento com `position: absolute` ou `fixed` quando a
+  **largura do seu container é conhecida**:
+  ```css
+  .centraliza-elemento-absoluto {
+    left: (LARGURA_P - LARGURA_E)/2;
+  }
+  ```
+  ![](../../images/box-element-dimensions.png) <!-- {.push-right} -->
+
   - Onde `LARGURA_P` é a largura do recipiente e `LARGURA_E` é a largura
-    conhecida do elemento que queremos centralizar
-- Centralizando um elemento com `position` `absolute` ou `fixed` em um
-  recipiente fluido (largura pode variar)
+    do elemento que queremos centralizar
+
+---
+<!-- {"layout": "regular"} -->
+## (3.2) Centralizando um elemento `absolute`
+
+- Centralizando um elemento com `position: absolute` ou `fixed` **em um
+  recipiente fluido** (largura pode variar):
   ```css
-  .centraliza-fluido { left: 50%; margin-left: -(LARGURA_E / 2); }
+  .centraliza-elemento-com-pai-fluido {
+    left: 50%;
+    margin-left: -(LARGURA_E / 2);  /* margin-left negativa!! */
+  }
   ```
-- [Um guia sobre como centralizar qualquer elemento no site designshack.net](http://designshack.net/articles/css/how-to-center-anything-with-css/)
+- Mais: [Um guia sobre como centralizar qualquer elemento no site designshack.net](http://designshack.net/articles/css/how-to-center-anything-with-css/)
+
+---
+<!-- {"layout": "regular"} -->
+# Centralizando **verticalmente**  <!-- {.underline.upon-activation} -->
+
+- Assim como a centralização horizontal, a vertical depende do cenário:
+  1. Centralizar um elemento com `position: absolute` ou `fixed`
+  1. Centralizar um elemento `inline` com 1 única linha
+  1. E outras formas...
+
+---
+<!-- {"layout": "regular", "slideHash": "centralizando-verticalmente-absolute-fixed"} -->
+## (1) Centralizando vertic. um elemento `absolute`
+
+- É feito de forma análoga à centralização horizontal de um elemento com
+  `position: absolute` ou `fixed`:
+  1. Container com altura conhecida:
+     ```css
+     .centraliza-elemento-absoluto {
+       top: (ALTURA_P - ALTURA_E)/2;
+     }
+     ```
+  1. Container fluido:
+     ```css
+     .centraliza-elemento-absoluto {
+       top: 50%;
+       margin-top: -(ALTURA_E / 2);
+     }
+     ```
+
+---
+<!-- {"layout": "regular"} -->
+## (2) Centralizando vertic. elemento `inline`
+
+- Para **centralizar verticalmente um conteúdo `inline`**
+  1. <iframe width="380" height="171" src="//jsfiddle.net/fegemo/23311u59/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0" class="push-right"></iframe>
+     Se ele possui apenas 1 linha:
+
+     ```css
+     .centraliza-vertical-1-linha {
+       line-height: ALTURA_E;
+     }
+     ```
+     - Onde `ALTURA_E` é a altura do conteúdo do elemento sendo centralizado
+  1. Se ele possuir mais de 1 linha:
+     - Usar `display: table` - veja tutorial
+      ["_Vertically center multi-lined text_"][multi-line-text-center]
+
+[multi-line-text-center]: https://css-tricks.com/vertically-center-multi-lined-text/
+
 
 ---
 # Referências
