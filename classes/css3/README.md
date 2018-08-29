@@ -214,6 +214,12 @@
   <div class="passo">3<br>Programar</div>
 
 ---
+## Resultado do display **inline-block**
+
+<iframe width="600" height="300" src="//jsfiddle.net/fegemo/2gfkyrrh/3/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+---
+
 <!-- {"scripts": ["../../scripts/classes/caniuse.min.js"]} -->
 ## Display: **table-***
 
