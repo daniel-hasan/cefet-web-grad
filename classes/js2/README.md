@@ -101,6 +101,7 @@
 - Vamos falar muito agora sobre **`window.document`**, ou apenas `document`
 
 ---
+<!-- {"slideHash": "conhecendo-o-dom"-->
 # O DOM
 
 ![Foto do Don Corleone, do filme O Poderoso Chefão](../../images/don.png) <!-- {.portrait} -->
@@ -188,6 +189,7 @@
 
 
 ---
+<!-- {"slideHash": "caminhando"-->
 ## Caminhando pela árvore
 
 - É possível fazer um caminhamento pela árvore toda ou começando a partir de
@@ -237,38 +239,140 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ```
 
 ---
+<!-- {"layout": "regular"} -->
 ## Criando elementos dinamicamente
 
 - É possível criar elementos dinamicamente, de duas formas:
-  1. Instanciando elementos e os adicionando à árvore:
+  1. Definindo a propriedade de **`innerHTML` de um elemento** da árvore
+     para **uma string descrevendo uma estrutura HTML** (já vimos):
      ```js
-     let conteudoEl = document.getElementById('conteudo');
-     let dadoEl = document.createElement('img');
-     dado.src = 'images/d12.png';
-     conteudo.appendChild(dado);
+     let listaEl = document.querySelector('#lista-de-dados');
+     listaEl.innerHTML = '<li><img src="images/d12.png"></li>';
      ```
-  1. Definindo a propriedade de `innerHTML` de um elemento da árvore para uma
-     string descrevendo uma estrutura `html`:
+  1. Instanciando elementos e os adicionando ao DOM, que é feito em
+     3 passos (detalhados a seguir):
      ```js
-     let conteudoEl = document.getElementById('conteudo');
-     conteudoEl.innerHTML = '<img src="images/d12.png">';
+     // 1. Solicitamos ao document a criação de um elemento
+     // 2. Configuramo-lo (atributos, id, classes etc.)
+     // 3. Inserimo-lo na árvore
      ```
 
 ---
-## Criando elementos dinamicamente (cont.)
+<!-- {"layout": "regular-block"} -->
+# Instanciação de elementos HTML
 
-- Além de `no.appendChild(elemento)`, também é possível incluir novos elementos
-  na árvore usando:
+- A função **document.createElement** cria um elemento HTML
+  - Devemos especificar a _tag_ do elemento que iremos criar
+- Exemplo - criação de uma imagem:
   ```js
-  no.insertBefore(novoEl, antesDeQuem); // novoEl vira irmão de antesDeQuem
-  no.replaceChild(novoEl, antigoEl);    // novoEl vira filho de 'no' e
-                                        // exclui o elemento antigo
+  // 1. Solicitamos ao document a criação de um elemento
+  let dadoEl = document.createElement('img');         // cria uma <img>
+  // 2. Configuramo-lo (atributos, id, classes etc.)
+  ovelhaEl.src = 'images/ovelho-pixel.png';           // <img src="...">
+  ovelhaEl.classList.add('raca');                     // <img src="..." class="...">
   ```
-- Para remover um elemento da árvore
-  ```js
-  no.removeChild(paraRemoverEl);
-  ```
+  - Resultado:
+    ```HTML
+    <img src="images/ovelho-pixel.png" class="raca">
+    ```
+- **Atenção**: Você **criou** o elemento, porém <u>**ainda não
+  o adicionou**</u> na árvore
 
+---
+<!-- {"layout": "regular"} -->
+## Inserção do elemento na árvore DOM
+
+- Para vincularmos um elemento criado, precisamos conhecer quem será seu
+  **pai**
+- Logo após, podemos adicionar o elemento usando um dos seguintes comandos:
+  1. `appendChild`: será o filho mais à direita
+  1. `insertBefore`: será o filho que vem logo antes de outro
+  1. `replaceChild`: substituirá um filho existente
+
+```js
+let containerEl = document.querySelector('#ovelhas');
+let novaOvelhaEl = document.createElement('img');
+novaOvelhaEl.src = 'img/ovelho-pixel.png';
+containerEl.appendChild(novaOvelhaEl);
+```
+
+---
+<!-- {"layout": "regular-block", "embeddedStyles": ".create-element img { width: 72%; }"} -->
+## Vinculação na árvore DOM com **(1) `appendChild`**
+
+::: figure .figure-slides.create-element.clean
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-1.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-2.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-3.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-4.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-5.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+:::
+
+---
+<!-- {"layout": "regular-block"} -->
+## Vinculação na árvore DOM com **(2) `insertBefore`**
+
+::: figure .figure-slides.create-element.clean
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-4.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-6.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-7.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+:::
+
+---
+<!-- {"layout": "regular-block"} -->
+## Vinculação na árvore DOM com **(3) `replaceChild`**
+
+::: figure .figure-slides.create-element.clean
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-4.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-6.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+![Exemplo de vinculação de elemento na árvore DOM](../../images/create-element-8.png)<!-- {.medium-width.bullet.figure-step.bullet-no-anim} -->
+:::
+
+---
+## Resumindo: `appendChild`, `insertBefore` e `replaceChild`
+
+![Uma árvore com os elementos HTML](../../images/create-element-resumo.png)
+<!-- {.medium-width.centered} -->
+
+---
+<!-- {"layout": "regular-block"} -->
+## **Inserindo texto** nos elementos
+
+- Podemos colocar texto nos elementos de 2 formas:
+  1. Usando `document.createTextNode('texto aqui')`:
+     ```js
+     let bodyEl = document.querySelector('body');
+     let pEl = document.createElement('p');
+     let txtEl = document.createTextNode('Olá parágrafo!'); // <--
+     bodyEl.appendChild(pEl);                   // põe o parágrafo em <body>
+     pEl.appendChild(txtEl);                    // põe o texto no <p>
+     ```
+  1. Usando `elemento.innerHTML`:
+     ```js
+     let bodyEl = document.querySelector('body');
+     let pEl = document.createElement('p');
+     bodyEl.appendChild(pEl);                   // põe o parágrafo em <body>
+     pEl.innerHTML = 'Olá parágrafo!';          // define o innerHTML do <p>
+     ```
+
+---
+<!-- {"layout": "regular-block", "slideHash": "remocao-de-elementos"} -->
+# Remoção de Elementos
+
+- Usamos `containerEl.removeChild` ou, para remover todos, `innerHTML`:
+  ```html
+  <main>
+    <img id="urso" src="img/urso.png">
+  </main>
+  ```
+  ```js
+  let mainEl = document.querySelector('main');
+  let imgEl = document.querySelector('#urso');
+
+  mainEl.removeChild(imgEl);      // remove a <img id="urso">
+  // ou...
+  mainEl.innerHTML = '';          // remove tudo o que estiver em <main></main>
+  ```
 ---
 ## Alterando atributos dos nós
 
@@ -366,11 +470,11 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
   mas **os _handlers_ do mesmo tipo <u>de todos os ancestrais do elemento</u>
   também são acionados**
 - Isso é chamado de **_event bubbling_**
-- Exemplo vivo: [http://jsfiddle.net/fegemo/r61r5sLy/3/](http://jsfiddle.net/fegemo/r61r5sLy/)
+- Exemplo vivo: [http://jsfiddle.net/76hf9usa/1/](http://jsfiddle.net/76hf9usa/1/)
   - Repare que há 3 `divs`, uma dentro da outra e cada uma tem um
     _click handler_
 
----
+<!---
 ## Por que borbulhar?
 
 - Considere que você tem 100 objetos arrastáveis (_drag'n'drop_)
@@ -378,7 +482,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
   - Ou você pode colocar o _handler_ no container deles (1x) e usar a informação
     do evento (`evt.target`) para saber qual objeto arrastável foi clicado
 
-
+-->
 ---
 ## Cancelando a bolha
 
@@ -419,7 +523,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 
 - Hoje temos 2 atividades práticas:
   1. Exploração Espacial :alien: (obrigatória)
-  1. RPG Dice Rollator _Tabajara_ :game_die: (opcional +50%)
+  1. RPG Dice Rollator _Tabajara_ :game_die: (em sala)
 
 ---
 <!-- {"backdrop": "space"} -->
@@ -427,7 +531,7 @@ caminhaNoDOM(document.body, imprimeNomeDaTag);
 ## Atividade 1: Exploração Espacial :alien:
 
 - Crie a página da **Exploração Espacial** :alien:
-  - [Repositório no GitHub](https://github.com/fegemo/cefet-web-space)
+  - [Repositório no GitHub](https://github.com/daniel-hasan/cefet-web-space)
     para fazer seu _fork_
 - Há 2 exercícios:
   1. Você deve criar um código em Javascript para **fazer os botões "+"

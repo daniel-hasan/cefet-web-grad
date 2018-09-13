@@ -285,7 +285,7 @@
     - Retornado em operações ilegais (_e.g._, `Math.sqrt(-1)`)
   - `Infinity` (_e.g._, `1/0`)
 - Números têm métodos, por exemplo:
-  - [`toPrecision`][toPrecision], retorna uma string com o **número arredondado com o certo número de casas decimais** (e.g., `Math.PI.toPrecision(5)`)
+  - [`toPrecision`][toPrecision], retorna uma string com o **número arredondado de um deteminado tamanho** (e.g., `Math.PI.toPrecision(5) `retorna `3.1416` )
   - [`toFixed`][toFixed], retorna uma string com o número arredondado com certo número de casas decimais **em formato decimal** (e.g., `Math.PI.toFixed(5)`)
 
 [toFixed]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
