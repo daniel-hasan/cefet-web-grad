@@ -459,6 +459,23 @@ containerEl.appendChild(novaOvelhaEl);
     ```js
     button.addEventListener('click', function(e) { /*...*/ });
     ```
+---
+<!-- {"layout": "2-column-content-zigzag"} -->
+## Definindo "quem está selecionado"
+
+<iframe width="340" height="250" src="//jsfiddle.net/fegemo/wbq109xg/embedded/result,js,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>    
+
+- **Marca/desmarca** elemento. Ideia:
+  - No evento de `'click'`:
+        1. Alterna a classe `.selecionado` do elemento que foi "clicado"
+           - `el.classList.toggle('selecionado')`
+
+<iframe width="340" height="250" src="//jsfiddle.net/fegemo/8nsjhgga/embedded/result,js,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>    
+
+- **Apenas 1** elemento selecionado por vez. Ideia:
+  - No evento de `'click'`:
+        1. Tira a classe `.selecionado` de todos
+        1. "Re"coloca a classe no elemento "clicado"
 
 ---
 # Eventos: tópicos avançados
