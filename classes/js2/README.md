@@ -461,7 +461,7 @@ containerEl.appendChild(novaOvelhaEl);
     ```
 ---
 <!-- {"layout": "2-column-content-zigzag"} -->
-## Definindo "quem está selecionado"
+## Definindo "quem está selecionado" e propriedade currentTarget
 
 <iframe width="340" height="250" src="//jsfiddle.net/fegemo/wbq109xg/embedded/result,js,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>    
 
