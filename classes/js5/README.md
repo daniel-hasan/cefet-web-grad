@@ -14,7 +14,6 @@
    1. Canvas
    1. Drag'n'drop
    1. History
-1. Seminário: as aventuras de Agáte-Êmi Éli, o Quinto
 
 ---
 <!-- {"layout": "section-header"} -->

@@ -402,6 +402,7 @@ containerEl.appendChild(novaOvelhaEl);
   1. Adicionando ou removendo classes :thumbsup::thumbsup::
      ```js
      botaoEl.classList.add('selecionado');  // adiciona .selecionado
+     botaoEl.classList.toggle('selecionado');  // alterna (remove/adicona) .selecionado
      botaoEl.classList.remove('oculta');    // remove .oculta
      ```
 
@@ -467,15 +468,13 @@ containerEl.appendChild(novaOvelhaEl);
 
 - **Marca/desmarca** elemento. Ideia:
   - No evento de `'click'`:
-        1. Alterna a classe `.selecionado` do elemento que foi "clicado"
-           - `el.classList.toggle('selecionado')`
+    1. Alterna a classe `.selecionado` do elemento que foi "clicado"
+      - `el.classList.toggle('selecionado')`
 
 <iframe width="340" height="250" src="//jsfiddle.net/fegemo/8nsjhgga/embedded/result,js,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>    
 
 - **Apenas 1** elemento selecionado por vez. Ideia:
-  - No evento de `'click'`:
-        1. Tira a classe `.selecionado` de todos
-        1. "Re"coloca a classe no elemento "clicado"
+  - No evento de `'click'`: (1) Tira a classe `.selecionado` de todos; (2) "Re"coloca a classe no elemento "clicado"
 
 ---
 # Eventos: tópicos avançados
