@@ -1,15 +1,15 @@
 # Seminário - APIs do HTML5
 
 > Já tenho a melodia, agora só falta compor a letra!! ([Melodia da música tema deste trabalho][lenda-do-heroi])
-> -- _Sir_ Fegemo
+> -- _Sir_ Hasan
 
 Era uma vez um reino encantado chamado **Weblot** :european_castle:.
-Lá viviam bravas cavaleiras e cavaleiros :crossed_flags:, magos tinhosos
+Lá viviam bravas amazonas e cavaleiros :crossed_flags:, magos tinhosos
 :sparkles:, um rei com sua espada :crown: e menestréis fanfarrões :beers:.
 
 [lenda-do-heroi]: https://soundcloud.com/fegemo/tema-de-a-lenda-do-heroi
 
-_Sir_ Fegemo, um representante desses últimos, costumava acompanhar
+_Sir_ Hasan, um representante desses últimos, costumava acompanhar
 aventureiros pelo reino e era conhecido por cantar belas músicas contando
 suas histórias. Em sua última aventura ele foi para a temida região
 de **“JavasCripta”** :skull:, juntamente com seu grande amigo e lenda
@@ -20,7 +20,7 @@ mais conhecido como **“Cascatas Estilosas, o Terceiro”**
 em “ondinhas”) e conseguiram o feito épico de erradicar todo o mal
 que assombrava o lugar.
 
-Finda a aventura, chegou a hora de Sir Fegemo contar a prosa vivida com seus
+Finda a aventura, chegou a hora de Sir Hasan contar a prosa vivida com seus
 amiguinhos em forma de música e tocá-la na taverna “<u>O Olho</u>
 do Beholder”. Desta vez, ele decidiu compor um conto para enaltecer as
 peripécias de **“Agáte Êmi-Éli, o Quinto”**
@@ -32,7 +32,7 @@ Agáte Êmi-Éli, o Quinto”**, mas a taverna achou muito grande e
 escreveu apenas **APIs do HTML5** em seu mural.
 
 Para que a canção seja uma obra prima da acústica, sem que seu amigo
-saiba, _Sir_ Fegemo propôs **comprar mais informações :money_with_wings:
+saiba, _Sir_ Hasan propôs **comprar mais informações :money_with_wings:
 sobre outras histórias de atrapalhadas do bárbaro** - muito fácil depois
 da grande quantidade de peças de _Webdollars_ (PW$) :moneybag: acumulada com
 sua parte do espólio em **“JavasCripta”**.
@@ -61,7 +61,7 @@ em **20 pontos** na matéria~~), deve:
 [reveal]: http://lab.hakim.se/reveal-js/
 [slides.com]: https://slides.com/
 
-Dentre os feitos de HTML5, _Sir_ Fegemo já ouviu falar e está disposto a
+Dentre os feitos de HTML5, _Sir_ Hasan já ouviu falar e está disposto a
 comprar informações sobre:
 
 - Acesso a Dispositivo
@@ -140,7 +140,7 @@ máximo **7 minutos** e deve conter, pelo menos:
   [caniuse.com][caniuse])
 
 :three: Um código de um exemplo simples de uso da(s) API(s), publicado,
-de forma que todos possam acessar. O código deve ser exibido durante a
+de forma que todos possam acessar. Este exemplo deve ter um contexto. O código deve ser exibido durante a
 apresentação e deve ser entregue no repositório
 [cefet-web-weblot][repo-weblot] do professor, conforme descrito
 em seu [README.md][readme-weblot].
