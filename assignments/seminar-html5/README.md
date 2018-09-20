@@ -124,7 +124,7 @@ comprar informações sobre:
 ## O Formato
 
 :one: Primeiramente, o grupo deve comunicar à turma e ao ~~_Sir_
-Fegemo~~professor qual(is) foi(ram) a(s) API(s) escolhida(s). O grupo
+Hasan~~professor qual(is) foi(ram) a(s) API(s) escolhida(s). O grupo
 deve escolher **apenas APIs que são suportadas por pelo menos 1 navegador**,
 porque o grupo deve implementar um código demonstrando a funcionalidade
 (veja [caniuse.com][caniuse]). Além disso, **cada API pode ser escolhida
