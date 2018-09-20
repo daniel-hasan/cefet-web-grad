@@ -560,13 +560,15 @@
 [jquery-doc-traversing]: http://api.jquery.com/category/traversing/
 
 ---
-<!-- {"slideHash": "ajax"} -->
-# AJAX
-
-*[AJAX]: Asynchronous JavaScript and XML*
-*[XML]: eXtensible Markup Language*
+<!-- {"layout": "section-header", "slideHash": "ajax"} -->
+# Ajax
+## Requisições **assíncronas**
 
 ![Foto do personagem Deadpool enfrentando um limpador multiuso AJAX](../../images/ajax-deadpool.jpg)
+- Exemplo com _vanilla_ JS
+- Exemplo com jQuery
+
+<!-- {.content style="max-width: 100%"} -->
 
 ---
 ## Problema
@@ -605,50 +607,83 @@
   receber a resposta
 
 ---
-## O **XMLHttpRequest**
+<!-- {"layout": "regular", "slideHash": "ajax-vanilla-1"} -->
+## O **`XMLHttpRequest`**
 
-- Para cada requisição, devemos instanciar um objeto `XMLHttpRequest`,
-  configurá-lo e acioná-lo. Supondo um exemplo de botão "curtir":
+- Cada requisição Ajax é um objeto `XMLHttpRequest`. Supondo o exemplo
+  do Twitter:
   ```js
-  var curtirRequest = new XMLHttpRequest();
-  curtirRequest.onreadystatechange = callbackCurtir;
-  curtirRequest.open('GET', '/curtir/3434', true);
-  curtirRequest.send(null);
+  let requisicao = new XMLHttpRequest();
+  requisicao.onreadystatechange = callbackMaisTweets;
+  requisicao.responseType = 'json';
+  requisicao.open('GET', '/tweets/pagina/5');
+  requisicao.send();
   ```
-- Uma função (configurada em `onreadystatechange`) é invocada a cada **mudança
-  de estado** do objeto (veja nos próximos 2 slides)
+- Uma _callback_ (definida em `onreadystatechange`) é invocada a cada **mudança
+  de estado** da requisição (veja nos próximos 2 slides)
 - [Referência](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest) e [Tutorial](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest/Usando_XMLHttpRequest) na MDN
 
 ---
-## Estados de um XMLHttpRequest
-
-- **`0`	UNSENT:** `open()` ainda não foi invocado
-- **`1`	OPENED:**	`send()` ainda não foi invocado
-- **`2`	HEADERS_RECEIVED:**	`send()` foi invocado e os cabeçalhos da resposta já estão disponíveis
-- **`3`	LOADING:** fazendo _download_ da resposta
-  - `responseText` tem informação parcial da resposta
-- **`4`	DONE:**	Operação finalizada
-
----
-## _Callback_ de mudança de estado
-
-- Invocada a cada alteração de estado do objeto `XMLHttpRequest`
-  ```js
-  function callbackCurtir() {
-    // 4: DONE
-    if (this.readyState === 4) {
-      if (this.status === 200) {
-        alert('Post curtido!');
-      } else {
-        console.log('Erro ao curtir post. Código ' +
-          'da resposta HTTP: ' + this.status);
-      }
+<!-- {"layout": "centered", "slideHash": "ajax-vanilla-2"} -->
+```js
+function callbackMaisTweets() {
+  if (requisicao.readyState === 4) {  // 4: DONE (resp. recebida)
+    if (requisicao.status === 200) {  // 200: código Ok do HTTP
+      // a resposta chegou e foi um arquivo
+      // .json com um array de tweets:
+      let novosTweets = requisicao.response.arrayComNovosTweets;
+      novosTweets.forEach(colocaTweetNaPagina);
+    } else {
+      console.log('Erro ao carregar mais tweets. Código HTTP: '
+        + requisicao.status);
     }
   }
-  ```
+}
+```
+- Invocada **a cada alteração** de estado
+  - da requisição `XMLHttpRequest`
 
-https://github.com/fegemo/cefet-web-starwars
+---
+<!-- {"layout": "centered", "state":"show-active-slide-and-previous"} -->
 
+- A resposta foi isto:
+```json
+{
+  "quantidade": 20,
+  "arrayComNovosTweets": [
+    {
+      "autor": "Sensacionalista",
+      "texto": "Grupo de feministas pró-Bolsonaro
+                cria novo grupo: Vegetarianos
+                pró carne mal passada",
+      "curtidas": 2
+    } /* mais 19 tweets aqui... */
+  ]
+}
+```
+
+---
+<!-- {"layout": "regular"} -->
+## Estados de um `XMLHttpRequest`
+
+**0	`UNSENT`**
+  ~ `open()` ainda não foi invocado
+
+**1	`OPENED`**
+  ~ `send()` ainda não foi invocado
+
+**2	`HEADERS_RECEIVED`**
+  ~ `send()` foi invocado e os cabeçalhos da resposta
+  já estão disponíveis (chegaram)
+
+**3	`LOADING`**
+  ~ fazendo _download_ da resposta
+
+**4	`DONE`**
+  ~ operação finalizada
+
+- Basicamente, precisamos de fazer algo apenas quando a requisição chega
+  ao estado **4 `DONE`**
 ---
 ## AJAX mais facinho com jQuery
 
@@ -656,14 +691,15 @@ https://github.com/fegemo/cefet-web-starwars
   realização de requisições AJAX
   - Veja como ficaria o exemplo do botão "curtir" usando jQuery:
   ```js
-    $.ajax({
-      url: '/curtir/3434',
-      method: 'GET',      // opcional: 'GET' é o valor padrão
-      success: function(resposta) {
-        console.dir(resposta);  // veja a resposta no terminal
-        alert('Post curtido!');
-    });
-	```
+  $.ajax({
+    url: '/tweets/pagina/5',
+    dataType: 'json',
+    success: function(resposta) {
+      let novosTweets = resposta.arrayComNovosTweets;
+      novosTweets.forEach(colocaTweetNaPagina);
+    }
+  });
+  ```
 ---
 # Intro nas Estrelas
 

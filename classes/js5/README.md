@@ -13,7 +13,10 @@
    1. Geolocation
    1. Canvas
    1. Drag'n'drop
-   1. History
+
+1. Seminários: As peripércias de "Agáte Êmi-Éli, o Quinto". [Ver especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/seminar-html5/README.md)
+
+1. [TP1: Site pessoal](https://github.com/fegemo/cefet-web/tree/master/assignments/tp1-mysite)
 
 ---
 <!-- {"layout": "section-header"} -->
@@ -368,11 +371,6 @@ function desenhaRetanguloFurado() {
 ## Métodos de **desenho de segmentos de trajetórias**
 
 - ```js
-  arcTo(x1, y1, x2, y2, radius)
-  ```
-  Acrescenta um arco com 2 pontos de controle `(x1, y1), (x2, y2)` e raio igual a
-  `radius`, conectados ao último ponto por uma linha reta
-- ```js
   arc(x, y, radius, startAngle, endAngle, anticlockwise)
   ```
   Acrescenta um arco centralizado em `(x, y)` com raio `radius`, com ângulos entre
@@ -567,68 +565,9 @@ ctx.stroke();
 <div class="caniuse" data-feature="dragndrop"></div>
 
 ---
-# _History_ API
-
----
-<!--
-{ "backdrop": "oldtimes" }
--->
-## _History_ API, **pré-HTML5**
-
-- Sempre esteve em `window.history`, ou apenas `history`
-- Muito usado no passado para criar botões que voltavam para a página anterior:
-  ```html
-  <input type="button" onclick="javascript: history.back()">
-  ```
-- Além de `history.back()`, havia (e há) também `history.forward()` e
-  `history.go(numero)`, sendo que este último tem um parâmetro que indica
-  o número de navegações no histórico que devem ser feitas
-  (positivo para frente e negativo para o passado)
-  - `history.back` é o mesmo que `history.go(-1)`
-
----
-## _History_ API, hoje em dia
-
-- O histórico de navegação de uma janela/aba é armazenado pelo navegador
-  numa **pilha (_push, pop_) de páginas visitadas**
-- O HTML5 introduziu **dois métodos** que possibilitam a **modificação da pilha**, sem
-  que haja uma mudança de página:
-  1. `history.pushState(stateObject, title, url)`
-  1. `history.replaceState(stateObject, title, url)`
-- Além disso, foi criado também um **evento `popstate`** lançado no objeto `window`
-  sempre que a pilha do histórico é alterada (seja por chamadas a `pushState/replaceState`
-  ou pelo próprio usuário clicando nos botões `back` e `forward` do navegador
-
----
-## Por que precisamos dos novos métodos?
-
-- Uma tendência de páginas e aplicações web que surgiu nos anos 2000 é do uso da
-  criação de **_single-page applications_** (SPAs), que são aplicações web construídas
-  inteiramente em cima de apenas um arquivo .html
-- Uma SPA funciona com o uso de AJAX para atualizar pequenos pedaços da tela em vez
-  de atualizar a tela inteira quando "troca-se" de página
-  - Na verdade, nas SPAs não há troca de página
-- Exemplo canônico de SPA: [gmail.com](http://gmail.com)
-- Se não há troca de páginas, **o navegador não salva novas entradas no histórico**
-  - Nova _History_ API _to the rescue_ \o/
-
----
-## Método **pushState** e evento **popstate**
-
-- Toda vez que desejamos alterar a URL da página (navegar), porém sem carregar uma
-  outra página, chamamos:
-  ```js
-  history.pushState(null, null, '/novo-endereco');
-  ```
-
----
-## Professor, já posso usar **History API**??
-
-<div class="caniuse" data-feature="history"></div>
-
----
 # E tem muito mais...
 
+- History
 - Web workers
 - WebRTC
 - Vibration API
