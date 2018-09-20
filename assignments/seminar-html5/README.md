@@ -128,7 +128,7 @@ Hasan~~professor qual(is) foi(ram) a(s) API(s) escolhida(s). O grupo
 deve escolher **apenas APIs que são suportadas por pelo menos 1 navegador**,
 porque o grupo deve implementar um código demonstrando a funcionalidade
 (veja [caniuse.com][caniuse]). Além disso, **cada API pode ser escolhida
-por apenas 1 grupo**.
+por apenas 1 grupo**. Para informar qua(is) forão as APIs utilizadas [preencha esta planilha até dia 22/10](https://docs.google.com/spreadsheets/d/1rB1BrmRubS5afoanzQrd1V4HVDmKwGDTSDS6RK1zPy4/edit?usp=sharing). Aluno sem grupo perderá <abbr title="Peças de Webdollars">PW$</abbr> 10 por dia de atraso. Grupo que definiu a(s) API(s) fora do prazo também será penalizado da mesma forma. 
 
 :two: Uma **breve** apresentação de slides deve ser criada e, em data
 combinada, apresentada pelo grupo para a turma. A apresentação terá no
