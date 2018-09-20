@@ -1,7 +1,7 @@
 # Seminário - APIs do HTML5
 
 > Já tenho a melodia, agora só falta compor a letra!! ([Melodia da música tema deste trabalho][lenda-do-heroi])
-> -- _Sir_ Hasan
+> -- _Sir_ Fegemo
 
 Era uma vez um reino encantado chamado **Weblot** :european_castle:.
 Lá viviam bravas amazonas e cavaleiros :crossed_flags:, magos tinhosos
@@ -38,7 +38,7 @@ da grande quantidade de peças de _Webdollars_ (PW$) :moneybag: acumulada com
 sua parte do espólio em **“JavasCripta”**.
 
 Quem quiser ajudar e ainda angariar umas ricas peças de W$ (~~que se traduzem
-em **20 pontos** na matéria~~), deve:
+em **15 pontos** na matéria~~), deve:
 
 1. Apresentar ~~o conceito~~a história de ~~uma~~um
    <abbr title="Ataque Potencialmente Irresponsável">API</abbr> do HTML5
