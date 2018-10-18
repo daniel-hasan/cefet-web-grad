@@ -16,7 +16,7 @@
 
 1. Seminários: As peripércias de "Agáte Êmi-Éli, o Quinto". [Ver especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/seminar-html5/README.md)
 
-1. [TP1: Site pessoal](https://github.com/fegemo/cefet-web/tree/master/assignments/tp1-mysite)
+1. [TP1: Site pessoal](https://github.com/daniel-hasan/cefet-web/tree/master/assignments/tp1-mysite)
 
 ---
 <!-- {"layout": "section-header"} -->
@@ -82,7 +82,7 @@ function rastrear(posicao) {
   window.alert(msg);
 }
 ```
-<button onclick="javascript:function rastrear(posicao){console.dir(posicao); var msg='Eu sei aonde você está!!\n\n';msg+='lat: '+posicao.coords.latitude+', ';msg+='long: '+posicao.coords.longitude;window.alert(msg);} navigator.geolocation.getCurrentPosition(rastrear); this.innerText='Mwahaha...';">Rastrear</button>
+<button onclick="javascript:function rastrear(posicao){console.dir(posicao); let msg='Eu sei aonde você está!!\n\n';msg+='lat: '+posicao.coords.latitude+', ';msg+='long: '+posicao.coords.longitude;window.alert(msg);} navigator.geolocation.getCurrentPosition(rastrear); this.innerText='Mwahaha...';">Rastrear</button>
 - Observação: hoje em dia, o navegador só da acesso a essa API se a página
   tiver sido carregada em **HTTPs** (e não em **HTTP**)
 
@@ -148,15 +148,15 @@ function rastrear(posicao) {
 ## O código para mostrar o mapa
 
 ```js
-var map;
+let map;
 function showMap(position) {
-  var coords = position.coords;
-  var mapOptions = {
+  let coords = position.coords;
+  let mapOptions = {
     zoom: 12,
     center: { lat: coords.latitude, lng: coords.longitude },
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  var mapDiv = document.getElementById('gmaps-example');
+  let mapDiv = document.getElementById('gmaps-example');
   map = new google.maps.Map(mapDiv, mapOptions);
 }
 ```
@@ -182,7 +182,7 @@ window.onload = function() {
 
 ## O resultado
 
-<button type="button" onclick="function showMap(a){var b=a.coords,c={zoom:12,center:{lat:b.latitude,lng:b.longitude}},d=document.getElementById('gmaps-example');map=new window.google.maps.Map(d,c)}var map;navigator.geolocation&&navigator.geolocation.getCurrentPosition(showMap);">Carregar mapa</button>
+<button type="button" onclick="function showMap(a){let b=a.coords,c={zoom:12,center:{lat:b.latitude,lng:b.longitude}},d=document.getElementById('gmaps-example');map=new window.google.maps.Map(d,c)}let map;navigator.geolocation&&navigator.geolocation.getCurrentPosition(showMap);">Carregar mapa</button>
 <div id="gmaps-example" class="gmap">
   O mapa será carregado aqui...
 </div>
@@ -192,13 +192,13 @@ window.onload = function() {
 
 ```js
 function addMarker(map, latlong, title, content) {
-  var markerOptions = {
+  let markerOptions = {
     position: latlong,
     map: map,
     title: title,
     clickable: true
   };
-  var marker = new google.maps.Marker(markerOptions);
+  let marker = new google.maps.Marker(markerOptions);
 }
 ```
 
@@ -206,7 +206,7 @@ function addMarker(map, latlong, title, content) {
 ---
 ## O resultado com o marcador
 
-<button type="button" onclick="function showMap2(a){var b=a.coords,c={zoom:12,center:{lat:b.latitude,lng:b.longitude}},d=document.getElementById('gmaps-example-2');map=new google.maps.Map(d,c);var e={position:{lat:b.latitude,lng:b.longitude},map:map,title:'Aqui estamos',clickable:!1};new google.maps.Marker(e)}var map;navigator.geolocation&&navigator.geolocation.getCurrentPosition(showMap2);">Carregar mapa</button>
+<button type="button" onclick="function showMap2(a){let b=a.coords,c={zoom:12,center:{lat:b.latitude,lng:b.longitude}},d=document.getElementById('gmaps-example-2');map=new google.maps.Map(d,c);let e={position:{lat:b.latitude,lng:b.longitude},map:map,title:'Aqui estamos',clickable:!1};new google.maps.Marker(e)}let map;navigator.geolocation&&navigator.geolocation.getCurrentPosition(showMap2);">Carregar mapa</button>
 <div id="gmaps-example-2" class="gmap">
   O mapa será carregado aqui...
 </div>
@@ -248,14 +248,14 @@ function addMarker(map, latlong, title, content) {
 - Solicitando o contexto gráfico e desenhando dois retângulos
   ```js
   function desenhaRetangulos() {
-    var ctx = document.getElementById('tela').getContext('2d');
+    let ctx = document.getElementById('tela').getContext('2d');
     ctx.fillStyle = 'rgb(200,0,0)';
     ctx.fillRect (10, 10, 55, 50);
     ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
     ctx.fillRect (30, 30, 55, 50);
   }
   ```
-  <button type="button" style="float:right" onclick="javascript:var ctx = document.getElementById('tela').getContext('2d');ctx.fillStyle='rgb(200,0,0)';ctx.fillRect (10, 10, 55, 50);ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';ctx.fillRect (30, 30, 55, 50);">Desenha retângulos</button>
+  <button type="button" style="float:right" onclick="javascript:let ctx = document.getElementById('tela').getContext('2d');ctx.fillStyle='rgb(200,0,0)';ctx.fillRect (10, 10, 55, 50);ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';ctx.fillRect (30, 30, 55, 50);">Desenha retângulos</button>
   <canvas id="tela" width="100" height="80">
     Seu navegador não tem suporte ao elemento <code>canvas</code>.
   </canvas>
@@ -298,13 +298,13 @@ function addMarker(map, latlong, title, content) {
 
 ```js
 function desenhaRetanguloFurado() {
-  var ctx = document.getElementById('tela').getContext('2d');
+  let ctx = document.getElementById('tela').getContext('2d');
   ctx.fillRect(25,25,100,100);
   ctx.clearRect(45,45,60,60);
   ctx.strokeRect(50,50,50,50);
 }
 ```
-<button type="button" style="float:right" onclick="javascript:var a=document.getElementById('tela-2').getContext('2d');a.fillRect(25,25,100,100),a.clearRect(45,45,60,60),a.strokeRect(50,50,50,50)">Desenha retângulo furado</button>
+<button type="button" style="float:right" onclick="javascript:let a=document.getElementById('tela-2').getContext('2d');a.fillRect(25,25,100,100),a.clearRect(45,45,60,60),a.strokeRect(50,50,50,50)">Desenha retângulo furado</button>
 <canvas id="tela-2" width="150" height="150">
   Seu navegador não tem suporte ao elemento <code>canvas</code>.
 </canvas>
@@ -392,7 +392,7 @@ ctx.arc(90,65,5,0,Math.PI*2,true);  // Olho dir.
 ctx.stroke();
 ```
 
-<button type="button" style="float:right" onclick="javascript:var ctx=document.getElementById('tela-3').getContext('2d');ctx.beginPath(),ctx.arc(75,75,50,0,2*Math.PI,!0),ctx.moveTo(110,75),ctx.arc(75,75,35,0,Math.PI,!1),ctx.moveTo(65,65),ctx.arc(60,65,5,0,2*Math.PI,!0),ctx.moveTo(95,65),ctx.arc(90,65,5,0,2*Math.PI,!0),ctx.stroke();">Desenha <em>smile</em></button>
+<button type="button" style="float:right" onclick="javascript:let ctx=document.getElementById('tela-3').getContext('2d');ctx.beginPath(),ctx.arc(75,75,50,0,2*Math.PI,!0),ctx.moveTo(110,75),ctx.arc(75,75,35,0,Math.PI,!1),ctx.moveTo(65,65),ctx.arc(60,65,5,0,2*Math.PI,!0),ctx.moveTo(95,65),ctx.arc(90,65,5,0,2*Math.PI,!0),ctx.stroke();">Desenha <em>smile</em></button>
 <canvas id="tela-3" width="150" height="150">
   Seu navegador não tem suporte ao elemento <code>canvas</code>.
 </canvas>
@@ -412,7 +412,7 @@ ctx.quadraticCurveTo(125,25,75,25);
 ctx.stroke();
 ```
 
-<button type="button" style="float:right" onclick="javascript:var ctx=document.getElementById('tela-4').getContext('2d');ctx.beginPath(),ctx.moveTo(75,25),ctx.quadraticCurveTo(25,25,25,62.5),ctx.quadraticCurveTo(25,100,50,100),ctx.quadraticCurveTo(50,120,30,125),ctx.quadraticCurveTo(60,120,65,100),ctx.quadraticCurveTo(125,100,125,62.5),ctx.quadraticCurveTo(125,25,75,25),ctx.stroke();">Desenha balão</button>
+<button type="button" style="float:right" onclick="javascript:let ctx=document.getElementById('tela-4').getContext('2d');ctx.beginPath(),ctx.moveTo(75,25),ctx.quadraticCurveTo(25,25,25,62.5),ctx.quadraticCurveTo(25,100,50,100),ctx.quadraticCurveTo(50,120,30,125),ctx.quadraticCurveTo(60,120,65,100),ctx.quadraticCurveTo(125,100,125,62.5),ctx.quadraticCurveTo(125,25,75,25),ctx.stroke();">Desenha balão</button>
 <canvas id="tela-4" width="150" height="150">
   Seu navegador não tem suporte ao elemento <code>canvas</code>.
 </canvas>
@@ -536,8 +536,8 @@ ctx.stroke();
 - Por fim, os elementos arrastáveis devem implementar o evento `dragstart` e
   declarar o conteúdo que será "arrastado":
   ```js
-  var draggables = document.getElementsByClassName('monstrinho');
-  for (var i in draggables) {
+  let draggables = document.getElementsByClassName('monstrinho');
+  for (let i in draggables) {
     draggables[i].addEventListener('dragstart', function(e) {
       e.dataTransfer.effectAllowed = 'move';
 

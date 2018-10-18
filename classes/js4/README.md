@@ -178,7 +178,7 @@
 - Como dito, o _web storage_ armazena apenas _Strings_
   - Mas seria útil armazenar objetos complexos. Por exemplo:
     ```js
-    var jogo = { fase: 4, vidas: 5, jogador: 'Ariosvaldo' };
+    let jogo = { fase: 4, vidas: 5, jogador: 'Ariosvaldo' };
     localStorage.setItem('estado-do-jogo', jogo);
 
     console.log(localStorage.getItem('estado-do-jogo'));
@@ -198,7 +198,7 @@
     ```
   - Recuperando:
     ```js
-    var jogo = localStorage.getItem('estado-do-jogo');
+    let jogo = localStorage.getItem('estado-do-jogo');
     jogo = JSON.parse(jogo);
     ```
 
@@ -307,7 +307,7 @@
     ```
   - De _string_ para Javascript (desserialização)
     ```js
-    var banco = JSON.parse('{"nome":"Itaú","codigo":"341"}');
+    let banco = JSON.parse('{"nome":"Itaú","codigo":"341"}');
     console.log(banco.nome);    // Itaú
     ```
 
