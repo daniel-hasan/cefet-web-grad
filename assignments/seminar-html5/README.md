@@ -4,12 +4,12 @@
 > -- _Sir_ Fegemo
 
 Era uma vez um reino encantado chamado **Weblot** :european_castle:.
-Lá viviam bravas cavaleiras e cavaleiros :crossed_flags:, magos tinhosos
+Lá viviam bravas amazonas e cavaleiros :crossed_flags:, magos tinhosos
 :sparkles:, um rei com sua espada :crown: e menestréis fanfarrões :beers:.
 
 [lenda-do-heroi]: https://soundcloud.com/fegemo/tema-de-a-lenda-do-heroi
 
-_Sir_ Fegemo, um representante desses últimos, costumava acompanhar
+_Sir_ Hasan, um representante desses últimos, costumava acompanhar
 aventureiros pelo reino e era conhecido por cantar belas músicas contando
 suas histórias. Em sua última aventura ele foi para a temida região
 de **“JavasCripta”** :skull:, juntamente com seu grande amigo e lenda
@@ -20,7 +20,7 @@ mais conhecido como **“Cascatas Estilosas, o Terceiro”**
 em “ondinhas”) e conseguiram o feito épico de erradicar todo o mal
 que assombrava o lugar.
 
-Finda a aventura, chegou a hora de Sir Fegemo contar a prosa vivida com seus
+Finda a aventura, chegou a hora de Sir Hasan contar a prosa vivida com seus
 amiguinhos em forma de música e tocá-la na taverna “<u>O Olho</u>
 do Beholder”. Desta vez, ele decidiu compor um conto para enaltecer as
 peripécias de **“Agáte Êmi-Éli, o Quinto”**
@@ -32,13 +32,13 @@ Agáte Êmi-Éli, o Quinto”**, mas a taverna achou muito grande e
 escreveu apenas **APIs do HTML5** em seu mural.
 
 Para que a canção seja uma obra prima da acústica, sem que seu amigo
-saiba, _Sir_ Fegemo propôs **comprar mais informações :money_with_wings:
+saiba, _Sir_ Hasan propôs **comprar mais informações :money_with_wings:
 sobre outras histórias de atrapalhadas do bárbaro** - muito fácil depois
 da grande quantidade de peças de _Webdollars_ (PW$) :moneybag: acumulada com
 sua parte do espólio em **“JavasCripta”**.
 
 Quem quiser ajudar e ainda angariar umas ricas peças de W$ (~~que se traduzem
-em **20 pontos** na matéria~~), deve:
+em **15 pontos** na matéria~~), deve:
 
 1. Apresentar ~~o conceito~~a história de ~~uma~~um
    <abbr title="Ataque Potencialmente Irresponsável">API</abbr> do HTML5
@@ -61,7 +61,7 @@ em **20 pontos** na matéria~~), deve:
 [reveal]: http://lab.hakim.se/reveal-js/
 [slides.com]: https://slides.com/
 
-Dentre os feitos de HTML5, _Sir_ Fegemo já ouviu falar e está disposto a
+Dentre os feitos de HTML5, _Sir_ Hasan já ouviu falar e está disposto a
 comprar informações sobre:
 
 - Acesso a Dispositivo
@@ -124,11 +124,11 @@ comprar informações sobre:
 ## O Formato
 
 :one: Primeiramente, o grupo deve comunicar à turma e ao ~~_Sir_
-Fegemo~~professor qual(is) foi(ram) a(s) API(s) escolhida(s). O grupo
+Hasan~~professor qual(is) foi(ram) a(s) API(s) escolhida(s). O grupo
 deve escolher **apenas APIs que são suportadas por pelo menos 1 navegador**,
 porque o grupo deve implementar um código demonstrando a funcionalidade
 (veja [caniuse.com][caniuse]). Além disso, **cada API pode ser escolhida
-por apenas 1 grupo**.
+por apenas 1 grupo**. Para informar qua(is) forão as APIs utilizadas [preencha esta planilha até dia 22/10](https://docs.google.com/spreadsheets/d/1rB1BrmRubS5afoanzQrd1V4HVDmKwGDTSDS6RK1zPy4/edit?usp=sharing). Aluno sem grupo perderá <abbr title="Peças de Webdollars">PW$</abbr> 10 por dia de atraso. Grupo que definiu a(s) API(s) fora do prazo também será penalizado da mesma forma. 
 
 :two: Uma **breve** apresentação de slides deve ser criada e, em data
 combinada, apresentada pelo grupo para a turma. A apresentação terá no
@@ -140,7 +140,7 @@ máximo **7 minutos** e deve conter, pelo menos:
   [caniuse.com][caniuse])
 
 :three: Um código de um exemplo simples de uso da(s) API(s), publicado,
-de forma que todos possam acessar. O código deve ser exibido durante a
+de forma que todos possam acessar. Este exemplo deve possuir um contexto. O código deve ser exibido durante a
 apresentação e deve ser entregue no repositório
 [cefet-web-weblot][repo-weblot] do professor, conforme descrito
 em seu [README.md][readme-weblot].
