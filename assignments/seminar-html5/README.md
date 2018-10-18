@@ -140,7 +140,7 @@ máximo **7 minutos** e deve conter, pelo menos:
   [caniuse.com][caniuse])
 
 :three: Um código de um exemplo simples de uso da(s) API(s), publicado,
-de forma que todos possam acessar. Este exemplo deve possuir um contexto. O código deve ser exibido durante a
+de forma que todos possam acessar. Este exemplo possuir um contexto. Código apenas de "hello world" da API sem contexto algum receberão uma nota mais baixa. O código deve ser exibido durante a
 apresentação e deve ser entregue no repositório
 [cefet-web-weblot][repo-weblot] do professor, conforme descrito
 em seu [README.md][readme-weblot].
