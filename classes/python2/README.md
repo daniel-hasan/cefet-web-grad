@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
-# Python - Parte 1
-## Características e Delícias da linguagem
+# Python - Parte 2
+## Uso de listas e strings, outras coleções e classes
 
 ---
 <!-- {"layout": "regular"} -->
