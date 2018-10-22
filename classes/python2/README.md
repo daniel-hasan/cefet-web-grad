@@ -391,7 +391,7 @@ class Pessoa():
 ```python
   jose = Pessoa("José")
   maria = Pessoa("Maria")
-  print(Pessoa.PESSOAS_CRIADAS) #Imprime 2
+  print(Pessoa.pessoas_criadas) #Imprime 2
 ```
 ---
 ## Implementando comparadores
