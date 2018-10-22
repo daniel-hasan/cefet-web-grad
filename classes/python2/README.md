@@ -1,4 +1,4 @@
-<!-- {"layout": "title"} -->
+''<!-- {"layout": "title"} -->
 # Python - Parte 2
 ## Uso de listas e strings, outras coleções e classes
 
@@ -434,7 +434,7 @@ class Pessoa():
 ## Classe Autor
 Uma biblioteca possui livros e autores. Livro, autor e biblioteca serão classes que você deverá criar da seguinte forma:
 - Neste código use a convenção de nomenclatura correta ([veja slide](#nomenclatura))
-- **Autor:** Possui o nome representado por três atributos: primeiro, nome, nome do meio e último nome além da  data de nascimento (você pode usar a classe pessoa e adaptá-la). Todos esses atributos devem ser fornecidos no construtor, porém, o nome do meio é opcional (valor default = '').
+- **Autor:** Possui o nome representado por três atributos: primeiro nome, nome do meio e último nome além da  data de nascimento (você pode usar a classe pessoa e adaptá-la). Todos esses atributos devem ser fornecidos no construtor, porém, o nome do meio é opcional (valor default = '').
   - O autor possuirá o atributo calculado `nome_como_citado` que irá retornar o último nome maiúculo e a primeira letra do primeiro nome e, logo após, um ponto. Exemplo: "DALIP D." sendo que Dalip é o último nome de Daniel é o primeiro nome. Nesse atributo, o nome do meio não será usado.
 ---
 ## Classe Livro e Biblioteca
