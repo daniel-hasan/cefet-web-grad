@@ -332,7 +332,7 @@ Anotação @property - Usada para sobrecarregar a atribuição e obtenção de u
   class Funcionario():
     def __init__(self,nome,salario):
       self.nome = nome
-      self._salario = salario
+      self.salario = salario
     @property
     def salario(self):
       return self._salario

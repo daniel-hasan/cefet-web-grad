@@ -1,6 +1,121 @@
 <!-- {"layout": "title"} -->
 # Python e Django
-## Visões, Modelos e templates
+## Sintaxe Python: Herança, métodos e import. Django: visão geral e uso do Models
+---
+<!-- {"layout": "section-header", "slideHash": "classes"} -->
+# Mais sobre sintaxe
+## Herança e Métodos abstratos e estáticos
+
+- Heraça
+- `@classmethod` e `@staticmethod`
+- import
+---
+# Herança
+```python
+class Pessoa():
+  def __init__(self, nome):
+    self.nome = nome
+  def __str__(self):
+    return "Nome: "+self.nome
+
+class Funcionario(Pessoa):
+  def __init__(self,nome,salario):
+    super().__init__(nome)
+    self.salario = salario
+
+  def __str__(self):
+    return super().__str__()+" Salario R$ "+str(self.salario)
+```
+---
+## Metodos estáticos e de classe
+```python
+class Pessoa():
+  @staticmethod
+  def x():
+    print("Oi")
+  @classmethod
+  def y(cls):
+    print(str(cls))
+class Funcionario(Pessoa):
+  pass
+```
+- **cls**: classe que foi invocada em tempo de execução:
+```shell
+>>> Funcionario.y()
+<class '__main__.Funcionario'>
+>>> Pessoa.y()
+<class '__main__.Pessoa'>
+```
+---
+```python
+class Pessoa():
+  def __init__(self,nome):
+    self.nome = nome
+  @classmethod
+  def instancia_pessoas(cls,n):
+    pessoas = []
+    for i in range(n):
+      pessoas.append(cls("Pessoa "+str(i)))
+    return pessoas
+class Funcionario(Pessoa):
+  pass
+```
+- Instancia pessoas ou funcionarios, dependendo de qual classe chamada:
+```shell
+>>> Funcionario.instancia_pessoas(2)
+[<__main__.Funcionario object at 0x7fe7f773ac88>, <__main__.Funcionario object at 0x7fe7f773acc0>]
+>>> Pessoa.instancia_pessoas(2)
+[<__main__.Pessoa object at 0x7fe7f773aba8>, <__main__.Pessoa object at 0x7fe7f773add8>]
+```
+---
+<!-- {"layout": "section-header", "slideHash": "django"} -->
+# Django
+## Introdução e Modelos
+
+- Projetos vs Aplicações
+- Iniciando um projeto
+- Criação do Modelo de BD
+
+---
+## Django
+
+- Framework Web, possui:
+  - artefatos para o desenvolvimento de aplicações web de forma **rápida** e **segura**
+  - Mapeamento Objeto-Relacional
+- Este possui:
+  - **projeto**: Um conjunto de configurações, templates, e outros códigos para sua aplicação rodar
+  - Dentro do projeto, várias **aplicações**: conjunto de funcionalidades correlacionadas que podem ser reusadas ao longo do código
+
+---
+# Iniciando um **projeto**:
+```
+django-admin.py startproject primeiro_projeto
+```
+:::result
+<br>
+
+![](../../images/dir-django-project.png)
+:::
+---
+- Iniciando um **app** do projeto
+```
+cd primeiro_projeto
+django-admin startapp app_projeto
+```
+:::result
+![](../../images/dir-django-app.png)
+:::
+---
+## Models
+
+- Colocamos no arquivo `models.py` o modelo que será salvo no Banco de Dados.
+Para criarmos o modelo, no arquivo `models.py`:
+- Representamos o modelo por **classes**
+- Seus os atributos e seus relacionamos são modelados como **atributos estáticos** da classe
+- Configuramos, no arquivo `settings.py`, a conexão com o Banco de Dados
+- Executamos um comando para criar as tabelas/relacionamentos  no Banco de Dados
+
+-
 ---
 # Models - Exemplo completo (1/2)
 
@@ -62,7 +177,7 @@ python3 manage.py shell
 
 Importe todos a classe do Tesouro:
 ```
-from piratasapp.models import Tesouro
+from app_projeto.models import Tesouro
 ```
 ---
 # Models - Inserção
@@ -81,7 +196,7 @@ from piratasapp.models import Tesouro
                         ])
 ```
 ---
-# Models busca (1/)
+# Models - busca
 - Busca todos os registros:
 ```python
 lista = Tesouro.objects.all()
