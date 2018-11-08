@@ -132,7 +132,7 @@ class Author(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return self.name
+        return self.nome
 ```
 ---
 # Models - Exemplo completo (2/2)
@@ -146,7 +146,7 @@ class Post(models.Model):
     rating = models.IntegerField()
 
     def __str__(self):
-        return self.headline
+        return self.titulo
 ```
 ---
 # Models - Comandos uteis
