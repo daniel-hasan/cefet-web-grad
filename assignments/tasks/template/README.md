@@ -39,7 +39,7 @@ Conforme os [slides](https://daniel-hasan.github.io/cefet-web-grad/classes/pytho
 **Não é recomendável usar `sudo` para configurar o projeto**.
 ## Exercício 2 - Separação do código em templates
 
-Abra o arquivo [`cefet-web-space.zip`](cefet-web-space.zip). Este arquivo possui o html estatico do blog. Você deverá separar a parte que se repete da parte específica de cada arquivo usando templates Django. Para isso
+Abra o arquivo [`cefet-web-space.zip`](../cefet-web-space.zip). Este arquivo possui o html estatico do blog. Você deverá separar a parte que se repete da parte específica de cada arquivo usando templates Django. Para isso
 crie uma pasta `templates` dentro do projeto. Dentro dela, crie os seguintes HTMLs:
 
   - `base.html`: irá conter o menu a tag main **apenas** com um bloco que será alterada de acordo com qual página será aberta no menu
