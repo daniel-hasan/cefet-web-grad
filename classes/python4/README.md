@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
-# Django Templates
-## Templates, arquivos estáticos e URLs
+# Django Templates e Views
+## Templates, Views, arquivos estáticos e URLs
 ---
 ## Principais Componentes  Django
 
@@ -267,6 +267,12 @@ class Contato(View):
   <body>
 </html>
 ```
+---
+## Prática 1
+
+- Objetivo: treinar criação de templates e entender sua organização e como configurá-lo
+
+[Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/TEMPLATE.md)
 
 ---
 # Referências
