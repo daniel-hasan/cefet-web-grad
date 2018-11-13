@@ -296,7 +296,7 @@ Tesouro.objects.all().delete() #deleta todos os elementos
 
 - Objetivo: treinar criação de tabelas e operações no Banco de Dados por meio do framework Django
 
-[Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/MODELS.md)
+[Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/models/README.md)
 ---
 # Referências
 

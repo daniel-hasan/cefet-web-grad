@@ -272,7 +272,7 @@ class Contato(View):
 
 - Objetivo: treinar criação de templates e entender sua organização e como configurá-lo
 
-[Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/TEMPLATE.md)
+[Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/template/README.md)
 
 ---
 # Referências
