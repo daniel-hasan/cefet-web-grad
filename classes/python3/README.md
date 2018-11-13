@@ -292,6 +292,12 @@ Tesouro.objects.filter(valor__lt=10).delete() #deleta elementos de valor menor q
 Tesouro.objects.all().delete() #deleta todos os elementos
 ```
 ---
+## Prática
+
+- Objetivo: treinar criação de tabelas e operações no Banco de Dados por meio do framework Django
+
+[Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/MODELS.md)
+---
 # Referências
 
 1. https://docs.djangoproject.com

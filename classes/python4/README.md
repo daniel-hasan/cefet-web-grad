@@ -267,6 +267,12 @@ class Contato(View):
   <body>
 </html>
 ```
+---
+## Prática 1
+
+- Objetivo: treinar criação de templates e entender sua organização e como configurá-lo
+
+[Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/TEMPLATE.md)
 
 ---
 # Referências
