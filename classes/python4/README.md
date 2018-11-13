@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
-# Django Templates
-## Templates, arquivos estáticos e URLs
+# Django Templates e Views
+## Templates, Views, arquivos estáticos e URLs
 ---
 ## Principais Componentes  Django
 
