@@ -62,7 +62,7 @@ TEMPLATES = [
 
 ## Exercício 3 - Configuração da URL e do Menu
 
-Para testar, configure as URLs (no arquivo `urls.py`) associando à sua repectiva view (cada view, correspondente à uma URL, deverá ser criada em `views.py`). Você deverá criar duas URLs para:
+Para testar, configure as URLs (no arquivo `urls.py`) associando à sua respectiva view. Você pode associar à view de duas formas: usando a view já criada [TemplateView](https://daniel-hasan.github.io/cefet-web-grad/classes/python4/#urls) ou criando uma view `views.py`. Você deverá criar duas URLs para:
 
 - (1) ao acessar a raiz `/` do site, deverá ser apresentado o `home.html`;
 - (2) ao acessar `/sobre-philiae`, deverá ser apresentado o `philiae.html`.
