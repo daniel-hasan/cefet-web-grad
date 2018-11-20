@@ -493,7 +493,7 @@ class SalvarTesouro(View):
 - **Prática 1**: Exploração Espacial V2
 	- Objetivo: treinar criação de templates e entender sua organização e como configurá-lo. [Clique aqui e veja a especificação](https://github.com/daniel-hasan/cefet-web-grad/blob/master/assignments/tasks/template/README.md)
 - **Prática 2**: Gerenciamento dos Tesouros do Barba-Ruiva
-	- Objetivo:  treinar a criação de visões e templates, acesso ao modelo pela visão [Faça clone deste respositório](https://github.com/daniel-hasan/cefet-web-pirates-django)
+	- Objetivo:  treinar a criação de visões e templates, acesso ao modelo pela visão [Faça fork  neste respositório](https://github.com/daniel-hasan/cefet-web-pirates-django)
 
 ---
 # Referências
