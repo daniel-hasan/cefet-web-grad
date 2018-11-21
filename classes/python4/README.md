@@ -311,14 +311,14 @@ pre{
 - View:<!-- {li:style="display: inline-block; width:60%;border-right:1px dashed black; padding-right: 10px;font-size:0.8em;"}-->
   ```python
     from django.shortcuts import render
-    from django.views import View7
+    from django.views import View
     from datetime import date
     from django import forms
     from django.urls.base import reverse
   class PessoaForm(forms.Form):
       nome = forms.CharField(label='Nome:', max_length=100)
       data_nascimento = forms.DateField(label="Data Nascimento")
-    class Contato(View):
+  class Contato(View):
       def get(self, request):
         return render(request,
                             "contato.html",
