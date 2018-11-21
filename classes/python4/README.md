@@ -213,7 +213,7 @@ class Home(View):
   {% endfor %}
 ```
 ---
-<!-- { "slideHash": "urls"} -->
+<!-- { "slideHash": "urls-views"} -->
 ## URLs
 
 Para criar a URL, referencie a view criada:
