@@ -5,7 +5,7 @@
 ## Principais Componentes  Django
 
 - **Template**: Exibição do html (usualmente, dinâmico)
-- **View**: Obtenção da resposta e renderização do **template**. Se necessário, consultando o banco de dados pelos **models**
+- **View**: Obtenção da resposta e renderização  do **template**. Se necessário, consultando o banco de dados pelos **models**
 - **Models**: Responsável pela persistência/gerenciamento dos dados
 
 
