@@ -67,7 +67,7 @@ Para testar, configure as URLs (no arquivo `urls.py`) associando à sua respecti
 - (1) ao acessar a raiz `/` do site, deverá ser apresentado o `home.html`;
 - (2) ao acessar `/sobre-philiae`, deverá ser apresentado o `philiae.html`.
 
-Logo após, no menu, para cada link, você gerar a url pelo seu nome ([ver slides](https://daniel-hasan.github.io/cefet-web/classes/python4/#urls)) por exemplo: `<a href={% url 'xpto' %}>link</a>` irá gerar o link para o recurso `xpto` nomeado em `urls.py`.
+Logo após, no menu, para cada link, você gerar a url pelo seu nome ([ver slides](https://daniel-hasan.github.io/cefet-web/classes/python4/#urls)).
 
 
 Rode o blog usando `python3 manage.py runserver` e acesse o site.
