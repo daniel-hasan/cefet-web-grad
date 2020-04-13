@@ -156,7 +156,8 @@ fltZ = 2.5
 bolW = True
 strDado = "Olá!"
 soma = compX+intY+fltZ
-strTexto = strDado+" Resultado: "+str(soma)+" Boleano:"+str(bolW)
+strTexto = f"{strDado} Resultado: {soma} Booleano:{bolW}"
+#Outra forma: strTexto = strDado+" Resultado: "+str(soma)+" Boleano:"+str(bolW)
 print(strTexto)
 ```
 :::result
@@ -262,15 +263,15 @@ else:
   3<br>
   5
   :::
-- De i=1; enquanto i<6; passo 2:<!-- {li:style="display: inline-block; width:30%; padding-right: 10px;font-size:0.8em;"}-->
+- De i=6; enquanto i<1; passo -2:<!-- {li:style="display: inline-block; width:30%; padding-right: 10px;font-size:0.8em;"}-->
     ```python
-    for i in range(1,6,2):
+    for i in range(6,1,-2):
       print(i)
     ```
     :::result
-    1<br>
-    3<br>
-    5
+    6<br>
+    4<br>
+    2
     :::  
 ```python
 >>> range(1,6,2)
@@ -327,7 +328,19 @@ Estrutura de Repetição (2/2)
 
   x = add(2,5)   # x = 7
   ```
+---
+## Funções - com dicas de tipo
 
+- Elas são opcionais
+- Objetivo **apenas de informar** qual é o tipo que deveria ser passado no parametro  
+  - Não haverá erro caso seja passado um outro tipo
+```python
+def add(a:int, b:int) -> int:
+  return a + b
+
+x = add(2,5)   # x = 7
+x = add(2.4, 5)   # x = 7.4 -> não será considerado erro
+```
 
 ---
 # Keywords arguments
@@ -343,7 +356,7 @@ x = add(2,b=5)
   ```
 - Resultado: "SyntaxError: positional argument follows keyword argument"
 ---
-## Funções - Valores _default_ (1/2)
+## Funções - Valores _default_ (1/3)
 
 - Definindo-se valores _default_ para argumentos. Assim, estes argumentos podem ser omitidos na hora de invocar a função:
   ```python
@@ -356,7 +369,7 @@ x = add(2,b=5)
   x = add(2,c=2)     # x = 5
   ```
 ---
-## Funções - Valores _default_ (2/2)
+## Funções - Valores _default_ (2/3)
 
 - **Não** é possível colocar um argumento **com** valor _default_ **antes** de argumentos **sem** valores default.
 Exemplo:
@@ -367,6 +380,14 @@ Exemplo:
 :::result
 SyntaxError: non-default argument follows default argument
 :::
+---
+## Funções - Valores _default_ e dicas de tipo (3/3)
+
+  ```python
+  def add(a:float, b=1:float, c=5:float) -> float:
+    return a + b + c
+  ```
+
 ---
 
 ### Escopo
@@ -469,9 +490,7 @@ if __name__ == "__main__":
 ```
 
 ---
-## Exercícios - Funções
-
-Você deverá fazer as seguintes funções. Não é permitido usar funções prontas da linguagem (ex. somatório usando `sum`). Teste-as 'no main' usando valores fixos:
+Você deverá fazer as seguintes funções. Não é permitido usar funções prontas da linguagem (ex. somatório usando `sum`), porém, pode-se usar a função `len`. Crie um [Jupyter](https://jupyter.org/) e, para cada função, apresente uma célula com o enunciado e, outra célula, com a solução e exemplo de execução. Apreente a saída de exucução de cada função.
 
 - `maior(a,b)`: Retorna o maior valor entre a e b
 - `soma(lista,x)`: retorna o somatório dos valores passados pela lista. O  argumento `x` deve ser opcional que, se passado, será somado ao resultado final.
@@ -479,6 +498,7 @@ Você deverá fazer as seguintes funções. Não é permitido usar funções pro
 - `valores_iguais(lista1,lista2)`: retorna uma lista contendo os valores iguais entre as duas listas passadas como parâmetro
 - `indice_prim_valor_igual(lista1,lista2)`: retorna **a posição** na `lista1` do primeiro valor igual ao da `lista2`. Caso não exista, é retornado `None`.
 
+Use dicas de tipo em todas as funções criadas. [Veja aqui como fazer ao usar listas](https://docs.python.org/3/library/typing.html#type-aliases).
 ---
 # Referências
 
