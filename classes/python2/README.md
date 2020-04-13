@@ -1,4 +1,4 @@
-''<!-- {"layout": "title"} -->
+<!-- {"layout": "title"} -->
 # Python - Parte 2
 ## Uso de listas e strings, outras coleções e classes
 
@@ -48,6 +48,17 @@ frutas = ", ".join(["pera","uva","banana"]) #frutas = "pera, uva, banana"
 
 ```
 [Veja lista completa de métodos](https://docs.python.org/3.5/library/stdtypes.html#string-methods)
+---
+
+## Strings  - alternativa ao `format`
+
+```python
+ddd = 31
+telprefixo = 555
+telfinal=9875
+x = f"({ddd}) {telprefixo}-{telfinal}"
+```
+
 
 ---
 <!-- {"layout": "section-header", "slideHash": "mais-colecoes"} -->
@@ -185,7 +196,7 @@ KeyError: 'Débora'
 ```python
 x = {"Alice":16, "Bob":19, "Carol": 20, "Débora":21}
 if "Débora" in x:
-  print("A chave 'Débora' possui o seguinte valor: "+str(x['Débora']))
+  print(f"A chave 'Débora' possui o seguinte valor: {x['Débora']}")
 
 y = x.keys() #y = ['Débora', 'Alice','Bob','Carol']
 y = x.values() #y = [19, 16, 20, 21]
@@ -210,7 +221,6 @@ y = x.items() #y = [('Débora',21), ('Alice',16),('Bob',19),('Carol', 20)]
 - Pelo **valor**:<!-- {li:style="display: inline-block; width:27%;border-right:1px dashed black; padding-right: 10px;font-size:0.8em;"}-->
   ```python
   x = {"nome":"hasan",
-  print(chave)
       "altura":1.77,
       "cidade":"Belo Horizonte"}
   for valor in x.values():
@@ -243,7 +253,7 @@ y = x.items() #y = [('Débora',21), ('Alice',16),('Bob',19),('Carol', 20)]
 profs_web = [{"nome":"Hasan","cidade":"Belo Horizonte"},
              {"nome":"Coutinho","cidade":"Belo Horizonte"}]
 for prof in profs_web:
-    print("Professor: "+prof['nome']+" Cidade: "+prof['cidade'])
+    print(f"Professor: {prof['nome']} Cidade: {prof['cidade']}")
 ```
 :::result
 Professor: Hasan Cidade: Belo Horizonte<br>
@@ -275,8 +285,9 @@ class Pessoa():
     self.telefones.append(tel)
   #transforma o objeto numa string ao executar str(objeto)
   def __str__(self):
-    return "{nome} - {telefones}".format(nome=self.nome,
-                                        nascimento=self.data_nascimento.strftime("%d/%m/%y"))
+    return f"{self.nome} - {self.telefones}"
+  def __repr__(self):
+    return str(self)
 ```
 - **`self`**: representa o **objeto corrente**  
 - **Atributos**: devem ser criados no contrutor, atribuindo um valor a ele
@@ -360,7 +371,7 @@ class Pessoa():
     self.nome = nome
   @property
   def nome(self):
-    return "{prim} {sobrenome}".format(prim=self.prim_nome,sobrenome=self.sobrenome)
+    return f"{self.prim_nome} {self.sobrenome}"
   @nome.setter
   def nome(self,val):
     arr_nomes = val.split(" ")
@@ -422,6 +433,76 @@ class Pessoa():
 - **Constantes**: MAISCULAS_SEPARANDO_POR_UNDERSCORES
 [Veja mais aqui](https://www.python.org/dev/peps/pep-0008/)
 ---
+<!-- {"layout": "section-header", "slideHash": "heranca"} -->
+# Classes
+## Herança, Métodos abstratos e estáticos
+
+- Heraça
+- `@classmethod` e `@staticmethod`
+- import
+---
+# Herança
+```python
+class Pessoa():
+  def __init__(self, nome):
+    self.nome = nome
+  def __str__(self):
+    return "Nome: "+self.nome
+  def __repr__(self):
+    return str(self)
+
+class Funcionario(Pessoa):
+  def __init__(self,nome,salario):
+    super().__init__(nome)
+    self.salario = salario
+
+  def __str__(self):
+    return f"{super().__str__()} Salario R$ {self.salario}"
+
+```
+---
+## Métodos estáticos e de classe
+```python
+class Pessoa():
+  @staticmethod
+  def x():
+    print("Oi")
+  @classmethod
+  def y(cls):
+    print(str(cls))
+class Funcionario(Pessoa):
+  pass
+```
+- **cls**: classe que foi invocada em tempo de execução:
+```shell
+>>> Funcionario.y()
+<class '__main__.Funcionario'>
+>>> Pessoa.y()
+<class '__main__.Pessoa'>
+```
+---
+```python
+class Pessoa():
+  def __init__(self,nome):
+    self.nome = nome
+  @classmethod
+  def instancia_pessoas(cls,n):
+    pessoas = []
+    for i in range(n):
+      pessoas.append(cls("Pessoa "+str(i)))
+    return pessoas
+class Funcionario(Pessoa):
+  pass
+```
+- Instancia pessoas ou funcionarios, dependendo de qual classe chamada:
+```shell
+>>> Funcionario.instancia_pessoas(2)
+[<__main__.Funcionario object at 0x7fe7f773ac88>, <__main__.Funcionario object at 0x7fe7f773acc0>]
+>>> Pessoa.instancia_pessoas(2)
+[<__main__.Pessoa object at 0x7fe7f773aba8>, <__main__.Pessoa object at 0x7fe7f773add8>]
+```
+
+---
 <!-- {"layout": "section-header", "slideHash": "pratica"} -->
 # Prática
 ## Uso de Programação Orientada a Objetos
@@ -430,6 +511,8 @@ class Pessoa():
 - Construtor  e Instanciação
 - Atributos estáticos e não estáticos
 - Anotação `@property`
+
+Para esta prática, use [Jupyter](https://jupyter.org/) crie uma classe em cada célula. Logo após, crie uma célula com os testes de toda a implementação.
 ---
 ## Classe Autor
 Uma biblioteca possui livros e autores. Livro, autor e biblioteca serão classes que você deverá criar da seguinte forma:
@@ -443,7 +526,9 @@ Uma biblioteca possui livros e autores. Livro, autor e biblioteca serão classes
   - No construtor, a lista de autores pode ser omitida (sendo uma lista vazia  `[]` por padrão)
 - **Biblioteca**: possui uma lista de livros. Ela deve possuir um atributo calculado `livros_por_autor` que utilizará a lista de livros para retornar um dicionário onde cada chave será o nome de um autor e, cada valor, será a lista de livros deste autor.
 
-Para cada uma das classes implementadas, faça o método `__str__` e teste-as fazendo um main e valores fixos
+Para cada uma das classes implementadas, faça o método `__str__` e o método `__repr__`.
+
+
 ---
 # Referências
 
