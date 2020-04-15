@@ -5,9 +5,19 @@
 ## Principais Componentes  Django
 
 - **Template**: Exibição do html (usualmente, dinâmico)
-- **View**: Obtenção da resposta e renderização  do **template**. Se necessário, consultando o banco de dados pelos **models**
+- **View**: Tratamento da requisição, elaboração da resposa, geralmente, por meio da renderização  de um **template**. Se necessário, consultando o banco de dados pelos **models**
 - **Models**: Responsável pela persistência/gerenciamento dos dados
 
+---
+## Relação Entre os Componentes
+::: figure .figure-slides.clean
+![Componentes - Requisição é tratada pela urls.py](../../images/django-funcionamento-1.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
+![A urls.py invoca a View para criar a resposta](../../images/django-funcionamento-2.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
+![Eventualmente, essa resposta pode precisar de obter algo no banco](../../images/django-funcionamento-3.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
+![Pode ser gerado um template para a resposta](../../images/django-funcionamento-4.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
+![A resposta é gerada para o usuário](../../images/django-funcionamento-5.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
+![A resposta é gerada para o usuário](../../images/django-funcionamento-5.png) <!-- {.bullet.figure-step.bullet-no-anim} -->
+:::
 
 ---
 ## Arquivos do projeto
@@ -119,7 +129,7 @@ TEMPLATES = [
 
 - Impressão de variáveis no HTML
 ```html
-  <p>Ola! Meu nome é <strong>{{nome}}</strong>!
+  <p>Ola! Meu nome é <strong>{{nome}}</strong>!</p>
 ```
 
 - Usar `.` para acesso a chaves de *dicionário*, indices de listas e atributos de objetos

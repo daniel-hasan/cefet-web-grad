@@ -1,6 +1,6 @@
 <!-- {"layout": "title"} -->
-# Python e Django
-## Sintaxe Python: Herança, métodos e import. Django: visão geral e uso do Models
+# Django
+## Visão geral e uso do Models
 ---
 <!-- {"layout": "section-header", "slideHash": "django"} -->
 # Django
