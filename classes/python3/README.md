@@ -51,38 +51,6 @@ Para criarmos o modelo, no arquivo `models.py`:
 
 -
 ---
-# Models - Exemplo completo (1/2)
-
-```python
-class Blog(models.Model):
-    nome = models.CharField(max_length=100)
-    sobre = models.TextField()
-
-    def __str__(self):
-        return self.nome
-
-class Author(models.Model):
-    nome = models.CharField(max_length=200)
-    email = models.EmailField()
-
-    def __str__(self):
-        return self.nome
-```
----
-# Models - Exemplo completo (2/2)
-```python
-class Post(models.Model):
-    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
-    titulo = models.CharField(max_length=255)
-    texto = models.TextField()
-    data_publicacao = models.DateField()
-    autores = models.ManyToManyField(Author)
-    rating = models.IntegerField()
-
-    def __str__(self):
-        return self.titulo
-```
----
 # Models - Comandos uteis
 - Criar o script python para criação/alteração das tabelas: `python3 manage.py makemigrations`
 - Executar os scripts que ainda não foram executados para criação/alteração das tabelas: `python3 manage.py migrate`
@@ -99,6 +67,9 @@ class Tesouro(models.Model):
         return self.nome+" quantidade: "+str(self.quantidade)+\
                 " R$ "+str(self.valor)+" "+str(self.img_tesouro)
 ```
+
+- [Veja documentação da classe Model](https://docs.djangoproject.com/en/3.0/ref/models/options/)
+- [Veja documentação dos campos](https://docs.djangoproject.com/en/3.0/ref/models/fields/)
 
 ---
 # Models - Configuração
@@ -187,23 +158,6 @@ from django.db.models import F
 lista = Tesouro.objects.filter(valor__lt = F('quantidade'))
 ```
 ---
-## Models - agregações e anotações
-- Campos calculados:
-```python
-from django.db.models import F,ExpressionWrapper,DecimalField
-lista = Tesouro.objects.annotate(total=ExpressionWrapper(F('valor')*F('quantidade'),\
-                            output_field=DecimalField(max_digits=10,\
-                                                    decimal_places=2,\
-                                                     blank=True)\
-                                                    )\
-                            )
-```
-- Agregações:
-```python
-from django.db.models import Count
-Autor.objects.annotate(Count('post'))
-```
----
 ## Models - projeções
 - Exibir apenas o nome e a quantidade:
   ```python
@@ -211,6 +165,42 @@ Autor.objects.annotate(Count('post'))
   ```
   - usar `values_list` para exibir no formato de vetor (e não dicionário)
   - ao final, use  `distinct()` para eliminar elementos repetidos
+
+- [Veja a documentação de consultas](https://docs.djangoproject.com/en/3.0/topics/db/queries/)
+---
+## Models - Campos Calculados
+- Campos calculados:
+```python
+from django.db.models import F,ExpressionWrapper,DecimalField
+
+expressao_campo_calculado = ExpressionWrapper(F('valor')*F('quantidade'))
+
+tipo_campo_calculado = DecimalField(max_digits=10,\
+                        decimal_places=2,\
+                         blank=True)\
+                        )
+
+
+lista = Tesouro.objects.annotate(total=expressao_campo_calculado,\
+                                  output_field=tipo_campo_calculado\
+                                  )
+```
+[Documentação do Django Expressions](https://docs.djangoproject.com/en/3.0/ref/models/expressions/)
+---
+- Obtém a quantidade total de tesouros:
+```python
+from django.db.models import Sum
+Tesouro.objects.aggregate(Sum("quantidade"))
+```
+
+- Obtém, para cada nome, a quantidade total:
+```python
+from django.db.models import Count
+Tesouro.objects.values("nome").annotate(Sum("quantidade"))
+```
+
+- [Veja documentação](https://docs.djangoproject.com/en/3.0/topics/db/aggregation/)
+- [Mais exemplos](https://medium.com/better-programming/django-annotations-and-aggregations-48685994d149)
 ---
 ## Exclusões e atualizações
 ```python
@@ -225,6 +215,99 @@ Tesouro.objects.get(nome="Coroa").delete() #deleta elemento de nome "Coroa"
 Tesouro.objects.filter(valor__lt=10).delete() #deleta elementos de valor menor que 10
 Tesouro.objects.all().delete() #deleta todos os elementos
 ```
+---
+# Models - Exemplo completo - Classes
+
+
+```python
+class Blog(models.Model):
+    nome = models.CharField(max_length=100)
+    sobre = models.TextField()
+    def __str__(self):
+        return self.nome
+
+class Author(models.Model):
+    nome = models.CharField(max_length=200)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.nome
+```
+---
+# Models - Exemplo completo (2/2)
+```python
+class Post(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=255)
+    texto = models.TextField()
+    data_publicacao = models.DateField()
+    autores = models.ManyToManyField(Author)
+    rating = models.IntegerField()
+
+    def __str__(self):
+        return self.titulo
+```
+
+---
+## Criação
+
+```python
+from app_projeto.models import *
+bloguinho = Blog.objects.create(nome="Bloguinho",sobre="Este é um blog")
+
+autores = [Author(nome="hasan",email="hasan@cefetmg.br"),
+                                      Author(nome="Alice",email="alice@email.com"),
+                                     Author(nome="Bob",email="bob@email.com")]
+
+for autor in autores:
+  autor.save()
+
+posts = [Post(blog=bloguinho,titulo="Meu primeiro post",rating=10, texto="la",data_publicacao=datetime.now()),
+        Post(blog=bloguinho,titulo="Meu segundo post",rating=10, texto="la2",data_publicacao=datetime.now()),
+        Post(blog=bloguinho,titulo="Meu terceiro post",rating=10, texto="la3",data_publicacao=datetime.now()),]
+
+for post in posts:
+    post.save()
+#vincula os autores aos posts
+posts[0].autores.add(autores[0])
+posts[1].autores.add(autores[1])
+posts[1].autores.add(autores[2])
+posts[2].autores.add(autores[2])
+```
+---
+## Consultas úteis
+
+```python
+#exibe o nome do blog e titulo do post
+posts = Post.objects.values("blog__nome","titulo")
+#Contabiliza o numero de posts por autor
+#armazenado em post__count
+autores = Author.objects.annotate(Count('post'))
+```
+
+---
+## Integração de Django com uma Base de Dados Legada
+
+- Configure o `settings.py` para acessar essa base de dados
+- No terminal digite:
+```
+python manage.py inspectdb > models.py
+```
+
+- Com isso, o Django irá gerar automaticamente as classes do modelo e criar o
+arquivo `models.py` com ela:
+
+```python
+class Person(models.Model):
+    id = models.IntegerField(primary_key=True)
+    first_name = models.CharField(max_length=70)
+    class Meta:
+       managed = False
+       db_table = 'CENSUS_PERSONS'
+```
+
+- Recomendável: crie uma **aplicação** nova pra cada base de dados legada
+- [Veja documentação](https://docs.djangoproject.com/en/3.0/howto/legacy-databases/)
 ---
 ## Prática
 

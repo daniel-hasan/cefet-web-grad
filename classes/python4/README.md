@@ -426,7 +426,7 @@ True
 ---
 <!-- { "slideHash": "model-form-ex"} -->
 
-## View - Fomulários e modelos:
+## View - Formulários e modelos:
 
 
 
@@ -459,7 +459,7 @@ class SalvarPessoa(View):
 ## Atualizar elemento
 
 ```python
-class SalvarTesouro(View):
+class SalvarPessoa(View):
     def get(self,request,id=None): #Requisitou a exibição do formulário
         pessoa = Pessoa.objects.get(id=id) if id != None else None
         return render(request,"salvar_pessoa.html",{"pessoa":PessoaForm(instance=pessoa)})
