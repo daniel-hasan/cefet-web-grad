@@ -176,7 +176,7 @@ from django.db.models import F,ExpressionWrapper,DecimalField
 from django.db.models import F,ExpressionWrapper,DecimalField
 
 tipo_campo_calculado = DecimalField(max_digits=10,\
-                                    decimal_places=2,
+                                    decimal_places=2,\
                                     blank=True)
 
 expressao_valor_total = ExpressionWrapper(F('valor')*F('quantidade'),\
@@ -314,7 +314,8 @@ class Person(models.Model):
 - Use índice quando possível para facilitar consultas repetitivas (ex: busca por CPF, nome da cidade)
 - Aprenda a [usar cache](https://docs.djangoproject.com/en/3.0/topics/cache/) para deixar as consultas ainda mais rápidas
 - SQLLite: recomendável apenas para testes
-- Deixe a base de dados normalizada - ou seja, evite redundancia de dados
+- [Deixe a base de dados normalizada](https://medium.com/@diegobmachado/normaliza%C3%A7%C3%A3o-em-banco-de-dados-5647cdf84a12) - ou seja, evite redundancia de dados
+- Use as classes Django para alterar a estrutura do banco de dados
 
 ---
 ## Prática
@@ -326,3 +327,4 @@ class Person(models.Model):
 # Referências
 
 1. https://docs.djangoproject.com
+1. Elmasri, Ramez, Shamkant B. Navathe, and Marília Guimarães Pinheiro. "Sistemas de banco de dados." (2005): 355-361.
