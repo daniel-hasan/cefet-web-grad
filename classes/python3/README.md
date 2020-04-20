@@ -309,6 +309,15 @@ class Person(models.Model):
 - Recomendável: crie uma **aplicação** nova pra cada base de dados legada
 - [Veja documentação](https://docs.djangoproject.com/en/3.0/howto/legacy-databases/)
 ---
+## Recomendações
+
+- Minimize o número  de consultas ao banco quando possível
+- Use índice quando possível para facilitar consultas repetitivas (ex: busca por CPF, nome da cidade)
+- Aprenda a [usar cache](https://docs.djangoproject.com/en/3.0/topics/cache/) para deixar as consultas ainda mais rápidas
+- SQLLite: recomendável apenas para testes
+- Deixe a base de dados normalizada - ou seja, evite redundancia de dados
+
+---
 ## Prática
 
 - Objetivo: treinar criação de tabelas e operações no Banco de Dados por meio do framework Django
