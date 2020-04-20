@@ -173,17 +173,16 @@ lista = Tesouro.objects.filter(valor__lt = F('quantidade'))
 ```python
 from django.db.models import F,ExpressionWrapper,DecimalField
 
-expressao_campo_calculado = ExpressionWrapper(F('valor')*F('quantidade'))
+from django.db.models import F,ExpressionWrapper,DecimalField
 
 tipo_campo_calculado = DecimalField(max_digits=10,\
-                        decimal_places=2,\
-                         blank=True)\
-                        )
+                                    decimal_places=2,
+                                    blank=True)
 
+expressao_valor_total = ExpressionWrapper(F('valor')*F('quantidade'),\
+                                          output_field=tipo_campo_calculado)
 
-lista = Tesouro.objects.annotate(total=expressao_campo_calculado,\
-                                  output_field=tipo_campo_calculado\
-                                  )
+lista = Tesouro.objects.annotate(total=expressao_valor_total)
 ```
 [Documentação do Django Expressions](https://docs.djangoproject.com/en/3.0/ref/models/expressions/)
 ---
