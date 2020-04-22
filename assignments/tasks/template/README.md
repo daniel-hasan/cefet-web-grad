@@ -69,7 +69,7 @@ Para testar, configure as URLs (no arquivo `urls.py`) associando à sua respecti
 
 
 
-Logo após, no menu, para cada link, você gerar a url pelo seu nome ([ver slides](https://daniel-hasan.github.io/cefet-web/classes/python4/#urls)) .
+Logo após, no menu, para cada link, você gerar a url pelo seu nome ([ver slides](https://daniel-hasan.github.io/cefet-web-grad/classes/python4/#urls)) .
 
 
 Rode o blog usando `python3 manage.py runserver` e acesse o site.
@@ -80,7 +80,7 @@ Por enquanto, você ainda verá o site desformatado, sem imagens, CSS e JavaScri
 
 Agora, crie uma pasta `static` **dentro da pasta do app** inclua os CSS e JS lá.  Logo após:
 
-- Referencie o endereço CSS na tag HEAD de `base.html` usando  os comandos apropriados para gerar a URL estática do CSS ([ver slides](https://daniel-hasan.github.io/cefet-web/classes/python4/#static))
+- Referencie o endereço CSS na tag HEAD de `base.html` usando  os comandos apropriados para gerar a URL estática do CSS ([ver slides](https://daniel-hasan.github.io/cefet-web-grad/classes/python4/#static))
 
 - Referencie apropriadamente códigos JavaScript: (1) `home.js` em  `base.html`; e (2) `philiae.js` em `philiae.html`. Não deixe de usar os comandos apropriados para gerar a URL deste recurso estático ao referenciá-los.
 

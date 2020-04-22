@@ -79,8 +79,14 @@ Abra o console python com o ambiente do DJango já configurado:
 python3 manage.py shell
 ```
 
-
-Importe todos a classe do Tesouro:
+Ou crie um Jupyter. O seguinte código deve ser executado (Django v. 3):
+```python
+import os
+import django
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "primeiro_projeto.settings")
+django.setup()
+```
+Importe a classe do Tesouro:
 ```
 from app_projeto.models import Tesouro
 ```
@@ -112,7 +118,7 @@ t = Tesouro.objects.get(nome="Coroa")
 ```
 - Busca um registro, caso não exista, o cria
 ```python
-t = Tesouro.objects.get_or_create(nome="Coroa Linda",quantidade=1,\
+t,inseriu = Tesouro.objects.get_or_create(nome="Coroa Linda",quantidade=1,\
                                   valor=23.2,img_tesouro="coroa.png")
 ```
 ---
@@ -128,7 +134,7 @@ lista = Tesouro.objects.filter(nome__startswith="Coroa",quantidade=1)
   - Outros operadores de string: `istartswith`,`endswith`, `iendswith`, `icontains`, `iexact`
 
 - Tesouros com valor menor que R$ 10: `lista = Tesouro.objects.filter(valor__lt=10)`
-  - Outros operadores: `lte`: <=;  `gt`: <; `gte`:<=
+  - Outros operadores: `lte`: <=;  `gt`: >; `gte`:>=
 
 ---
 ## Models busca (usando filtros)
@@ -173,8 +179,6 @@ lista = Tesouro.objects.filter(valor__lt = F('quantidade'))
 ```python
 from django.db.models import F,ExpressionWrapper,DecimalField
 
-from django.db.models import F,ExpressionWrapper,DecimalField
-
 tipo_campo_calculado = DecimalField(max_digits=10,\
                                     decimal_places=2,\
                                     blank=True)
@@ -194,7 +198,7 @@ Tesouro.objects.aggregate(Sum("quantidade"))
 
 - Obtém, para cada nome, a quantidade total:
 ```python
-from django.db.models import Count
+from django.db.models import Sum
 Tesouro.objects.values("nome").annotate(Sum("quantidade"))
 ```
 
@@ -314,6 +318,7 @@ class Person(models.Model):
 - Use índice quando possível para facilitar consultas repetitivas (ex: busca por CPF, nome da cidade)
 - Aprenda a [usar cache](https://docs.djangoproject.com/en/3.0/topics/cache/) para deixar as consultas ainda mais rápidas
 - SQLLite: recomendável apenas para testes
+- Use [Transações](https://docs.djangoproject.com/en/3.0/topics/db/transactions/) quando necessário
 - [Deixe a base de dados normalizada](https://medium.com/@diegobmachado/normaliza%C3%A7%C3%A3o-em-banco-de-dados-5647cdf84a12) - ou seja, evite redundancia de dados
 - Use as classes Django para alterar a estrutura do banco de dados
 
