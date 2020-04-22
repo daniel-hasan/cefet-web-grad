@@ -786,7 +786,7 @@ class TestPessoaViews(TestCase):
 ---
 # Prática 4
 
-Por fim, faça testes unitários na Prática 3 para as operações de busca, atualização, remoção e inserção dos dados. Além disso, use Ajax para obter a lista de tesouros.
+Por fim, faça testes unitários na Prática 3 para as operações de busca, atualização, remoção e inserção dos dados. Além disso, use Ajax para obter a lista de tesouros e remover um tesouro.
 ---
 # Referências
 
