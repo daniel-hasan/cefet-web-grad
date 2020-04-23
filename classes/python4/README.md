@@ -1,5 +1,5 @@
 <!-- {"layout": "title"} -->
-# Django Templates e Views
+# Django Renderização de<br> Páginas Web 
 ## Templates, Views, arquivos estáticos e URLs
 ---
 ## Principais Componentes  Django
