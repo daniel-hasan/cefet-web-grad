@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('principal', TemplateView.as_view(template_name="home.html"),name='home'),
+    path('principal/historia', TemplateView.as_view(template_name="historia.html"),name='historia'),
 ]
