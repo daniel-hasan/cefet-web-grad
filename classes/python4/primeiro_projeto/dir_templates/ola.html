@@ -1,0 +1,13 @@
+{% extends "principal.html" %}
+
+{% block titulo %}Olás!{% endblock%}
+
+{% block conteudo %}
+
+  <p>Ola <strong>{{ nome_pessoa }}</strong> de {{cidade}}!</p>
+
+
+  <a href='{% url "oi" nome="Hasan" cidade="BH" %}'>Hasan</a>
+   <a href='{% url "oi" nome="Alice" cidade="Contagem" %}'>Alice</a>
+   <a href='{% url "oi" nome="Bob" cidade="São Paulo" %}'>Bob</a>
+{% endblock%}

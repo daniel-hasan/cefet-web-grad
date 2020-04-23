@@ -1,7 +1,8 @@
+{% load static %}
 <html>
   <head>
     <title>Pagina Supimpa - {% block titulo %}{% endblock%}</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="{% static "estilos.css" %}">
   </head>
   <body>
     {% include "menu.html" %}
