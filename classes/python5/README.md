@@ -1,5 +1,5 @@
 <!-- {"layout": "title"} -->
-# Django - Salvar dados e Finalização de uma Aplicação
+# Django - Finalização de uma Aplicação
 ## Forms, ModelForms, Testes Unitários e Ajax
 ---
 ## Uso de form
