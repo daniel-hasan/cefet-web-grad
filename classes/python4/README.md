@@ -1,5 +1,5 @@
 <!-- {"layout": "title"} -->
-# Django - Renderização de<br> Páginas Web 
+# Django - Renderização de<br> Páginas Web
 ## Templates, Views, arquivos estáticos e URLs
 ---
 ## Principais Componentes  Django
@@ -131,6 +131,29 @@ TEMPLATES = [
   {% endblock%}
   ```
 ---
+<!-- { "slideHash": "urls"} -->
+## URLs
+
+- O arquivo `urls.py` indica quais URLs estão disponíveis em um projeto Django
+- Altere a lista `urlpatterns` deste arquivo com os endereços desejados
+
+```python
+from app_projeto.views import *
+from django.views.generic.base import TemplateView
+urlpatterns = [
+    path('servicos', TemplateView.as_view(template_name="servicos.html"),name='home'),
+    path('', TemplateView.as_view(template_name="home.html"),name='home'),
+]
+```
+
+- Cada elemento da lista possui um `path` com os parametros: endereço, view e nome
+- o nome pode ser referenciado no template para ser gerado a url:
+  ```html
+  <a href='{% url "home" %}'>Home</a>
+  <a href='{% url "servicos" %}'>Serviços</a>
+  ```
+
+---
 ## Sintaxe do template
 
 - Impressão de variáveis no HTML
@@ -183,28 +206,6 @@ template.render(dados_pagina)
 ```
 [Mais tags e filtros Django](https://docs.djangoproject.com/pt-br/3.0/ref/templates/builtins)
 
----
-<!-- { "slideHash": "urls"} -->
-## URLs
-
-- O arquivo `urls.py` indica quais URLs estão disponíveis em um projeto Django
-- Altere a lista `urlpatterns` deste arquivo com os endereços desejados
-
-```python
-from app_projeto.views import *
-from django.views.generic.base import TemplateView
-urlpatterns = [
-    path('sevicos', TemplateView.as_view(template_name="servicos.html"),name='home'),
-    path('', TemplateView.as_view(template_name="home.html"),name='home'),
-]
-```
-
-- Cada elemento da lista possui um `path` com os parametros: endereço, view e nome
-- o nome pode ser referenciado no template para ser gerado a url:
-  ```html
-  <a href='{% url "home" %}'>Home</a>
-  <a href='{% url "servicos" %}'>Serviços</a>
-  ```
 ---
 ## Views
 
