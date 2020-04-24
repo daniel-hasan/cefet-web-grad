@@ -425,6 +425,30 @@ class Pessoa():
 
 - Mesmo implementando `__eq__` você deve implementar o `__ne__`. Para evitar isso, use a anotação `total_ordering` [saiba mais](https://docs.python.org/3.5/library/functools.html#functools.total_ordering)
 ---
+## Objetos que podem ser chamados: método `__call__`
+
+- **Objetivo**: queremos calcular o resultado de um polinômio de grau <em>n</em> no formato <em>c<sub>n</sub> x<sub>n</sub><sup>n</sup>+...+c<sub>1</sub> x<sup>1</sup>^<sub>1</sub>+ c<sup>0</sup><sub>n</sub></em>.
+  - Por exemplo, queremos que seja calculado o resultado do polinomio de grau dois: <em>3x<sup>2</sup>+2x+4</em> que, para <em>x=10</em> o resultado será 324.
+
+```python
+from typing import List
+class Polinomio:    
+    def __init__(self, coeficientes:List):
+        self.coeficientes = coeficientes
+
+    def __call__(self, x):
+        somatorio = 0
+        for expoente_i,coef_i in enumerate(self.coeficientes):
+            somatorio += coef_i* x**expoente_i
+        return somatorio        
+```
+```python
+polinomio_1 = Polinomio([4,2,3])
+print(f"x = 10: {polinomio_1(10)}") #x = 10: 324
+print(f"x = 13: {polinomio_1(13)}") #x = 13: 537
+```
+Referência: [python-course.eu](https://www.python-course.eu/python3_magic_methods.php#call%20method)
+---
 <!--"slideHash": "nomenclatura"} -->
 ## Convenção de nomenclatura
 

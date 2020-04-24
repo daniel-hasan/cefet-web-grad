@@ -1,0 +1,12 @@
+{% extends "principal.html" %}
+
+{% block titulo %}Salvar Pessoa{% endblock%}
+
+{% block conteudo %}
+  <h2>Salvar Pessoa</h2>
+  <form method="post">
+     {% csrf_token %}
+     {{ pessoa }}
+     <button>Enviar</button>
+  </form>
+{% endblock%}

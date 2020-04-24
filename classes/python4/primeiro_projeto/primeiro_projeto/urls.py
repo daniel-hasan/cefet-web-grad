@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic.base import TemplateView
-from app_projeto.views import Home, Ola
+from app_projeto.views import Contato,SalvarPessoa, ListarPessoas
 urlpatterns = [
-    path('', Home.as_view(),name='home'),
-    path('diga-ola-para:<str:nome>/de/<str:cidade>', Ola.as_view(), name='oi'),
     path('principal/historia', TemplateView.as_view(template_name="historia.html"),name='historia'),
+    path('sucesso', TemplateView.as_view(template_name="sucesso_contato.html"),name='success'),
+    path('contato', Contato.as_view(),name='contato'),
+
+    path('pessoa/<int:id>', SalvarPessoa.as_view(),name='atualizar'),
+    path('pessoa/insere', SalvarPessoa.as_view(), name='inserir'),
+    path('', ListarPessoas.as_view(), name="home"),
+
 ]

@@ -1,0 +1,11 @@
+{% extends "principal.html" %}
+
+{% block titulo %}Lista Pessoas{% endblock%}
+
+{% block conteudo %}
+<ul>
+  {% for pessoa in pessoas %}
+    <li><a href="{% url "atualizar" pessoa.id %}">{{pessoa.nome}}</a></li>
+  {% endfor %}
+</ul>
+{% endblock%}

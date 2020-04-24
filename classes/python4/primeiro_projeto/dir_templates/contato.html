@@ -1,0 +1,12 @@
+{% extends "principal.html" %}
+
+{% block titulo %}Contato{% endblock%}
+
+{% block conteudo %}
+  <h2>Contatos</h2>
+  <form method="post">
+    
+     {{ contato.as_p }}
+     <button>Enviar</button>
+  </form>
+{% endblock%}
