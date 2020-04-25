@@ -30,14 +30,13 @@ class PessoaForm(forms.Form):
 ## Form - Exemplo no Jupyter
 ```python
 teste_1 = PessoaForm({"nome":"","data_nascimento":"oioi"})
-print(f"Erros 1: {teste_1.errors} is valid? {hasan.is_valid()}")
+print(f"Erros 1: {teste_1.errors} is valid? {teste_1.is_valid()}")
 
 teste_2 = PessoaForm({"nome":"Daniel Hasan","data_nascimento":"1984-04-14"})
-print(f"Erros 2: {hasan.errors} is valid? {hasan.is_valid()}")
+print(f"Erros 2: {teste_2.errors} is valid? {teste_2.is_valid()}")
 
-print("Cleaned_data: {hasan.cleaned_data}")
+print("Cleaned_data: {teste_2.cleaned_data}")
 
-print()
 ''
 ```
 :::result
