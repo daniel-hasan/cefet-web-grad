@@ -30,12 +30,12 @@ class PessoaForm(forms.Form):
 ## Form - Exemplo no Jupyter
 ```python
 teste_1 = PessoaForm({"nome":"","data_nascimento":"oioi"})
-print(f"Erros 1: {teste_1.errors} is valid? {hasan.is_valid()}")
+print(f"Erros 1: {teste_1.errors} is valid? {teste_1.is_valid()}")
 
 teste_2 = PessoaForm({"nome":"Daniel Hasan","data_nascimento":"1984-04-14"})
-print(f"Erros 2: {hasan.errors} is valid? {hasan.is_valid()}")
+print(f"Erros 2: {teste_2.errors} is valid? {teste_2.is_valid()}")
 
-print("Cleaned_data: {hasan.cleaned_data}")
+print("Cleaned_data: {teste_2.cleaned_data}")
 
 print()
 ''
@@ -451,17 +451,18 @@ class TestPessoaViews(TestCase):
 ```python
 class TestPessoaViews(TestCase):
   def test_atualizar(self):
-      c = Client()
+    c = Client()
 
-      #faz a requisição
-      id_atualizar = self.pessoas_inseridas[0].id
-      str_url = reverse("atualizar",kwargs={"id":id_atualizar})
-      c.post(str_url, {"nome":"Daniel","data_nascimento":"2020-01-23"})
+    #faz a requisição
+    id_atualizar = self.pessoas_inseridas[0].id
+    str_url = reverse("atualizar",kwargs={"id":id_atualizar})
+    c.post(str_url, {"nome":"Daniel","data_nascimento":"2020-01-23"})
 
-      #testes
-      lstPessoasCarol = Pessoa.objects.filter(id=id_atualizar)
-      self.assertEquals(1,len(lstPessoasCarol),
-                      "Não foi possível encontrar a instancia atualizada")
+    #testes
+    lstPessoasCarol = Pessoa.objects.filter(id=id_atualizar,nome="Daniel",
+                                          data_nascimento=date(2020,1,23))
+    self.assertEquals(1,len(lstPessoasCarol),
+                    "Não foi possível encontrar a instancia atualizada")
 
 ```
 ---
