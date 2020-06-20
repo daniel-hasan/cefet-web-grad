@@ -384,7 +384,7 @@ SyntaxError: non-default argument follows default argument
 ## Funções - Valores _default_ e dicas de tipo (3/3)
 
   ```python
-  def add(a:float, b=1:float, c=5:float) -> float:
+  def add(a:float, b:float=1, c:float=5) -> float:
     return a + b + c
   ```
 
