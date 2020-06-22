@@ -384,7 +384,7 @@ SyntaxError: non-default argument follows default argument
 ## Funções - Valores _default_ e dicas de tipo (3/3)
 
   ```python
-  def add(a:float, b=1:float, c=5:float) -> float:
+  def add(a:float, b:float=1, c:float=5) -> float:
     return a + b + c
   ```
 
@@ -471,7 +471,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 ---
 ## Pré-exercicio
 
-- Você deverá criar um arquivo ex. `codigo.py`. Esse arquivo possúirá todas as funções a serem implementadas nos exercícios.
+- Você deverá criar um arquivo ex. `codigo.py`. Esse arquivo possuirá todas as funções a serem implementadas nos exercícios.
 
 - Você deverá 'criar o main' com exemplo de execução de cada exercício criado
 
@@ -490,16 +490,22 @@ if __name__ == "__main__":
 ```
 
 ---
-Você deverá fazer as seguintes funções. Não é permitido usar funções prontas da linguagem (ex. somatório usando `sum`), porém, pode-se usar a função `len`. Crie um [Jupyter](https://jupyter.org/) e, para cada função, apresente uma célula com o enunciado e, outra célula, com a solução e exemplo de execução. Apreente a saída de exucução de cada função.
 
-- `maior(a,b)`: Retorna o maior valor entre a e b
-- `soma(lista,x)`: retorna o somatório dos valores passados pela lista. O  argumento `x` deve ser opcional que, se passado, será somado ao resultado final.
-- `media(lista)`: Retorna a média dos valores passados pela lista.
-- `valores_iguais(lista1,lista2)`: retorna uma lista contendo os valores iguais entre as duas listas passadas como parâmetro
-- `indice_prim_valor_igual(lista1,lista2)`: retorna **a posição** na `lista1` do primeiro valor igual ao da `lista2`. Caso não exista, é retornado `None`.
+- Você deverá fazer as funções a seguir. Não é permitido usar funções prontas da linguagem (ex. somatório usando `sum`), porém, pode-se usar a função `len`. Crie um [Jupyter](https://jupyter.org/) e, para cada função, apresente uma célula com o enunciado e, outra célula, com a solução e exemplo de execução. Apresente a saída de execução de cada função.
 
-Use dicas de tipo em todas as funções criadas. [Veja aqui como fazer ao usar listas](https://docs.python.org/3/library/typing.html#type-aliases).
+  - Use dicas de tipo em todas as funções criadas. [Veja aqui como fazer ao usar listas](https://docs.python.org/3/library/typing.html#type-aliases).
+
 ---
+
+- Faça as seguintes funções (seguindo as orientações do slide anterior)
+  - `maior(a,b)`: Retorna o maior valor entre a e b
+  - `soma(lista,x)`: retorna o somatório dos valores passados pela lista. O  argumento `x` deve ser opcional que, se passado, será somado ao resultado final.
+  - `media(lista)`: Retorna a média dos valores passados pela lista.
+  - `valores_iguais(lista1,lista2)`: retorna uma lista contendo os valores iguais entre as duas listas passadas como parâmetro
+  - `indice_prim_valor_igual(lista1,lista2)`: retorna **a posição** na `lista1` do primeiro valor igual ao da `lista2`. Caso não exista, é retornado `None`.
+
+---
+
 # Referências
 
 1. [Guia Python](https://www.python.org/)
