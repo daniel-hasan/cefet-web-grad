@@ -470,30 +470,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 ---
 ## Pré-exercicio
-
-- Você deverá criar um arquivo ex. `codigo.py`. Esse arquivo possuirá todas as funções a serem implementadas nos exercícios.
-
-- Você deverá 'criar o main' com exemplo de execução de cada exercício criado
-
-- Para cada função, deve-se aparecer, comentado, o que ela faz e o nome do autor.  Exemplo:
-```python
-def add(a,b):
-  """
-  Realiza a soma de dois numeros
-  @author: Alice Fernandes
-  """
-  return a+b
-
-if __name__ == "__main__":
-  x = add(2,3)
-  print("Soma: "+str(x))
-```
-
----
-
-- Você deverá fazer as funções a seguir. Não é permitido usar funções prontas da linguagem (ex. somatório usando `sum`), porém, pode-se usar a função `len`. Crie um [Jupyter](https://jupyter.org/) e, para cada função, apresente uma célula com o enunciado e, outra célula, com a solução e exemplo de execução. Apresente a saída de execução de cada função.
-
-  - Use dicas de tipo em todas as funções criadas. [Veja aqui como fazer ao usar listas](https://docs.python.org/3/library/typing.html#type-aliases).
+- Você deverá fazer as funções a seguir. Não é permitido usar funções prontas da linguagem (ex. somatório usando `sum`), porém, pode-se usar a função `len`.
+- Crie um [Jupyter](https://jupyter.org/) e, para cada função, apresente uma célula com o enunciado e, outra célula, com a solução e exemplo de execução. Apresente a saída de execução de cada função.
+- No Jupyter, para cada função, crie uma célula com a descrição da questão e outra com sua solução.
+- Use dicas de tipo em todas as funções criadas. [Veja aqui como fazer ao usar listas](https://docs.python.org/3/library/typing.html#type-aliases).
 
 ---
 
