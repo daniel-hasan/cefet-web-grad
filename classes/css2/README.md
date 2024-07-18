@@ -171,7 +171,7 @@ p strong em { }           /* 003 */
 ---
 <!--
 {
-  "slideHash": "propriedades-background"
+  "hash": "propriedades-background"
 }
 -->
 # Propriedade **background**
@@ -496,7 +496,7 @@ p strong em { }           /* 003 */
 - `font-variant` -->
 
 ---
-<!-- {"layout": "section-header", "slideHash": "web-fonts"} -->
+<!-- {"layout": "section-header", "hash": "web-fonts"} -->
 # _Web Fonts_
 ## Usando fontes não-instaladas
 

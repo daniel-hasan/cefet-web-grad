@@ -203,7 +203,7 @@
 ## Outros seletores...
 
 ---
-<!-- {"layout": "regular", "slideHash": "outros-seletores"} -->
+<!-- {"layout": "regular", "hash": "outros-seletores"} -->
 ## Seletores
 
 - ![Regra CSS](../../images/css-selector-no-margin.png) <!-- {.push-right} -->
@@ -293,7 +293,7 @@
     <!-- {ul^1:.no-list-icon.no-padding}-->
 
 ---
-<!-- {"layout": "regular", "slideHash": "desafio-seletor-atributo"} -->
+<!-- {"layout": "regular", "hash": "desafio-seletor-atributo"} -->
 ## Desafio #2
 
 > Colocar uma borda rosa **apenas nas imagens .jpg**:
@@ -377,7 +377,7 @@ a[href^="http"] {
 :::
 
 ---
-<!-- {"layout": "regular", "slideHash": "desafio-seletor-estado"} -->
+<!-- {"layout": "regular", "hash": "desafio-seletor-estado"} -->
 ## Desafio #3
 
 > Tirar o sublinhado do hyperlink **quando passar o mouse sobre ele**:
@@ -426,7 +426,7 @@ a[href^="http"] {
     <!-- {ul^1:.layout-split-2.no-list-icon.no-padding.compact-code} -->
 
 ---
-<!-- {"layout": "regular", "slideHash": "desafio-seletor-negacao"} -->
+<!-- {"layout": "regular", "hash": "desafio-seletor-negacao"} -->
 ## Desafio #4
 
 > Centralizar todas imagens **exceto uma ou outra**:
@@ -517,7 +517,7 @@ de **pseudoclasse**. Veja [todas aqui](https://developer.mozilla.org/pt-BR/docs/
    }
 ```  
 ---
-<!-- {"layout": "section-header", "slideHash": "os-ninjas"} -->
+<!-- {"layout": "section-header", "hash": "os-ninjas"} -->
 # Os Ninjas :dash:
 ## Conheça essa gente ligeira
 

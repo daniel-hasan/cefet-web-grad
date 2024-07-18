@@ -21,7 +21,7 @@
   o link no Moodle
  -->
 ---
-<!-- {"layout": "section-header", "slideHash": "usando-o-web-storage"} -->
+<!-- {"layout": "section-header", "hash": "usando-o-web-storage"} -->
  # Usando o <br>**Web Storage**
  ## Salvando dados na página
 
@@ -72,7 +72,7 @@
      ainda não existem dados salvos
 
 ---
-<!-- {"layout": "regular", "slideHash": "local-storage"} -->
+<!-- {"layout": "regular", "hash": "local-storage"} -->
 ## `localStorage` e `sessionStorage`
 
  - Ambos nos permitem **armazenar valores dentro de _Strings_** <!-- {ul:.bulleted} -->
@@ -338,7 +338,7 @@
 - Chegou a ser **usada** por quase **<u>75% de toda a Web</u>**
 
 ---
-<!-- {"slideHash": "incluindo-a-biblioteca-jquery"} -->
+<!-- {"hash": "incluindo-a-biblioteca-jquery"} -->
 ## Incluindo a biblioteca jQuery
 
 - Em uma página, você deve incluir o arquivo `jquery.js`. Há 2 formas:
@@ -376,7 +376,7 @@
     `document.querySelectorAll`
 
 ---
-<!-- {"slideHash": "jquery-funcionamento-basico"} -->
+<!-- {"hash": "jquery-funcionamento-basico"} -->
 ## Funcionamento básico e seletores (1/3)
 
 - Com jQuery, praticamente tudo é feito **em 2 passos**:
@@ -444,7 +444,7 @@
   ```
 
 ---
-<!-- {"slideHash": "jquery-atribuindo-eventos"} -->
+<!-- {"hash": "jquery-atribuindo-eventos"} -->
 ## Atribuindo eventos
 
 - Usando jQuery, há atalhos para **colocar eventos** em elementos ou
@@ -472,7 +472,7 @@
   ```
 
 ---
-<!-- {"slideHash": "jquery-estilizando-elementos"} -->
+<!-- {"hash": "jquery-estilizando-elementos"} -->
 ## Estilizando elementos
 
 - **Objetos jQuery** podem ser estilizados, como em "vanilla js", usando:
@@ -502,7 +502,7 @@
 [doc-jquery-css]: http://api.jquery.com/css/#css2
 
 ---
-<!-- {"layout": "regular", "slideHash": "jquery-efeitos-visuais"} -->
+<!-- {"layout": "regular", "hash": "jquery-efeitos-visuais"} -->
 ## Efeitos visuais
 
 - Algumas funções para fazer efeitos visuais:
@@ -520,7 +520,7 @@
 <iframe width="100%" height="160" src="//jsfiddle.net/fegemo/4L525ow4/1/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
-<!-- {"slideHash": "jquery-andando-na-arvore"} -->
+<!-- {"hash": "jquery-andando-na-arvore"} -->
 ## Andando na árvore
 
 - A partir do elemento selecionado, é possível chegar até seus parentes:
@@ -545,7 +545,7 @@
 <iframe width="100%" height="250" src="//jsfiddle.net/fegemo/4podo400/embedded/result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
-<!-- {"layout": "regular", "slideHash": "jquery-andando-na-arvore-metodos"} -->
+<!-- {"layout": "regular", "hash": "jquery-andando-na-arvore-metodos"} -->
 ## Andando na árvore: métodos
 
 - Veja [todos os métodos aqui][jquery-doc-traversing]. Alguns são:
@@ -560,7 +560,7 @@
 [jquery-doc-traversing]: http://api.jquery.com/category/traversing/
 
 ---
-<!-- {"layout": "section-header", "slideHash": "ajax"} -->
+<!-- {"layout": "section-header", "hash": "ajax"} -->
 # Ajax
 ## Requisições **assíncronas**
 
@@ -607,7 +607,7 @@
   receber a resposta
 
 ---
-<!-- {"layout": "regular", "slideHash": "ajax-vanilla-1"} -->
+<!-- {"layout": "regular", "hash": "ajax-vanilla-1"} -->
 ## O **`XMLHttpRequest`**
 
 - Cada requisição Ajax é um objeto `XMLHttpRequest`. Supondo o exemplo
@@ -624,7 +624,7 @@
 - [Referência](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest) e [Tutorial](https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest/Usando_XMLHttpRequest) na MDN
 
 ---
-<!-- {"layout": "centered", "slideHash": "ajax-vanilla-2"} -->
+<!-- {"layout": "centered", "hash": "ajax-vanilla-2"} -->
 ```js
 function callbackMaisTweets() {
   if (requisicao.readyState === 4) {  // 4: DONE (resp. recebida)
@@ -721,7 +721,7 @@ function callbackMaisTweets() {
 1. Curso de jQuery da Codeschool: http://try.jquery.com
 
 ---
-<!-- {"slideHash": "setup-local-server"} -->
+<!-- {"hash": "setup-local-server"} -->
 ## Erro ao fazer o AJAX (slide oculto :P)
 
 - Os navegadores têm uma política de permissões diferente para quando acessamos uma

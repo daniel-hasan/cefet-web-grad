@@ -25,7 +25,7 @@
 <!-- {dl:.content} -->
 
 ---
-<!-- {"slideHash": "slides", "layout": "regular"} -->
+<!-- {"hash": "slides", "layout": "regular"} -->
 # Aulas
 
 - [História da Web](classes/intro/)
@@ -56,7 +56,7 @@
 ---
 <!--
 {
-  "slideHash": "ementa",
+  "hash": "ementa",
   "layout": "section-header"
 }
 -->
@@ -74,7 +74,7 @@
 ---
 <!--
 {
-  "slideHash": "bibliografia",
+  "hash": "bibliografia",
   "layout": "section-header"
 }
 -->
@@ -86,7 +86,7 @@ Veja a bibliografia básica e a complementar.
 
 <!-- {p:.content} -->
 ---
-<!-- { "styles": ["styles/classes/books.min.css"] } -->
+<!-- { "layout": "centered", "styles": ["styles/classes/books.min.css"] } -->
 ## **Livro texto** da parte 1
 
 ::: figure .book
@@ -115,10 +115,11 @@ Veja a bibliografia básica e a complementar.
 
 **Editora**
    ~ O'Reilly Media, 2012
+
 ---
+<!-- { "layout": "centered", "styles": ["styles/classes/books.min.css"] } -->
 ## **Livro texto** sobre JavaScript
 
-<!-- { "styles": ["styles/classes/books.min.css"] } -->
 ## **Livro texto** da parte 1
 
 ::: figure .book
@@ -150,10 +151,10 @@ Veja a bibliografia básica e a complementar.
      ~ O'Reilly Media, 2016 (tradução)
 
 ---
+<!-- { "layout": "centered", "styles": ["styles/classes/books.min.css"] } -->
 ## **Livro texto** sobre Python
 ## **Livro texto** da parte 2
 
-<!-- { "styles": ["styles/classes/books.min.css"] } -->
 ::: figure .book
 - ![](images/book-python-fluente.jpg) <!-- {.full-width.full-height} -->
 - .
@@ -182,10 +183,12 @@ Veja a bibliografia básica e a complementar.
 **Editora**
   ~ Novatec
 ---
+<!-- {"layout": "main-point", "state": "emphatic"} -->
 
 # Bibliografia Complementar
 
 ---
+<!-- {"layout": "centered"} -->
 ## Dive into HTML5
 
 <div class="book-cover-container">
@@ -196,6 +199,7 @@ Veja a bibliografia básica e a complementar.
 - [Online](http://diveintohtml5.com.br/), gratuito
 
 ---
+<!-- {"layout": "centered"} -->
 ## JavaScript: The Good Parts
 
 <div class="book-cover-container">
@@ -208,6 +212,7 @@ Veja a bibliografia básica e a complementar.
 - **Editora** O'Reilly Media, 2008
 
 ---
+<!-- {"layout": "centered"} -->
 ## Head First HTML5 Programming
 
 <div class="book-cover-container">
@@ -222,7 +227,7 @@ Veja a bibliografia básica e a complementar.
 ---
 <!--
 {
-  "slideHash": "avaliacao",
+  "hash": "avaliacao",
   "layout": "section-header"
 }
 -->

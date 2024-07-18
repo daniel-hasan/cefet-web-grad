@@ -63,7 +63,7 @@
   precisamos sair do fluxo padrão do navegador
 
 ---
-<!-- {"layout": "section-header", "slideHash": "posicionamento-estatico"} -->
+<!-- {"layout": "section-header", "hash": "posicionamento-estatico"} -->
 # Posicionamento estático
 ## Deixando o navegador definir o fluxo da página
 
@@ -108,7 +108,7 @@
 
 
 ---
-<!-- {"layout": "section-header", "slideHash": "posicionamento-relativo"} -->
+<!-- {"layout": "section-header", "hash": "posicionamento-relativo"} -->
 # Posicionamento relativo
 ## Deslocando elementos
 
@@ -195,7 +195,7 @@
   (veremos mais adiante)
 
 ---
-<!-- {"layout": "section-header", "slideHash": "posicionamento-absoluto"} -->
+<!-- {"layout": "section-header", "hash": "posicionamento-absoluto"} -->
 # Posicionamento absoluto
 ## Definindo (x,y) dos elementos
 
@@ -272,7 +272,7 @@
 -->
 
 ---
-<!-- {"layout": "section-header", "slideHash": "posicionamento-fixo"} -->
+<!-- {"layout": "section-header", "hash": "posicionamento-fixo"} -->
 # Posicionamento fixo
 ## Definindo (x,y) dos elementos **na janela**
 
@@ -348,7 +348,7 @@
 <iframe width="90%" height="50%" src="//jsfiddle.net/fegemo/jnjvsqy4/embedded/result,html,css/" allowfullscreen="allowfullscreen" frameborder="0" style="float: right"></iframe>
 
 ---
-<!-- {"slideHash": "valores-position"} -->
+<!-- {"hash": "valores-position"} -->
 
 | `position` | Descrição                                                         | Exemplos de uso                                                                                              | `top`, `right`, `bottom`, `left`      | `z-index`       |
 |------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------|-----------------|
@@ -430,7 +430,7 @@
     adipiscing elit. Curabitur mauris eros, fermentum eget dolor sit amet.</p>
 
 ---
-<!-- {"layout": "section-header", "slideHash": "centralizando-as-coisas"} -->
+<!-- {"layout": "section-header", "hash": "centralizando-as-coisas"} -->
 # Centralizando as coisas
 ## Centralizando elementos em diferentes cenários
 
@@ -440,7 +440,7 @@
 <!-- {ul:.content} -->
 
 ---
-<!-- {"layout": "regular", "slideHash": "centralizacao-horizontal"} -->
+<!-- {"layout": "regular", "hash": "centralizacao-horizontal"} -->
 # Centralizando **horizontalmente** <!-- {.underline.upon-activation} -->
 
 - Existem várias formas para centralizar elementos que se aplicam a **situações
@@ -524,7 +524,7 @@
   1. E outras formas...
 
 ---
-<!-- {"layout": "regular", "slideHash": "centralizando-verticalmente-absolute-fixed"} -->
+<!-- {"layout": "regular", "hash": "centralizando-verticalmente-absolute-fixed"} -->
 ## (1) Centralizando vertic. um elemento `absolute`
 
 - É feito de forma análoga à centralização horizontal de um elemento com

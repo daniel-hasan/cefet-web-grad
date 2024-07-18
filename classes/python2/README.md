@@ -11,7 +11,7 @@
 1. [Classes](#classes)
 1. [Prática - biblioteca](#pratica)
 ---
-<!-- {"layout": "section-header", "slideHash": "string_lista"} -->
+<!-- {"layout": "section-header", "hash": "string_lista"} -->
 # Mais sobre listas e Strings
 ## Métodos úteis para esses dois tipos de dados
 
@@ -61,7 +61,7 @@ x = f"({ddd}) {telprefixo}-{telfinal}"
 
 
 ---
-<!-- {"layout": "section-header", "slideHash": "mais-colecoes"} -->
+<!-- {"layout": "section-header", "hash": "mais-colecoes"} -->
 # Mais coleções
 ## Outras coleções e seus métodos/funções úteis
 
@@ -263,7 +263,7 @@ Professor: Coutinho Cidade: Belo Horizonte
 
 
 ---
-<!-- {"layout": "section-header", "slideHash": "classes"} -->
+<!-- {"layout": "section-header", "hash": "classes"} -->
 # Classes
 ## Uso de Programação Orientada a Objetos
 
@@ -324,7 +324,7 @@ joao = Pessoa("João")
 joao.nome = "João da Silva"
 ```
 ---
-<!-- {"slideHash": "encapsulamento-ex"} -->
+<!-- {"hash": "encapsulamento-ex"} -->
 Anotação @property - Usada para sobrecarregar a atribuição e obtenção de um atributo
 
 - Atributos calculados:<!-- {li:style="display: inline-block; width:45%;border-right:1px dashed black; padding-right: 10px;font-size:0.8em;"}-->
@@ -449,7 +449,7 @@ print(f"x = 13: {polinomio_1(13)}") #x = 13: 537
 ```
 Referência: [python-course.eu](https://www.python-course.eu/python3_magic_methods.php#call%20method)
 ---
-<!--"slideHash": "nomenclatura"} -->
+<!--"hash": "nomenclatura"} -->
 ## Convenção de nomenclatura
 
 - **Nomes de atributos, métodos e funções**: tudo_minuscula_separando_por_underscores
@@ -457,7 +457,7 @@ Referência: [python-course.eu](https://www.python-course.eu/python3_magic_metho
 - **Constantes**: MAISCULAS_SEPARANDO_POR_UNDERSCORES
 [Veja mais aqui](https://www.python.org/dev/peps/pep-0008/)
 ---
-<!-- {"layout": "section-header", "slideHash": "heranca"} -->
+<!-- {"layout": "section-header", "hash": "heranca"} -->
 # Classes
 ## Herança, Métodos abstratos e estáticos
 
@@ -527,7 +527,7 @@ class Funcionario(Pessoa):
 ```
 
 ---
-<!-- {"layout": "section-header", "slideHash": "pratica"} -->
+<!-- {"layout": "section-header", "hash": "pratica"} -->
 # Prática
 ## Uso de Programação Orientada a Objetos
 

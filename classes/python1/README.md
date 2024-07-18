@@ -14,7 +14,7 @@
 
 
 ---
-<!-- {"layout": "section-header", "slideHash": "caracteristicas"} -->
+<!-- {"layout": "section-header", "hash": "caracteristicas"} -->
 # Características da linguagem
 ## Visão geral da linguagem
 
@@ -55,7 +55,7 @@
 
 
 ---
-<!-- {"layout": "section-header", "slideHash": "sintaxe"} -->
+<!-- {"layout": "section-header", "hash": "sintaxe"} -->
 # Sintaxe
 ## Sintaxe básica da linguagem
 
@@ -199,7 +199,7 @@ print(strTexto)
 --->
 
 ---
-<!-- {"layout": "section-header", "slideHash": "statements"} -->
+<!-- {"layout": "section-header", "hash": "statements"} -->
 # _Statements_
 ## Funções, Codicionais e estruturas de repetição
 - Condicionais: `if`, `else`, `elif`
@@ -408,7 +408,7 @@ def f(a, b=1, c=0):
 h = f(1,2,3)#Variáveis visíveis aqui: x,h
 ```
 ---
-<!-- {"layout": "section-header", "slideHash": "execucao"} -->
+<!-- {"layout": "section-header", "hash": "execucao"} -->
 # Questões práticas
 ## Como executar o Python
 - Executar comando no terminal
@@ -461,7 +461,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 
 ---
-<!-- {"layout": "section-header", "slideHash": "exercicio"} -->
+<!-- {"layout": "section-header", "hash": "exercicio"} -->
 # Execícios
 ## Exercícios para se sentir confortável com a linguagem
 

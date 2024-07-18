@@ -103,7 +103,7 @@ pre{
 
 
 ---
-<!-- { "slideHash": "model-form"} -->
+<!-- { "hash": "model-form"} -->
 ## Model Form
 
 Considere a classe pessoa:
@@ -196,7 +196,7 @@ Resultado:
 ```
 
 ---
-<!-- { "slideHash": "model-form-ex"} -->
+<!-- { "hash": "model-form-ex"} -->
 ## Exemplo de inserção/listagem com ModelForm
 
 <style>
@@ -255,7 +255,7 @@ p{
   ```
 
 ---
-<!-- { "slideHash": "model-form-ex"} -->
+<!-- { "hash": "model-form-ex"} -->
 ## Exemplo de atualização com ModelForm
 
 <style>

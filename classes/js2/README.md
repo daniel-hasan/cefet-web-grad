@@ -101,7 +101,7 @@
 - Vamos falar muito agora sobre **`window.document`**, ou apenas `document`
 
 ---
-<!-- {"slideHash": "conhecendo-o-dom"-->
+<!-- {"hash": "conhecendo-o-dom"-->
 # O DOM
 
 ![Foto do Don Corleone, do filme O Poderoso Chefão](../../images/don.png) <!-- {.portrait} -->
@@ -189,7 +189,7 @@
 
 
 ---
-<!-- {"slideHash": "caminhando"-->
+<!-- {"hash": "caminhando"-->
 ## Caminhando pela árvore
 
 - É possível fazer um caminhamento pela árvore toda ou começando a partir de
@@ -356,7 +356,7 @@ containerEl.appendChild(novaOvelhaEl);
      ```
 
 ---
-<!-- {"layout": "regular-block", "slideHash": "remocao-de-elementos"} -->
+<!-- {"layout": "regular-block", "hash": "remocao-de-elementos"} -->
 # Remoção de Elementos
 
 - Usamos `containerEl.removeChild` ou, para remover todos, `innerHTML`:

@@ -43,7 +43,7 @@
 1. Enviar, via **SIGAA**, o link do seu repositório até o final da aula
 
 ---
-<!-- {"layout": "section-header", "slideHash": "div-e-span"} -->
+<!-- {"layout": "section-header", "hash": "div-e-span"} -->
 # **div** e **span**
 ## Agrupando outros elementos HTML
 
@@ -215,7 +215,7 @@ h1, h2 {
   :::
 
 ---
-<!-- {"layout": "section-header", "slideHash": "o-box-model"} -->
+<!-- {"layout": "section-header", "hash": "o-box-model"} -->
 # O _Box Model_
 ## Como os elementos são "vistos" pelo navegador
 
@@ -317,7 +317,7 @@ espaço dentro da caixa.
 :::
 
 ---
-<!-- {"layout": "section-header", "slideHash": "revisitando-o-float", "embeddedStyles": ".guia-do-mochileiro { position: fixed; bottom: -225px; left: calc(50% + 20px); transition: all 200ms ease-out; } .guia-do-mochileiro-container { cursor: help; } .guia-do-mochileiro-container:hover .guia-do-mochileiro { bottom: -10px; box-shadow: 6px 3px 6px rgba(0, 0, 0, .5), -6px 3px 6px rgba(0, 0, 0, .5); }"} -->
+<!-- {"layout": "section-header", "hash": "revisitando-o-float", "embeddedStyles": ".guia-do-mochileiro { position: fixed; bottom: -225px; left: calc(50% + 20px); transition: all 200ms ease-out; } .guia-do-mochileiro-container { cursor: help; } .guia-do-mochileiro-container:hover .guia-do-mochileiro { bottom: -10px; box-shadow: 6px 3px 6px rgba(0, 0, 0, .5), -6px 3px 6px rgba(0, 0, 0, .5); }"} -->
 # Revisitando o **float**
 
 > Para voar, basta errar o chão.

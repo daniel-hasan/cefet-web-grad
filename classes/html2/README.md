@@ -229,7 +229,7 @@ página web.
 <iframe width="65%" height="375px" src="https://jsfiddle.net/danielhasan/nmrbhqkb/10/embedded/result,html/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ---
-<!-- {"layout": "section-header", "slideHash": "elementos-inline-vs-block"} -->
+<!-- {"layout": "section-header", "hash": "elementos-inline-vs-block"} -->
 # Elementos _inline_ _vs._ _block_
 ## Quebrar ou não quebrar linha? :thought_balloon:
 

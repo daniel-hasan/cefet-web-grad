@@ -148,7 +148,7 @@
     - Alterar a descrição de um produto no banco de dados etc.
 
 ---
-<!-- {"layout": "section-header", "slideHash": "elementos-de-entrada"} -->
+<!-- {"layout": "section-header", "hash": "elementos-de-entrada"} -->
 # Elementos HTML de **entrada**
 ## Interação "livre" com usuário
 
@@ -302,7 +302,7 @@
   ```
 
 ---
-<!-- {"layout": "section-header", "slideHash": "elementos-de-escolha"} -->
+<!-- {"layout": "section-header", "hash": "elementos-de-escolha"} -->
 # Elementos HTML de **escolha**
 ## Pegando a escolha do usuário
 
@@ -418,7 +418,7 @@ para o servidor
 | Texto multi-linha   | `<textarea></textarea>`   | <textarea></textarea>     |
 
 ---
-<!-- {"layout": "section-header", "slideHash": "envio-de-formularios-e-validacao"} -->
+<!-- {"layout": "section-header", "hash": "envio-de-formularios-e-validacao"} -->
 # Envio de Formulários e Validação
 ## Enviando dados e verificando
 

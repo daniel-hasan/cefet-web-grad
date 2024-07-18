@@ -131,7 +131,7 @@ TEMPLATES = [
   {% endblock%}
   ```
 ---
-<!-- { "slideHash": "urls"} -->
+<!-- { "hash": "urls"} -->
 ## URLs
 
 - O arquivo `urls.py` indica quais URLs estão disponíveis em um projeto Django
@@ -245,7 +245,7 @@ class Home(View):
   {% endfor %}
 ```
 ---
-<!-- { "slideHash": "urls-views"} -->
+<!-- { "hash": "urls-views"} -->
 ## URLs
 
 Para criar a URL, referencie a view criada:
@@ -259,7 +259,7 @@ urlpatterns = [
 ```
 
 ---
-<!-- { "slideHash": "urls-params"} -->
+<!-- { "hash": "urls-params"} -->
 ## URLs - Processando URL com parametros
 
 
@@ -289,7 +289,7 @@ Ao acessarmos: `http://127.0.0.1:8000/diga-ola-para:Hasan/BH` será renderizado:
 ```
 ---
 ---
-<!-- { "slideHash": "urls-params"} -->
+<!-- { "hash": "urls-params"} -->
 ## URLs - Referenciando a URL com parametros no template
 
 
@@ -315,7 +315,7 @@ Ao acessarmos: `http://127.0.0.1:8000/diga-ola-para:Hasan/BH` será renderizado:
 <a href='diga-ola-para:Bob/São Paulo'>Bob</a>
 ```
 ---
-<!-- { "slideHash": "static"} -->
+<!-- { "hash": "static"} -->
 ## Arquivos estáticos
 - Salvamos os arquivos estaticos (imagens, CSS e JS) em uma pasta separada
 - Pasta de nome `static`, por padrão, fica dentro a pasta do **app** podendo ser alterada em `settings.py`

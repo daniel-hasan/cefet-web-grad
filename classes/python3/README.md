@@ -2,7 +2,7 @@
 # Django
 ## Visão geral e uso do Models
 ---
-<!-- {"layout": "section-header", "slideHash": "django"} -->
+<!-- {"layout": "section-header", "hash": "django"} -->
 # Django
 ## Introdução e Modelos
 

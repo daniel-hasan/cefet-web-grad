@@ -23,7 +23,7 @@ ol.alpha-list {
 
 
 ---
-<!-- {"layout": "regular", "slideHash": "exercicio3"} -->
+<!-- {"layout": "regular", "hash": "exercicio3"} -->
 # <span class="badge">Exercício 1</span> <small>Defina **_floats_ e _clear_** quando necessário</small>
 
 - Será apresentada uma página com algumas `<div>...</div>`
@@ -45,7 +45,7 @@ ol.alpha-list {
 
 
 ---
-<!-- {"layout": "regular-block-centered", "slideHash": "turma1-exercicio2"} -->
+<!-- {"layout": "regular-block-centered", "hash": "turma1-exercicio2"} -->
 ## <span class="badge">Exercício 1</span> <small>Defina **_floats_ e _clear_** quando necessário</small> <!-- {h2:.align-left} -->
 
 <!-- Turma 1 -->

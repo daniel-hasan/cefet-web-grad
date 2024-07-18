@@ -11,7 +11,7 @@
 1. Minha primeira página web
 
 ---
-<!-- {"layout": "section-header", "slideHash": "web-igual-internet"} -->
+<!-- {"layout": "section-header", "hash": "web-igual-internet"} -->
 # Web == Internet?
 ## A Web é a mesma coisa que a Internet?
 
@@ -821,7 +821,7 @@ Content-Length: 131
   - 2009: SPDY
 
 ---
-<!-- {"layout": "section-header", "slideHash": "minha-primeira-pagina"} -->
+<!-- {"layout": "section-header", "hash": "minha-primeira-pagina"} -->
 # Minha Primeira Página Web
 ## Como cria-las, o que elas comem, seu habitat etc.
 

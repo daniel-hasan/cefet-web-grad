@@ -52,7 +52,7 @@
 1. [A Super Loja](#a-super-loja) :convenience_store:
 
 ---
-<!-- {"layout": "section-header", "slideHash": "a-tag-meta-viewport"} -->
+<!-- {"layout": "section-header", "hash": "a-tag-meta-viewport"} -->
 # A _tag_ `meta` _viewport_
 ## Como definir a janela da página
 
@@ -176,7 +176,7 @@
   proporção da janela** (_e.g._, slides)
 
 ---
-<!-- {"layout": "section-header", "slideHash": "media-queries"} -->
+<!-- {"layout": "section-header", "hash": "media-queries"} -->
 # _Media Queries_
 ## Regras CSS condicionais
 
@@ -297,7 +297,7 @@
   ```
 
 ---
-<!-- {"layout": "section-header", "slideHash": "densidade-de-pixels"} -->
+<!-- {"layout": "section-header", "hash": "densidade-de-pixels"} -->
 # Densidade de pixels
 ## Telas com "super definição"
 
@@ -337,7 +337,7 @@ Para testar em um dispositivo de **tela com alta densidade de pixels**:
 - Este dispositivo tem densidade: <span id="device-pixel-ratio">x</span> <button id="calc-dpr" onclick="this.disabled = true; setTimeout(() => { document.querySelector('#device-pixel-ratio').innerHTML = window.devicePixelRatio; this.style.visibility = 'hidden'; }, 200); this.classList.add('vanished');">🔢 <code>window.devicePixelRatio</code></button>
 
 ---
-<!-- {"layout": "section-header", "slideHash": "responsive-web-design"} -->
+<!-- {"layout": "section-header", "hash": "responsive-web-design"} -->
 # _Responsive Design_
 ## Adequando ao dispositivo
 
